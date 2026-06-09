@@ -1,0 +1,55 @@
+body {
+    font-family: Georgia, serif;
+    color: #111;
+    background: #faf9f6;
+
+    max-width: 900px;
+    margin: auto;
+
+    padding: 3rem;
+    line-height: 1.8;
+}
+
+header {
+    margin-bottom: 5rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: black;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: #666;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: black;
+}
+
+main h1 {
+    font-size: 4rem;
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
+
+main h2 {
+    margin-top: 3rem;
+}
+
+footer {
+    margin-top: 8rem;
+    color: #888;
+}
