@@ -1,10 +1,4 @@
 title: "Multivariate analysis with evoTS"
 description: "Workshop materials and resources"
-theme: minima
 
 markdown: kramdown
-
-header_pages:
-  - about.md
-  - schedule.md
-  - resources.md
