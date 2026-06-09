@@ -1,55 +1,54 @@
 body {
-    font-family: Georgia, serif;
-    color: #111;
-    background: #faf9f6;
+  font-family: Georgia, serif;
+  background: #faf9f5;
+  color: #111;
 
-    max-width: 900px;
-    margin: auto;
+  max-width: 1000px;
+  margin: auto;
 
-    padding: 3rem;
-    line-height: 1.8;
+  padding: 40px;
+
+  line-height: 1.8;
 }
 
-header {
-    margin-bottom: 5rem;
+.site-header {
+  margin-bottom: 80px;
 }
 
-header h1 {
-    font-size: 3rem;
-    font-weight: normal;
-    margin-bottom: 1rem;
-}
+.site-title a {
+  text-decoration: none;
+  color: black;
 
-header h1 a {
-    text-decoration: none;
-    color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 nav {
-    display: flex;
-    gap: 2rem;
+  margin-top: 15px;
+
+  display: flex;
+  gap: 25px;
 }
 
 nav a {
-    color: #666;
-    text-decoration: none;
+  text-decoration: none;
+  color: #666;
 }
 
 nav a:hover {
-    color: black;
+  color: black;
 }
 
-main h1 {
-    font-size: 4rem;
-    font-weight: normal;
-    margin-bottom: 2rem;
+h1 {
+  font-size: 4rem;
+  font-weight: normal;
+  line-height: 1.1;
 }
 
-main h2 {
-    margin-top: 3rem;
+h2 {
+  margin-top: 3rem;
 }
 
-footer {
-    margin-top: 8rem;
-    color: #888;
+p {
+  max-width: 700px;
 }
