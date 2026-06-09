@@ -1,3 +1,5 @@
-theme: jekyll-theme-minima
-title: evoTS workshop
-description: Bookmark this to keep an eye on my project updates!
+title: "Multivariate analysis with evoTS"
+description: "Workshop materials and tutorial"
+theme: minima
+
+markdown: kramdown
