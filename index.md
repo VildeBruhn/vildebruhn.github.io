@@ -9,23 +9,19 @@ A workshop on multivariate ecological time-series analysis.
 
 ---
 
-## About the workshop
+## Overview
 
 This workshop introduces multivariate methods for analysing ecological time series using evoTS.
 
----
-
 ## Learning goals
 
-- Understand multivariate ecological data
+- Understand multivariate ecological datasets
 - Explore temporal dynamics
-- Apply evoTS workflows
+- Use evoTS workflows
 - Interpret ecological patterns
-
----
 
 ## Practical information
 
-Date: TBD
+Date: TBA
 
-Location: TBD
+Location: TBA
