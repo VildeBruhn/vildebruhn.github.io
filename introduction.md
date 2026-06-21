@@ -3,9 +3,13 @@ layout: default
 title: Introduction
 ---
 
+# Introduction
+
 Welcome to the workshop on multivariate analysis with evoTS.
 
 This workshop introduces methods for analysing evolutionary time series data using multivariate approaches implemented in the evoTS framework.
+
+---
 
 ## Participants will learn how to:
 
