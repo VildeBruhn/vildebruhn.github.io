@@ -5,7 +5,6 @@ title: Home
 
 # Multivariate analysis with evoTS
 
-A workshop on multivariate evolutionary time-series analysis.
 
 ---
 
