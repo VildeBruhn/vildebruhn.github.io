@@ -4,7 +4,7 @@ title: Installation
 permalink: /installation/
 ---
 
-# Installation
+# Installing softwear
 
 ---
 
@@ -36,4 +36,13 @@ library(evoTS)
 ```r
 
 ## Other packages
+
+If not already installed, you can also install these packages that we will use during the workshop:
+
+```r
+install.packages("tidyverse")
+```r
+
+If everything seems to work well, head over to the [introduction](/introduction/).
+
 
