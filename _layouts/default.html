@@ -12,25 +12,30 @@
 
 <body>
 
-<header class="site-header">
+<div class="page">
 
-  <div class="site-title">
-    <a href="{{ '/' | relative_url }}">
-      {{ site.title }}
-    </a>
-  </div>
+  <aside class="sidebar">
 
-  <nav>
-    <a href="{{ '/about/' | relative_url }}">About</a>
-    <a href="{{ '/schedule/' | relative_url }}">Schedule</a>
-    <a href="{{ '/resources/' | relative_url }}">Resources</a>
-  </nav>
+    <div class="site-title">
+      <a href="/">Multivariate analysis with evoTS</a>
+    </div>
 
-</header>
+    <nav>
+      <a href="/introduction/">Introduction</a>
+      <a href="/installation/">Installation</a>
+      <a href="/schedule/">Schedule</a>
+      <a href="/exercise1/">Exercise 1</a>
+      <a href="/exercise2/">Exercise 2</a>
+      <a href="/resources/">Resources</a>
+    </nav>
 
-<main>
-  {{ content }}
-</main>
+  </aside>
+
+  <main>
+    {{ content }}
+  </main>
+
+</div>
 
 </body>
 
