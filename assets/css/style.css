@@ -3,21 +3,18 @@ body {
   background: #faf9f5;
   color: #111;
 
-  max-width: 1000px;
-  margin: auto;
-
-  padding: 40px;
-
   line-height: 1.8;
+  margin: 0;
 }
 
 .page {
   display: grid;
   grid-template-columns: 260px 1fr;
+
   gap: 80px;
 
   max-width: 1400px;
-  margin: auto;
+  margin: 0 auto;
 
   padding: 40px;
 }
@@ -25,6 +22,7 @@ body {
 .sidebar {
   position: sticky;
   top: 40px;
+
   align-self: start;
 }
 
@@ -35,12 +33,15 @@ body {
 .site-title a {
   text-decoration: none;
   color: black;
+
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
 .sidebar nav {
   display: flex;
   flex-direction: column;
+
   gap: 12px;
 }
 
@@ -55,36 +56,6 @@ body {
 
 main {
   max-width: 800px;
-}
-
-h1 {
-  font-size: 4rem;
-  font-weight: normal;
-  line-height: 1.1;
-}
-
-.site-title a {
-  text-decoration: none;
-  color: black;
-
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-nav {
-  margin-top: 15px;
-
-  display: flex;
-  gap: 25px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #666;
-}
-
-nav a:hover {
-  color: black;
 }
 
 h1 {
