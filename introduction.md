@@ -6,6 +6,8 @@ permalink: /introduction/
 
 # evoTS - Analyses of evolutionary time-series
 
+---
+
 The evoTS package facilitates univariate and multivariate analyses of phenotypic change within lineages.
 
 The evoTS package extends the univariate modeling framework implemented in the [paleoTS](https://github.com/cran/paleoTS) package (Hunt 2006; 2008a; 2008b; Hunt et al. 2008; 2010; 2015) and has been developed to mirror the user experience from paleoTS as much as possible. For example, all univariate models implemented in evoTS are fitted to a paleoTS object (i.e., the data format used in paleoTS). The fit of all univariate models available in paleoTS and evoTS are directly comparable.
