@@ -38,4 +38,6 @@ The workshop consists of:
 - Multivariate analyses
 - Practical exercises and discussion
 
-We look forward to working with you.
+---
+
+We look forward to working with you!
