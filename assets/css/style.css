@@ -11,8 +11,56 @@ body {
   line-height: 1.8;
 }
 
-.site-header {
-  margin-bottom: 80px;
+.page {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 80px;
+
+  max-width: 1400px;
+  margin: auto;
+
+  padding: 40px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 40px;
+  align-self: start;
+}
+
+.site-title {
+  margin-bottom: 60px;
+}
+
+.site-title a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar nav a {
+  text-decoration: none;
+  color: #666;
+}
+
+.sidebar nav a:hover {
+  color: black;
+}
+
+main {
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: normal;
+  line-height: 1.1;
 }
 
 .site-title a {
