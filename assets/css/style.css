@@ -71,3 +71,32 @@ h2 {
 p {
   max-width: 700px;
 }
+
+.sidebar nav details {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar nav summary {
+  cursor: pointer;
+  color: #666;
+  list-style: none;
+}
+
+.sidebar nav summary:hover {
+  color: black;
+}
+
+.sidebar nav details a {
+  padding-left: 20px;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.sidebar nav summary::before {
+  content: "▶ ";
+}
+
+.sidebar nav details[open] summary::before {
+  content: "▼ ";
+}
