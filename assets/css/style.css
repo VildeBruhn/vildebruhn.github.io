@@ -100,3 +100,40 @@ p {
 .sidebar nav details[open] summary::before {
   content: "▼ ";
 }
+
+/* Code blocks */
+
+pre {
+  background: #f2f0ea;
+  border: 1px solid #ddd8cc;
+
+  padding: 25px;
+
+  overflow-x: auto;
+
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+
+  line-height: 1.6;
+
+  margin: 40px 0;
+}
+
+
+code {
+  font-family: "Courier New", monospace;
+}
+
+
+/* Inline code */
+
+p code,
+li code {
+  background: #f2f0ea;
+
+  padding: 3px 6px;
+
+  border: 1px solid #ddd8cc;
+
+  font-size: 0.9em;
+}
