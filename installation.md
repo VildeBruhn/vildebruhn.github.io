@@ -42,7 +42,6 @@ If not already installed, you can also install these packages that we will use d
 ```r
 install.packages("tidyverse")
 ```
-```r
 
 If everything seems to work well, head over to the [introduction](/introduction/).
 
