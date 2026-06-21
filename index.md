@@ -9,16 +9,24 @@ A workshop on multivariate evolutionary time-series analysis.
 
 ---
 
-## Overview
+Welcome!
 
-This workshop introduces multivariate methods for analysing evolutionary time series using evoTS.
+This workshop introduces multivariate methods for analysing evolutionary time series using the R package evoTS. We will learn how to
 
-## Learning goals
-
-- Understand multivariate datasets
-- Explore temporal dynamics
+- Work with multivariate datasets
+- Explore temporal evolutionary dynamics
 - Use evoTS workflows
-- Interpret evolutionary patterns
+- Interpret evolutionary patterns and processes
+
+The workshop combines a theoretical introduction with hands-on exercises. By the end of the workshop, you will have gained practical experience in analysing time series data and interpreting multivariate patterns through time.
+
+## Prerequisites
+
+Participants should have a basic familiarity with R and evolutionary biology.
+
+## Software
+
+Before continouing with the Introduction, please ensure that the latest versions of R and RStudio are installed. Detailed installation instructions are available on the Installation page.
 
 ## Practical information
 
