@@ -25,7 +25,27 @@ where $Z_{i}$ is a vector containing the expected trait values for sample $i$, $
 The variance and covariance of sample/population means are given by the following expression:
 
 $$
-Cov(z_{i}, z_{j}) = [P([\frac{1}{\lambda_{k} + \lambda{l}}(1-e^{-(\lambda_{k}+\lambda_{l})t_{a}})]_{l \le kl \le m} \odot P^{-1}\sum\sum^{T}(P^{-1})^{T})P^{T}]e^{-A^{T}t_{ij}}
+\begin{aligned}
+\operatorname{Cov}(z_i, z_j)
+&=
+\Biggl[
+P
+\left(
+\left[
+\frac{1}{\lambda_k+\lambda_l}
+\left(
+1-e^{-(\lambda_k+\lambda_l)t_a}
+\right)
+\right]_{1\le k,l\le m}
+\odot
+P^{-1}
+\Sigma\Sigma^{T}
+(P^{-1})^{T}
+\right)
+P^{T}
+\Biggr]
+e^{-A^{T}t_{ij}}.
+\end{aligned}
 $$
 
 where P is the orthogonal matrix of eigenvectors of A, ΣΣ𝑇
