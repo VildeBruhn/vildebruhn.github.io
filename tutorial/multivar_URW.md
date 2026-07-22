@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Multivariate models
+title: Multivariate unbiased random walk models
 permalink: /tutorial/multivar_URW/
 ---
 
