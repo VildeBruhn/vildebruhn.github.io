@@ -300,8 +300,8 @@ Two __R__ matrices are returned (_R.1_ and _R.2_), along with their standard err
 We now check if the multivariate accelerated and decelerated models have a better fit than the multivariate unbiased random walk models:
 
 ```r
-multi_accel<-fit.multivariate.URW(diam_ln_ribs_ln, R = "symmetric", r = "accel")
-multi_decel<-fit.multivariate.URW(diam_ln_ribs_ln, R = "symmetric", r = "decel")
+multi_accel <- fit.multivariate.URW(diam_ln_ribs_ln, R = "symmetric", r = "accel")
+multi_decel <- fit.multivariate.URW(diam_ln_ribs_ln, R = "symmetric", r = "decel")
 
 multi_accel$AICc;multi_decel$AICc
 ```
