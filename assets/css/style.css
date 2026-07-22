@@ -137,3 +137,22 @@ li code {
 
   font-size: 0.9em;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+
+  display: block;
+  margin: 2.5rem auto;
+}
+
+figure {
+  margin: 3rem 0;
+}
+
+figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  font-style: italic;
+}
