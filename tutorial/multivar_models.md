@@ -72,3 +72,51 @@ We can also use the `plotevoTS.multivariate` function to have a look at the comb
 plotevoTS.multivariate(diam_ln_ribs_ln, y_min = 3.4, y_max = 4.8, x.label = "Relative time", pch = c(20,20))
 ```
 
+![Diameter_ribs](/assets/images/dim_and_ribs.png)
+
+Eye-balling the data seems to suggest that the traits change in a coordinated fashion.
+
+We first fit a multivariate unbiased random walk model where the off-diagonal elements in the __R__ matrix are zero, and the rate of evolution is assumed constant. This is equivalent as fitting two separate univariate unbiased random walk models to each of the two time series.
+
+```r
+> fit.multivariate.URW(diam.ln_ribs.ln, R = "diag", r = "fixed")
+[1] "Model converged successfully."
+
+$modelName
+[1] "Multivariate Random walk (R matrix with zero off-diagonal elements)"
+
+$logL
+[1] 136.1905
+
+$AICc
+[1] -263.6914
+
+$ancestral.values
+[1] 3.71049 4.00711
+
+$SE.anc
+[1] NA
+
+$R
+          [,1]      [,2]
+[1,] 0.2387433 0.0000000
+[2,] 0.0000000 0.4568377
+
+$SE.R
+[1] NA
+
+$method
+[1] "Joint"
+
+$K
+[1] 4
+
+$n
+[1] 63
+
+$iter
+[1] NA
+
+attr(,"class")
+[1] "paleoTSfit"
+```
