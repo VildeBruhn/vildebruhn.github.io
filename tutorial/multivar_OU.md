@@ -10,14 +10,15 @@ permalink: /tutorial/multivar_OU/
 Multivariate Ornstein-Uhlenbeck models allow for testing a range of different adaptive hypotheses of trait evolution, as detailed below. Adapted to describe evolution of traits within the same lineage, the multivariate Ornstein-Uhlenbeck process is described by the following differential equation ([Bartoszek et al. 2012](https://www.sciencedirect.com/science/article/pii/S0022519312003918); [Reitan et al. 2012](https://www.jstor.org/stable/41713485); [Clavel et al. 2015](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12420)):
 
 $$
-dY = A(\Theta(t) - Y(t))dt + RdW(t)
+dY = A(\theta(t) - Y(t))dt + RdW(t)
 $$
 
-where __A__ is a square matrix that describes the rate of evolution toward the optimal trait values and with dimensions equal to the number of investigated traits (A is often called the pull matrix), 𝜃
- is a vector containing the optimum for each trait, R is a square matrix describing the stochastic changes in the traits and with dimensions equal to the number of investigated traits (R is often called the drift matrix), and 𝑊
- is the diffusion parameter. Under the assumption that the we only have one selective regime (optimum) per trait, the expected trait mean of the Ornstein-Uhlenbeck process is the weighted sum of the optimum and the root value (Hansen 1997):
+where __A__ is a square matrix that describes the rate of evolution toward the optimal trait values and with dimensions equal to the number of investigated traits (__A__ is often called the pull matrix), $\theta$ is a vector containing the optimum for each trait, __R__ is a square matrix describing the stochastic changes in the traits and with dimensions equal to the number of investigated traits (__R__ is often called the drift matrix), and $W$ is the diffusion parameter. Under the assumption that we only have one selective regime (optimum) per trait, the expected trait mean of the Ornstein-Uhlenbeck process is the weighted sum of the optimum and the root value ([Hansen 1997](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1558-5646.1997.tb01457.x)):
 
-𝐸[𝑍𝑖]=𝑒(−𝐴𝑡𝑖)𝑧0+(1−𝑒(−𝐴𝑡𝑖))𝜃
+$$
+E[Z_{i}] = e^{-At_{i}}z_{0} + (1 - e^{-At_{i}})\theta
+$$
+
 
 where 𝑍𝑖
  is a vector containing the expected trait values for sample i, 𝑧0
