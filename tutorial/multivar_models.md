@@ -47,7 +47,7 @@ The argument `r` in the `fit.multivariate.URW` function defines whether the rate
 
 To use the multivariate models, we first need multivariate data (i.e., at least two traits or variables).
 
-The data set on phenotypic evolution in __Stephanodiscus yellowstonensis__ ([Theriot et al. 2006](https://www.cambridge.org/core/journals/paleobiology/article/abs/late-quaternary-rapid-morphological-evolution-of-an-endemic-diatom-in-yellowstone-lake-wyoming/B28737E2C2B8FBEC5D0577B5757401A5)) contains data on the number of ribs in addition to the size of the diameter we have analysed so far. Before combining the rib and diameter data into a multivariate data set, we first do an approximate log-transformation of the rib data:
+The data set on phenotypic evolution in _Stephanodiscus yellowstonensis_ ([Theriot et al. 2006](https://www.cambridge.org/core/journals/paleobiology/article/abs/late-quaternary-rapid-morphological-evolution-of-an-endemic-diatom-in-yellowstone-lake-wyoming/B28737E2C2B8FBEC5D0577B5757401A5)) contains data on the number of ribs in addition to the size of the diameter we have analysed so far. Before combining the rib and diameter data into a multivariate data set, we first do an approximate log-transformation of the rib data:
 
 ```r
 ln_ribs <- paleoTS::ln.paleoTS(ribs_S.yellowstonensis)
