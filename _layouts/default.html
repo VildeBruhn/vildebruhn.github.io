@@ -12,39 +12,54 @@
 
 <body>
 
-<div class="page">
+  <div class="page">
 
-  <aside class="sidebar">
+    <aside class="sidebar">
 
-    <div class="site-title">
-      <a href="{{ '/' | relative_url }}">
-  {{ Multivariete analysis with evoTS }}
-</a>
-    </div>
+      <div class="site-title">
+        <a href="{{ '/' | relative_url }}">
+          {{ site.title }}
+        </a>
+      </div>
 
-    <nav>
-      <a href="{{ '/' | relative_url }}">Start</a>
-      <a href="/schedule/">Schedule</a> 
-      <a href="/installation/">Installation</a>
-      <details>
-        <summary>tutorial</summary>
-        <a href="/tutorial/">Introduction</a>
-        <a href="/tutorial/">Data import</a>
-        <a href="/tutorial/">Multivariate models</a>
-        <a href="/tutorial/">Data Description</a>
-      </details>
-      <a href="/exercise1/">Exercise 1</a>
-      <a href="/exercise2/">Exercise 2</a>
-      <a href="/resources/">Other Resources</a>
-    <nav>
+      <nav>
 
-  </aside>
+        <a href="{{ '/' | relative_url }}">Home</a>
 
-  <main>
-    {{ content }}
-  </main>
+        <a href="{{ '/schedule/' | relative_url }}">Schedule</a>
 
-</div>
+        <a href="{{ '/installation/' | relative_url }}">Installation</a>
+
+        <div class="menu-section">
+
+          <a href="{{ '/tutorial/' | relative_url }}">
+            Tutorials
+          </a>
+
+          <div class="submenu">
+            <a href="{{ '/tutorial/introduction/' | relative_url }}">Introduction</a>
+            <a href="{{ '/tutorial/data_import/' | relative_url }}">Data import</a>
+            <a href="{{ '/tutorial/multivar_models/' | relative_url }}">Multivariate models</a>
+            <a href="{{ '/tutorial/data_description/' | relative_url }}">Data description</a>
+          </div>
+
+        </div>
+
+        <a href="{{ '/exercise1/' | relative_url }}">Exercise 1</a>
+
+        <a href="{{ '/exercise2/' | relative_url }}">Exercise 2</a>
+
+        <a href="{{ '/resources/' | relative_url }}">Other Resources</a>
+
+      </nav>
+
+    </aside>
+
+    <main>
+      {{ content }}
+    </main>
+
+  </div>
 
 </body>
 
