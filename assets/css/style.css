@@ -114,6 +114,20 @@ p {
   content: "— ";
 }
 
+/* Links in page content */
+
+main a {
+  color: #6B7256;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+main a:hover {
+  color: #3E4638;
+  border-bottom-color: #3E4638;
+}
+
 
 /* ==========================================================
    Code
