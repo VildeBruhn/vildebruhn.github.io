@@ -18,7 +18,7 @@ evoTS also contains functions for calculating the topology of the likelihood sur
 
 In this workshop we will focues on multivariate analysis of several traits and abiotic factors. If you want to learn more about the univariate analysis in evoTS, a walk-through is available at the [evoTS webpage](https://klvoje.github.io/evoTS/articles/evoTS_vignette.html#univariate-models-in-evots).
 
-Let's get the software [installed](/installation/).
+Let's get the software [installed](/installation.md).
 
 
 
