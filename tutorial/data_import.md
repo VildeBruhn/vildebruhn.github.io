@@ -55,4 +55,6 @@ Such a linear transformation of the time vector does not change how the estimate
 plotevoTS(ln_diameter)
 ```
 
+![plotevoTS](/assets/images/diameter.png)
+
 
