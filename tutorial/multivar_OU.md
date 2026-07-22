@@ -26,21 +26,17 @@ The variance and covariance of sample/population means are given by the followin
 
 $$
 \begin{aligned}
-\operatorname{Cov}(z_i, z_j)
+\mathrm{Cov}(z_i, z_j)
 &=
 \Biggl[
 P
 \left(
 \left[
-\frac{1}{\lambda_k+\lambda_l}
-\left(
-1-e^{-(\lambda_k+\lambda_l)t_a}
-\right)
+\frac{1-e^{-(\lambda_k+\lambda_l)t_a}}
+{\lambda_k+\lambda_l}
 \right]_{1\le k,l\le m}
 \odot
-P^{-1}
-\Sigma\Sigma^{T}
-(P^{-1})^{T}
+P^{-1}\Sigma\Sigma^{T}(P^{-1})^{T}
 \right)
 P^{T}
 \Biggr]
