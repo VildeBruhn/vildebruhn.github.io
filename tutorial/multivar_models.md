@@ -40,3 +40,5 @@ $$
 The current implementation of the multivariate unbiased random walk model allows testing six variants of the model. All variants of the model can be fitted using different specifications of `R` and `r` arguments in the `fit.multivariate.URW` function.
 
 There are two options for the structure of the __R__ matrix. Setting `R = "diagonal"` means only the diagonal elements of the __R__ matrix will be estimated while off-diagonal elements are set to 0 (see panel a) below). This parameterization of the __R__ matrix means the changes in the traits are assumed to be uncorrelated. Setting `R = "symmetric"` means all (both diagonal and off-diagonal) elements in the __R__ matrix are estimated (see panel b) below). This parameterization estimates how changes in the traits are correlated.
+
+![R-matrices](/assets/images/R_matrices.png)
