@@ -23,7 +23,7 @@ Participants should have a basic familiarity with R and evolutionary biology.
 
 ## Software
 
-Before continouing with the [tutorial]({{ '/tutorial/introduction/' | relative_url }}) before continuing., please ensure that the latest versions of R and RStudio are installed. Detailed installation instructions are available on the [installation]({{ '/installation/' | relative_url }}) page.
+Before continouing with the [tutorial](/tutorial/introduction/) before continuing., please ensure that the latest versions of R and RStudio are installed. Detailed installation instructions are available on the [installation page](/installation/).
 
 ## Practical information
 
