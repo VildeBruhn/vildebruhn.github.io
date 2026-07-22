@@ -1,8 +1,11 @@
+/* ==========================================================
+   Layout
+   ========================================================== */
+
 body {
   font-family: Georgia, serif;
   background: #faf9f5;
   color: #111;
-
   line-height: 1.8;
   margin: 0;
 }
@@ -10,21 +13,27 @@ body {
 .page {
   display: grid;
   grid-template-columns: 260px 1fr;
-
   gap: 80px;
 
   max-width: 1400px;
   margin: 0 auto;
-
   padding: 40px;
 }
 
 .sidebar {
   position: sticky;
   top: 40px;
-
   align-self: start;
 }
+
+main {
+  max-width: 800px;
+}
+
+
+/* ==========================================================
+   Typography
+   ========================================================== */
 
 .site-title {
   margin-bottom: 60px;
@@ -32,30 +41,9 @@ body {
 
 .site-title a {
   text-decoration: none;
-  color: black;
-
+  color: #111;
   font-size: 1.2rem;
   font-weight: bold;
-}
-
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-
-  gap: 12px;
-}
-
-.sidebar nav a {
-  text-decoration: none;
-  color: #666;
-}
-
-.sidebar nav a:hover {
-  color: black;
-}
-
-main {
-  max-width: 800px;
 }
 
 h1 {
@@ -72,77 +60,105 @@ p {
   max-width: 700px;
 }
 
-.sidebar nav details {
+
+/* ==========================================================
+   Navigation
+   ========================================================== */
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar nav a {
+  text-decoration: none;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.sidebar nav a:hover {
+  color: #111;
+}
+
+
+/* Section containing submenu */
+
+.menu-section {
   display: flex;
   flex-direction: column;
 }
 
-.sidebar nav summary {
-  cursor: pointer;
-  color: #666;
-  list-style: none;
+/* Permanent submenu */
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 8px;
+  margin-left: 20px;
+  gap: 6px;
 }
 
-.sidebar nav summary:hover {
-  color: black;
-}
-
-.sidebar nav details a {
-  padding-left: 20px;
+.submenu a {
+  font-size: 0.9rem;
   color: #888;
-  font-size: 0.95rem;
+  letter-spacing: 0.02em;
 }
 
-.sidebar nav summary::before {
-  content: "▶ ";
+.submenu a:hover {
+  color: #111;
 }
 
-.sidebar nav details[open] summary::before {
-  content: "▼ ";
+.submenu a::before {
+  content: "— ";
 }
 
-/* Code blocks */
+
+/* ==========================================================
+   Code
+   ========================================================== */
 
 pre {
   background: #f2f0ea;
   border: 1px solid #ddd8cc;
 
   padding: 25px;
+  margin: 40px 0;
 
   overflow-x: auto;
 
   font-family: "Courier New", monospace;
   font-size: 0.9rem;
-
   line-height: 1.6;
-
-  margin: 40px 0;
 }
-
 
 code {
   font-family: "Courier New", monospace;
 }
-
 
 /* Inline code */
 
 p code,
 li code {
   background: #f2f0ea;
+  border: 1px solid #ddd8cc;
 
   padding: 3px 6px;
-
-  border: 1px solid #ddd8cc;
 
   font-size: 0.9em;
 }
 
+
+/* ==========================================================
+   Figures
+   ========================================================== */
+
 img {
+  display: block;
   max-width: 100%;
   height: auto;
 
-  display: block;
   margin: 2.5rem auto;
 }
 
@@ -155,37 +171,4 @@ figcaption {
   color: #666;
   text-align: center;
   font-style: italic;
-}
-
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.menu-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.submenu {
-  display: flex;
-  flex-direction: column;
-
-  margin-top: 8px;
-  margin-left: 20px;
-
-  gap: 6px;
-}
-
-.submenu a {
-  font-size: 0.9rem;
-
-  color: #777;
-
-  letter-spacing: 0.02em;
-}
-
-.submenu a::before {
-  content: "— ";
 }
