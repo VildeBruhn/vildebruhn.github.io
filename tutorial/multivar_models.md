@@ -205,17 +205,21 @@ stats::cov2cor(model1$R)
 
 A correlation of 0.98 basically means the two traits evolve as a single trait, since at least part of the deviation from a correlation of 1 is due to measurement error.
 
-Note that the __R__ matrix is not describing the underlying genetic or phenotypic (co)variances of the traits. The __R__ matrix is therefore not the same as a __P__ (or __G__) matrix in quantitative genetics. However, the __R__ matrix is tightly connected to these matrices. For example, if the traits evolve only due to drift, the __R__ matrix is expected to be proportional to the additive genetic variance–covariance matrix (__G__) (Lande 1979; Felsenstein 1988). Estimating R can therefore aid in evolutionary interpretations of the fossil record anchored in evolutionary quantitative genetics.
+Note that the __R__ matrix is not describing the underlying genetic or phenotypic (co)variances of the traits. The __R__ matrix is therefore not the same as a __P__ (or __G__) matrix in quantitative genetics. However, the __R__ matrix is tightly connected to these matrices. For example, if the traits evolve only due to drift, the __R__ matrix is expected to be proportional to the additive genetic variance–covariance matrix (__G__) ([Lande 1979](https://www.jstor.org/stable/2407630); [Felsenstein 1988](https://www.annualreviews.org/content/journals/10.1146/annurev.es.19.110188.002305)). Estimating __R__ can therefore aid in evolutionary interpretations of the fossil record anchored in evolutionary quantitative genetics.
 
-Standard errors of the elements in the R matrix can be approximated by the square root of the diagonal elements of the inverse of the negative of the Hessian matrix. These standard errors are automatically estimated and reported if the argument hess=TRUE in defined.
+Standard errors of the elements in the __R__ matrix can be approximated by the square root of the diagonal elements of the [inverse](https://en.wikipedia.org/wiki/Invertible_matrix) of the negative of the [Hessian matrix](https://en.wikipedia.org/wiki/Hessian_matrix). These standard errors are automatically estimated and reported if the argument `hess = TRUE` is defined.
 
-Parameterizing multivariate models is demanding in terms of computational time (Felsenstein 1973; Hadfield and Nakagawa 2010; Freckleton 2012). Be aware that fitting the multivariate models to several traits with many samples (populations) will take much longer time than fitting univariate models to each trait separately. One way to somewhat follow the progress of the model fit is to set trace = TRUE. This allows the user to follow the progress of the optimization routine to minimize the likelihood function.
+Parameterising multivariate models is demanding in terms of computational time ([Felsenstein 1973](https://pmc.ncbi.nlm.nih.gov/articles/PMC1762641/); [Hadfield and Nakagawa 2010](https://academic.oup.com/jeb/article/23/3/494/7412248); [Freckleton 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2012.00220.x)). Be aware that fitting the multivariate models to several traits with many samples (populations) will take a much longer time than fitting univariate models to each trait separately. One way to somewhat follow the progress of the model fit is to set `trace = TRUE`. This allows the user to follow the progress of the optimisation routine to minimise the likelihood function.
 
-The likelihood surface of multivariate models can contain several local peaks. It is therefore recommended to rerun the model from different starting points (i.e., different initial parameter values). The number of iterations can be defined by the iterations argument (e.g., iterations = 10). Initial values for the search algorithm are drawn from a normal distribution with a default standard deviation of 1. The user can set this standard deviation by the iter.sd argument. (e.g., iter.sd = 0.5).
+The likelihood surface of multivariate models can contain several local peaks. It is therefore recommended to re-run the model from different starting points (i.e., different initial parameter values). The number of iterations can be defined by the iterations argument (e.g., iterations = 10). Initial values for the search algorithm are drawn from a normal distribution with a default standard deviation of 1. The user can set this standard deviation by the `iter.sd` argument (e.g., `iter.sd = 0.5`).
 
-We can check if we find evidence for a change in the R matrix along the time-series. This involves estimating a separate R matrix for two non-overlapping parts of the time-series. This is done using the function fit.multivariate.URW.shift. We can define the shift point using the argument shift.point (e.g., shift.point = 20) or we can investigate all possible shift points in the time series by not defining a shift point (the default option). The length of the smallest number of samples (populations) in each of the two segments is controlled by the minb argument (the default is 10).
+We can check if we find evidence for a change in the __R__ matrix along the time series. This involves estimating a separate __R__ matrix for two non-overlapping parts of the time series. This is done using the function `fit.multivariate.URW.shift`. We can define the shift point using the argument `shift.point` (e.g., `shift.point = 20`) or we can investigate all possible shift points in the time series by not defining a shift point (the default option). The length of the smallest number of samples (populations) in each of the two segments is controlled by the `minb` argument (the default is 10).
 
-> fit.multivariate.URW.shift(diam.ln_ribs.ln, hess = TRUE)
+```r
+fit.multivariate.URW.shift(diam_ln_ribs_ln, hess = TRUE)
+```
+```r
+>
 Total # hypotheses:  44 
 1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  
 $converge
@@ -289,15 +293,22 @@ $GG
 
 attr(,"class")
 [1] "paleoTSfit"
+```
 
-Two R matrices are returned (R.1 and R.2), along with their standard errors (since we used hess = TRUE). The estimated shift point is 18 (shift1). The rate of evolution is much larger in the second trait compared to the first trait (the diagonal elements in R.1) while the difference in rate of evolution is much smaller after the shift point (the diagonal elements in R.2). The evolutionary correlation is 0.98 and 0.99 before and after the shift point. The number of parameters (K) for this model is 9 compared to 5 for the model where we estimated a single R matrix for the multivariate data set. The model with two R matrices has a lower (better) AICc score compared to the model with a single R matrix. This difference in AICc scores is likely to be a result of the differences in rates of evolution in R.1 and R.2 since the evolutionary correlation is estimated to be very similar in both R.1 and R.2.
+Two __R__ matrices are returned (_R.1_ and _R.2_), along with their standard errors (since we used `hess = TRUE`). The estimated shift point is 18 (_shift1_). The rate of evolution is much larger in the second trait compared to the first trait (the diagonal elements in _R.1_) while the difference in the rate of evolution is much smaller after the shift point (the diagonal elements in _R.2_). The evolutionary correlation is 0.98 and 0.99 before and after the shift point. The number of parameters ($K$) for this model is 9 compared to 5 for the model where we estimated a single __R__ matrix for the multivariate data set. The model with two __R__ matrices has a lower (better) AICc score compared to the model with a single __R__ matrix. This difference in AICc scores is likely to be a result of the differences in rates of evolution in _R.1_ and _R.2_, since the evolutionary correlation is estimated to be very similar in both _R.1_ and _R.2_.
 
-We now check if the multivariate accelerated and decelerated models have a better fit than the multivariate random walk models.
+We now check if the multivariate accelerated and decelerated models have a better fit than the multivariate unbiased random walk models:
 
-> multi.accel<-fit.multivariate.URW(diam.ln_ribs.ln, R = "symmetric", r = "accel")
-> multi.decel<-fit.multivariate.URW(diam.ln_ribs.ln, R = "symmetric", r = "decel")
-> multi.accel$AICc;multi.decel$AICc
+```r
+multi_accel<-fit.multivariate.URW(diam_ln_ribs_ln, R = "symmetric", r = "accel")
+multi_decel<-fit.multivariate.URW(diam_ln_ribs_ln, R = "symmetric", r = "decel")
+
+multi_accel$AICc;multi_decel$AICc
+```
+```r
+> 
 [1] -351.2512
 [1] -356.3287
+```
 
-The multivariate decelerated evolution model has a similar (but worse) fit to the data compared to the multivariate unbiased random walk model with a single R matrix, but is out-competed by the model estimating two R matrices.
+The multivariate decelerated evolution model has a similar (but worse) fit to the data compared to the multivariate unbiased random walk model with a single __R__ matrix, but is out-competed by the model estimating two __R__ matrices.
