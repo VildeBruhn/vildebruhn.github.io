@@ -314,3 +314,7 @@ multi_accel$AICc;multi_decel$AICc
 ```
 
 The multivariate decelerated evolution model has a similar (but worse) fit to the data compared to the multivariate unbiased random walk model with a single __R__ matrix, but is out-competed by the model estimating two __R__ matrices.
+
+---
+
+Now that we have looked at the multivariate unbiased random walk models, let's learn more about the multivariate Ornstein-Uhlenbeck models.
