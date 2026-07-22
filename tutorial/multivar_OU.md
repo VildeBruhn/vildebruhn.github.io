@@ -1,5 +1,5 @@
 ---
 layout: default
-title: Multivariate OU models
+title: Multivariate Ornstein-Uhlenbeck models
 permalink: /tutorial/multivar_OU/
 ---
