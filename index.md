@@ -1,14 +1,12 @@
 ---
 layout: default
-title: Home
+title: Start
 ---
 
-# Multivariate analysis with evoTS
+# Welcome!
 
 
 ---
-
-Welcome!
 
 This workshop introduces multivariate methods for analysing evolutionary time series using the R package evoTS. We will learn how to
 
