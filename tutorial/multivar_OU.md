@@ -20,7 +20,7 @@ E[Z_{i}] = e^{(-At_{i})}z_{0} + (1 - e^{(-At_{i})})\theta
 $$
 
 
-where $Z_{i}$ is a vector containing the expected trait values for sample $i$, $z_{0}$ is a vector containing the ancestral trait means, $\theta$ is a vector containing the optima, and $t_{i}$ is the time interval from the ancestral population mean (the start of the time series, which has a time of 0) to the _i_th population mean.
+where $Z_{i}$ is a vector containing the expected trait values for sample $i$, $z_{0}$ is a vector containing the ancestral trait means, $\theta$ is a vector containing the optima, and $t_{i}$ is the time interval from the ancestral population mean (the start of the time series, which has a time of 0) to the $i\text{th}$ population mean.
 
 The variance and covariance of sample/population means are given by the following expression:
 
