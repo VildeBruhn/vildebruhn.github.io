@@ -317,4 +317,4 @@ The multivariate decelerated evolution model has a similar (but worse) fit to th
 
 ---
 
-Now that we have looked at the multivariate unbiased random walk models, let's learn more about the multivariate Ornstein-Uhlenbeck models.
+Now that we have looked at the multivariate unbiased random walk models, let's learn more about the [multivariate Ornstein-Uhlenbeck models](({% link tutorial/multivar_OU.md %}).
