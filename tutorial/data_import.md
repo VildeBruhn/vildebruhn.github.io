@@ -21,7 +21,9 @@ time_vector <- seq(0,19,1)
 
 Then, create a paleoTS object:
 ```r
+
 indata_evoTS <- paleoTS::as.paleoTS(mm = trait_means, vv = trait_variance, nn = sample_size, tt = time_vector)
+
 ```
 
 Another way to get data into evoTS is to use the function `read.paleoTS` from the paleoTS package. This function imports data from a text file with four columns corresponding to sample sizes, trait means, sample/population variances, and ages of the samples/populations (in that order) and converts the input to a paleoTS object.
