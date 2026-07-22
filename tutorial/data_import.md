@@ -56,5 +56,5 @@ plotevoTS(ln_diameter)
 
 ![plotevoTS](/assets/images/diameter.png)
 
-Later, in the excersises we will also go through how to import data into R and transform the data to evoTS format. But first, an introduction to [multivariate models]({% link tutorial/multivar_models.md %}).
+Later, in the excersises, we will also go through how to import data into R and transform the data to evoTS format. But first, an introduction to [multivariate models]({% link tutorial/multivar_models.md %}).
 
