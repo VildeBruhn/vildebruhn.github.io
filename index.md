@@ -5,7 +5,6 @@ title: Start
 
 # Welcome!
 
-
 ---
 
 This workshop introduces multivariate methods for analysing evolutionary time series using the R package evoTS. We will learn how to
@@ -23,10 +22,10 @@ Participants should have a basic familiarity with R and evolutionary biology.
 
 ## Software
 
-Before continouing with the [tutorial]({% link tutorial/introduction.md %}) before continuing., please ensure that the latest versions of R and RStudio are installed. Detailed installation instructions are available on the [installation page]({% link installation.md %}).
+Before continuing with the [tutorial]({% link tutorial/introduction.md %}), please ensure that the latest versions of R and RStudio are installed. Detailed installation instructions are available on the [installation page]({% link installation.md %}).
 
 ## Practical information
 
-Date: TBA
+**Date:** TBA
 
-Location: TBA
+**Location:** TBA
