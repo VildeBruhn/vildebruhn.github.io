@@ -36,14 +36,25 @@ main {
    ========================================================== */
 
 .site-title {
-  margin-bottom: 60px;
+  margin-bottom: 50px;
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #d7d2c6;
 }
 
 .site-title a {
   text-decoration: none;
-  color: #111;
-  font-size: 1.2rem;
-  font-weight: bold;
+  color: #5D6650;
+
+  font-size: 1.25rem;
+  font-weight: normal;
+
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease;
+}
+
+.site-title a:hover {
+  color: #5D6650;
 }
 
 h1 {
