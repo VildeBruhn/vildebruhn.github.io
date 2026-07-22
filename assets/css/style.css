@@ -259,3 +259,36 @@ figcaption {
 .highlight .n {
     color: #111111;
 }
+
+
+/* ==========================================================
+   Copy button
+   ========================================================== */
+
+.copy-button {
+
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  border: 1px solid #d7d2c6;
+  background: #faf9f5;
+
+  color: #666;
+
+  font-family: Georgia, serif;
+  font-size: 0.8rem;
+
+  padding: 4px 10px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+
+  background: #6F8452;
+  color: white;
+
+}
