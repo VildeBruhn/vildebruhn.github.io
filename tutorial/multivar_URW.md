@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Multivariate models
-permalink: /tutorial/multivar_URW_models/
+permalink: /tutorial/multivar_URW/
 ---
 
 # Multivariate models
