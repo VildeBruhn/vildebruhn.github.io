@@ -177,3 +177,15 @@ figcaption {
 
   gap: 6px;
 }
+
+.submenu a {
+  font-size: 0.9rem;
+
+  color: #777;
+
+  letter-spacing: 0.02em;
+}
+
+.submenu a::before {
+  content: "— ";
+}
