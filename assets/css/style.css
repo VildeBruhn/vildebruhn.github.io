@@ -149,6 +149,8 @@ pre.highlight {
 
   background: #f4f2eb;
   border: 1px solid #d7d2c6;
+  border-left: 4px solid #7A8A57;
+
   border-radius: 2px;
 
   padding: 1.25rem 1.5rem;
@@ -156,8 +158,8 @@ pre.highlight {
 
   overflow-x: auto;
 
-  font-family: "SFMono-Regular", Consolas, Monaco, Menlo, monospace;
-  font-size: 0.92rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
   line-height: 1.65;
 }
 
@@ -171,7 +173,7 @@ pre.highlight code {
 }
 
 code {
-  font-family: "SFMono-Regular", Consolas, Monaco, Menlo, monospace;
+  font-family: "Courier New", monospace;
 }
 
 /* Inline code */
@@ -214,82 +216,105 @@ figcaption {
 
 /* ==========================================================
    Rouge syntax highlighting
-   Werner-inspired palette
+   Werner × RStudio
    ========================================================== */
 
-/* Comments */
+/* Comments ------------------------------------------------ */
 
 .highlight .c,
 .highlight .c1,
 .highlight .cm {
-    color: #9A988F;
+    color: #8A8479;
     font-style: italic;
 }
 
-/* Keywords */
+/* Keywords ------------------------------------------------ */
 
 .highlight .k,
 .highlight .kr,
 .highlight .kd,
 .highlight .kn {
     color: #6F8452;
-    font-weight: 600;
+    font-weight: bold;
 }
 
-/* Functions */
+/* Function names ------------------------------------------ */
 
 .highlight .nf {
-    color: #5E6E73;
+    color: #4C6F7A;
 }
 
-/* Package names / namespaces */
+/* Package / namespace ------------------------------------- */
 
 .highlight .nn {
-    color: #7A6652;
+    color: #7A5A73;
 }
 
-/* Strings */
+/* Strings ------------------------------------------------- */
 
 .highlight .s,
 .highlight .s1,
 .highlight .s2 {
-    color: #8C6C4A;
+    color: #A55C34;
 }
 
-/* Numbers */
+/* Numbers ------------------------------------------------- */
 
+.highlight .m,
 .highlight .mi,
-.highlight .mf,
-.highlight .m {
-    color: #A1844A;
+.highlight .mf {
+    color: #B28A2E;
 }
 
-/* Constants */
+/* Constants ----------------------------------------------- */
 
 .highlight .kc,
 .highlight .bp {
-    color: #7A6652;
+    color: #8B6A43;
 }
 
-/* Operators */
+/* Operators ----------------------------------------------- */
 
 .highlight .o {
-    color: #666666;
+    color: #555555;
 }
 
-/* Variables */
+/* Variables ------------------------------------------------ */
 
 .highlight .n {
     color: #222222;
 }
 
+/* Assignment operator (<-) -------------------------------- */
+
+.highlight .assign {
+    color: #6F8452;
+    font-weight: bold;
+}
+
+/* Built-in R constants */
+
+.highlight .nb {
+    color: #4C6F7A;
+}
+
+/* Punctuation */
+
+.highlight .p {
+    color: #555555;
+}
+
+/* Generic names */
+
+.highlight .na {
+    color: #7A5A73;
+}
 
 /* ==========================================================
    Copy icon
    ========================================================== */
 
 .copy-button {
-
   position: absolute;
 
   top: 10px;
@@ -300,7 +325,7 @@ figcaption {
 
   padding: 4px;
 
-  color: #9A988F;
+  color: #999;
 
   cursor: pointer;
 
@@ -312,7 +337,7 @@ figcaption {
 }
 
 .copy-button:hover {
-  color: #6F8452;
+  color: #7A8A57;
 }
 
 .copy-button svg {
