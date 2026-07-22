@@ -144,11 +144,12 @@ main a:hover {
    Code
    ========================================================== */
 
-pre {
+pre.highlight {
   background: #f2f0ea;
-  border: 1px solid #ddd8cc;
+  border: 1px solid #d7d2c6;
+  border-left: 4px solid #6B7256;
 
-  padding: 25px;
+  padding: 1.25rem 1.5rem;
   margin: 40px 0;
 
   overflow-x: auto;
@@ -156,6 +157,12 @@ pre {
   font-family: "Courier New", monospace;
   font-size: 0.9rem;
   line-height: 1.6;
+}
+
+pre.highlight code {
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 code {
