@@ -72,7 +72,7 @@ We can also use the `plotevoTS.multivariate` function to have a look at the comb
 plotevoTS.multivariate(diam_ln_ribs_ln, y_min = 3.4, y_max = 4.8, x.label = "Relative time", pch = c(20,20))
 ```
 
-![Diameter_ribs](/assets/images/dim_and_ribs.png)
+![Diameter_ribs](/assets/images/diam_and_ribs.png)
 
 Eye-balling the data seems to suggest that the traits change in a coordinated fashion.
 
