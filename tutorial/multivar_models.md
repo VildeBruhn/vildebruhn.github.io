@@ -24,5 +24,5 @@ Evolution as a multivariate unbiased random walk is modeled using an evolutionar
 The multivariate variance-covariance matrix for the unbiased random walk model (__V__) is computed using the [Kronecker product](https://en.wikipedia.org/wiki/Kronecker_product) of the __R__ matrix and a “distance matrix” __C__, describing the distance in time between the different samples/populations in the time series.
 
 $$
-V = sum_{i=1}^{m} R \otimes C
+V = \sum_{i=1}^{m} R \otimes C
 $$
