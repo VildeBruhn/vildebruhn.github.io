@@ -4,9 +4,7 @@ title: Data import
 permalink: /tutorial/data_import/
 ---
 
-# 1. Getting data into evoTS format
-
----
+## 1. Getting data into evoTS format
 
 An object of class paleoTS is the required input for most of the functions in evoTS. To create a paleoTS object, you need vectors of trait means, sample/population variances, sample sizes and ages of the samples/populations.
 
@@ -31,7 +29,7 @@ Another way to get data into evoTS is to use the function `read.paleoTS` from th
 See also the [paleoTS vignette](https://cran.r-project.org/web/packages/paleoTS/vignettes/paleoTS_basics.html) for more info on how to import data and create a paleoTS object.
 
 
-# 2. Data included in evoTS
+## 2. Data included in evoTS
 
 Two evolutionary sequences (time series) of phenotypic change are included in the evoTS package. The data are from the diatom lineage _Stephanodiscus yellowstonensis_ and were originally published in [Theriot _et al._ (2006)](https://www.cambridge.org/core/journals/paleobiology/article/abs/late-quaternary-rapid-morphological-evolution-of-an-endemic-diatom-in-yellowstone-lake-wyoming/B28737E2C2B8FBEC5D0577B5757401A5). Each trait consists of 63 samples spanning almost 14 000 years of phenotypic change.
 
