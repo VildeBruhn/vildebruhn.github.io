@@ -16,7 +16,7 @@ $$
 where __A__ is a square matrix that describes the rate of evolution toward the optimal trait values and with dimensions equal to the number of investigated traits (__A__ is often called the pull matrix), $\theta$ is a vector containing the optimum for each trait, __R__ is a square matrix describing the stochastic changes in the traits and with dimensions equal to the number of investigated traits (__R__ is often called the drift matrix), and $W$ is the diffusion parameter. Under the assumption that we only have one selective regime (optimum) per trait, the expected trait mean of the Ornstein-Uhlenbeck process is the weighted sum of the optimum and the root value ([Hansen 1997](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1558-5646.1997.tb01457.x)):
 
 $$
-E[Z_{i}] = e^{-At_{i}}z_{0} + (1 - e^{-At_{i}})\theta
+E[Z_{i}] = e^{(-At_{i})}z_{0} + (1 - e^{(-At_{i})})\theta
 $$
 
 
