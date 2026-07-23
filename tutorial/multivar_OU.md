@@ -75,3 +75,102 @@ If the data consists of more than two traits, it is recommended to use the funct
 We will investigate whether the two traits from the _S. yellowstonensis_ lineage show evidence of independent evolution (only diagonal elements in the __A__ and __R__ matrices) or whether only the adaptation part of the trait dynamics is independent in the two traits (diagonal __A__ matrix and symmetric __R__ matrix). We will test these hypotheses using the `fit.multivariate.OU` function.
 
 Note that the multivariate OU model demands much more computational time compared to univariate models and simple multivariate models (like the multivariate unbiased random walk). The computational time grows exponentially with the dimension of the variance–covariance matrix (e.g., [Felsenstein 1973](https://pmc.ncbi.nlm.nih.gov/articles/PMC1762641/); [Hadﬁeld and Nakagawa 2010](https://academic.oup.com/jeb/article-abstract/23/3/494/7412248); [Freckleton 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2012.00220.x). The time it takes to fit the multivariate OU models therefore both depends on the number of traits and the length of the time series. Setting `trace = TRUE` allows the user to keep an eye on how the optimisation proceeds.
+
+First, run the two different models:
+
+```r
+OUOU_model1 <- fit.multivariate.OU(diam_ln_ribs_ln, A.matrix = "diag", R.matrix = "diag")
+OUOU_model2 <- fit.multivariate.OU(diam_ln_ribs_ln, A.matrix = "diag", R.matrix = "symmetric")
+```
+
+And look at the AICc results: 
+
+```r
+OUOU_model1$AICc;OUOU_model2$AICc
+```
+```r
+>
+[1] -267.6676
+[1] -352.0637
+```
+The model with independent adaptation and correlated stochastic changes (`OUOU_model2`) is much better than the independent evolution model. 
+
+Then, look at the output from the model:
+
+```r
+OUOU_model2
+```
+```r
+>
+$converge
+[1] "Model converged successfully"
+
+$logL
+[1] 186.7299
+
+$AICc
+[1] -352.0637
+
+$ancestral.values
+[1] 3.718630 4.006437
+
+$SE.anc
+[1] NA
+
+$optima
+[1] 3.876449 4.282549
+
+$SE.optima
+[1] NA
+
+$A
+         [,1]     [,2]
+[1,] 12.70187  0.00000
+[2,]  0.00000 14.60702
+
+$SE.A
+[1] NA
+
+$half.life
+[1] 0.05457047 0.04745301
+
+$R
+           [,1]       [,2]
+[1,] 0.02233866 0.07823089
+[2,] 0.07823089 0.85571347
+
+$SE.R
+[1] NA
+
+$method
+[1] "Joint"
+
+$K
+[1] 9
+
+$n
+[1] 63
+
+$iter
+[1] NA
+
+attr(,"class")
+[1] "paleoTSfit"
+```
+
+And the correlation:
+
+```r
+stats::cov2cor(OUOU_model2$R)
+```
+```r
+>
+          [,1]      [,2]
+[1,] 1.0000000 0.5576264
+[2,] 0.5576264 1.0000000
+```
+
+The half-life for the log diameter and log number of ribs are 6.1% and 4.9% of the length of the time series, which translates into $13728 * 0.061 = 837$ and $13728 * 0.049 = 673$ years, respectively. The correlation of the stochastic changes is substantial, but much reduced compared to the estimate of the correlation from the multivariate unbiased random walk. This is because a substantial part of the trait dynamics in a multivariate OU model is due to the deterministic approach of the traits toward the optima. The model has an almost identical relative fit compared to the multivariate unbiased random walk according to AICc, but is out-competed by the unbiased random walk with a mode shift.
+
+We now test if a more complex parameterization of the __A__ matrix gives us a better relative model fit according to AICc.
+
