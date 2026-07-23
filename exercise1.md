@@ -24,8 +24,7 @@ Now, we are going to import the text files into R and get them into the correct 
 First, set your working directory:
 
 ```r
-PATH = "PATH_TO_WORKING_DIRECTORY"
-setwd(PATH)
+setwd("PATH_TO_WORKING_DIRECTORY")
 ```
 
 Then, import the data:
