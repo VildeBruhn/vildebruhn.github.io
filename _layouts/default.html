@@ -22,30 +22,8 @@
     async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
+
 </head>
-
-  <script src="{{ '/assets/js/simple-jekyll-search.min.js' | relative_url }}"></script>
-  
-  <script>
-  SimpleJekyllSearch({
-
-    searchInput: document.getElementById('search-input'),
-
-    resultsContainer: document.getElementById('results-container'),
-
-    json: '{{ "/search.json" | relative_url }}',
-
-    searchResultTemplate:
-        '<li><a href="{url}">{title}</a></li>',
-
-    noResultsText:
-        '<li>No results found.</li>',
-
-    limit: 8
-
-  });
-
-  </script>
 
 <body>
 
@@ -88,7 +66,7 @@
 
         <div class="menu-section">
 
-          <a href="{{ '/other_resources/references' | relative_url }}">
+          <a href="{{ '/other_resources/references/' | relative_url }}">
             Other resources
           </a>
 
@@ -174,6 +152,38 @@
   });
   </script>
 
-</body>
+  <!-- Search -->
 
+  <script src="{{ '/assets/js/simple-jekyll-search.min.js' | relative_url }}"></script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    if (typeof SimpleJekyllSearch === "undefined") {
+      console.error("SimpleJekyllSearch library failed to load.");
+      return;
+    }
+
+    SimpleJekyllSearch({
+
+      searchInput: document.getElementById("search-input"),
+
+      resultsContainer: document.getElementById("results-container"),
+
+      json: "{{ '/search.json' | relative_url }}",
+
+      searchResultTemplate:
+        '<li><a href="{url}">{title}</a></li>',
+
+      noResultsText:
+        '<li>No results found.</li>',
+
+      limit: 8
+
+    });
+
+  });
+  </script>
+
+</body>
 </html>
