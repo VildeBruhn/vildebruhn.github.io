@@ -49,11 +49,8 @@ where __P__ is the orthogonal matrix of eigenvectors of __A__, $\sum\sum^{T}$, i
 Different ways to parameterize the __A__ matrix allows testing a range of evolutionary hypotheses using the multivariate Ornstein-Uhlenbeck (OU) process. While the __R__ matrix in the multivariate version of the unbiased random walk (and in the multivariate OU model) either needs to be diagonal (only elements on the diagonal while off-diagonal elements are zero) or complete (in the sense that both the diagonal and off-diagonal elements are non-zero), this is not the case for the __A__ matrix. Generally, we can divide up the hypotheses being tested using the multivariate OU into four different types:
 
 * Independent evolution: only diagonal elements in both the __A__ and the __R__ matrix (i.e., equivalent to fitting univariate models to each trait separately).
-
 * Independent adaptation: only diagonal elements in the __A__ matrix while the __R__ matrix is completely parameterized. In such a model, the traits are adapting independently toward their optima, but the stochastic changes in the traits are correlated.
-
 * At least one trait affects the optimum of the other trait. The diagonal and at least one of the off-diagonal elements in the __A__ matrix is non-zero. It is the trait in the column of the non-zero off-diagonal element that affects the optimum of the trait in the row of the non-zero off-diagonal element. A negative off-diagonal element means the trait evolves toward the optimum determined by the other trait, while a positive off-diagonal element means the trait evolve away from the optimum determined by the other trait. The stochastic changes in the trait can be either correlated or non-correlated.
-
 * The same traits affect each others optimum, but to different degrees. The same off-diagonal elements on both sides of the diagonal are parameterized in the __A__ matrix. The stochastic changes in the trait can be either correlated or non-correlated.
 
 For a data set consisting of two traits, there are four possible parameterizations of the __A__ matrix (see panels below): 
