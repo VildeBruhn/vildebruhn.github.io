@@ -196,6 +196,27 @@ The best model is a model where each trait affects the optimum of the other trai
 
 However, before we trust this result, we should make sure to run the multivariate models from different initial starting values to increase our chances of finding a potentially higher peak on the log-likelihood surface. The number of iterations can be defined by the `iterations` argument. The starting values are drawn from a normal distribution with a standard deviation of one. The user can define a larger or smaller standard deviation using the argument `iter.sd`.
 
-All models possible to investigate using the `fit.multivariate.OU` function can also be investigated using the `fit.multivariate.OU.user.defined` function, as the latter lets the user define which elements in the __A__ and __R__ matrices that are parameterised. Which elements in __A__ and __R__ that should be parameterised or set to zero are given by 1 and 0 respectively. We can for example fit a model with a lower triangle __A__ matrix and a symmetric __R__ matrix. A lower triangle __A__ matrix means the diameter is affecting the optimum of the number of ribs:
+All models possible to investigate using the `fit.multivariate.OU` function can also be investigated using the `fit.multivariate.OU.user.defined` function, as the latter lets the user define which elements in the __A__ and __R__ matrices that are parameterised. Which elements in __A__ and __R__ that should be parameterised or set to zero are given by 1 and 0 respectively. We can for example fit a model with a lower triangle __A__ matrix and a symmetric __R__ matrix. A lower triangle __A__ matrix means the diameter is affecting the optimum of the number of ribs.
 
+First, make the __A__ and __R__ matrices:
 
+```r
+A <- matrix(c(1,0,1,1), nrow = 2, byrow = TRUE)
+R <- matrix(c(1,1,1,1), nrow=2, byrow = TRUE)
+```
+
+Then, run the model with the user defined matrices:
+
+```r
+OUOU_model6 <- fit.multivariate.OU.user.defined(diam_ln_ribs_ln, A.user = A, R.user = R)
+```
+
+And look at the AICc result:
+
+```r
+OUOU_model6$AICc
+```
+```r
+>
+[1] -350.146
+```
