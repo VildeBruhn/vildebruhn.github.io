@@ -44,16 +44,7 @@ e^{-A^{T}t_{ij}}.
 \end{aligned}
 $$
 
-where P is the orthogonal matrix of eigenvectors of A, ΣΣ𝑇
- is the Cholesky decomposition of the R matrix, 𝜆𝑖
- is the ith eigenvalue of A, 𝑡𝑎
- is the time interval from the ancestral population to the oldest of the two populations 𝑧𝑖
- and 𝑧𝑗
-, and 𝑡𝑖𝑗
- is the time separating two samples 𝑧𝑖
- and 𝑧𝑗
-, while ⊙
- represents the Hadamard (element-wise) product.
+where __P__ is the orthogonal matrix of eigenvectors of __A__, $\sum\sum^{T}$, is the [Cholesky decomposition](https://en.wikipedia.org/wiki/Cholesky_decomposition) of the __R__ matrix, $\lambda_i$ is the $i\text{th}$ eigenvalue of __A__, $t_a$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$, and $t_{ij}$ is the time separating two samples $z_i$ and $z_j$, while $\odot$ represents the [Hadamard (element-wise) product](https://en.wikipedia.org/wiki/Hadamard_product_(matrices)).
 
 Different ways to parameterize the A matrix allows testing a range of evolutionary hypotheses using the multivariate OU process. While the R matrix in the multivariate version of the unbiased random walk (and in the multivariate OU model) either needs to be diagonal (only elements on the diagonal while off-diagonal elements are zero) or complete (in the sense that both the diagonal and off-diagonal elements are non-zero), this is not the case for the A matrix. Generally, we can divide up the hypotheses being tested using the multivariate OU into four different types:
 
