@@ -170,7 +170,7 @@ stats::cov2cor(OUOU_model2$R)
 [2,] 0.5576264 1.0000000
 ```
 
-The half-life for the log diameter and log number of ribs are 6.1% and 4.9% of the length of the time series, which translates into $13728 * 0.061 = 837$ and $13728 * 0.049 = 673$ years, respectively. The correlation of the stochastic changes is substantial, but much reduced compared to the estimate of the correlation from the multivariate unbiased random walk. This is because a substantial part of the trait dynamics in a multivariate OU model is due to the deterministic approach of the traits toward the optima. The model has an almost identical relative fit compared to the multivariate unbiased random walk according to AICc, but is out-competed by the unbiased random walk with a mode shift.
+The half-life for the log diameter and log number of ribs are 6.1% and 4.9% of the length of the time series, which translates into $13728 \times 0.061 = 837$ and $13728 \times 0.049 = 673$ years, respectively. The correlation of the stochastic changes is substantial, but much reduced compared to the estimate of the correlation from the multivariate unbiased random walk. This is because a substantial part of the trait dynamics in a multivariate OU model is due to the deterministic approach of the traits toward the optima. The model has an almost identical relative fit compared to the multivariate unbiased random walk according to AICc, but is out-competed by the unbiased random walk with a mode shift.
 
 We now test if a more complex parameterization of the __A__ matrix gives us a better relative model fit according to AICc.
 
