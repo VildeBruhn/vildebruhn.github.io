@@ -1,3 +1,9 @@
+---
+layout: default
+title: References
+permalink: /other_resources/references/
+---
+
 # References
 
 Akaike. H. 1974. A new look at the statistical model identification. IEEE Transactions on Automatic Control 19:716 - 723
