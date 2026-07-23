@@ -4,7 +4,7 @@ title: Introduction
 permalink: /tutorial/introduction/
 ---
 
-# evoTS - Analyses of evolutionary time-series
+# evoTS - Analyses of evolutionary time series
 
 ---
 
