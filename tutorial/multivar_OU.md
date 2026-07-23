@@ -58,6 +58,6 @@ For a data set consisting of two traits, there are four possible parameterizatio
 1. Independent adaptation of both trait: panel a)
 2. Trait Y affecting the optimum of trait X: panel b)
 3. Trait X affecting the optimum of trait Y: panel c)
-4. Trait X affecting the optimum of trait Y, and the traits X and Y affecting each others optima: (panel d)
+4. Trait X affecting the optimum of trait Y, and the traits X and Y affecting each others optima: panel d)
 
 Each of these four ways of parameterizing the __A__ matrix can be combined with an __R__ matrix with elements only on the diagonal (the stochastic changes in the traits are uncorrelated) or a completely parameterized __R__ matrix (the stochastic changes in the traits are correlated).
