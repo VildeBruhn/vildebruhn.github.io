@@ -61,3 +61,5 @@ For a data set consisting of two traits, there are four possible parameterizatio
 4. Trait X affecting the optimum of trait Y, and the traits X and Y affecting each others optima: panel d)
 
 Each of these four ways of parameterizing the __A__ matrix can be combined with an __R__ matrix with elements only on the diagonal (the stochastic changes in the traits are uncorrelated) or a completely parameterized __R__ matrix (the stochastic changes in the traits are correlated).
+
+![A-matrices](/assets/images/A_matrices.png)
