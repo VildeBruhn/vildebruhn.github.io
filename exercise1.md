@@ -75,7 +75,21 @@ evoTS_data <- make.multivar.evoTS(ln_data$body_size, ln_data$waterflow)
 Now you are ready to analyse the data!
 
 
-## Analysis and questions
+## Analyses and questions
+
+Use what you have learned in the tutorial to explore the data. You can for example first plot the data to visualise it and then analyse it by fitting different multivariate models, both different types of unbiased random walks and OU models.
+
+Suggestions for questions to think about:
+
+* klklkl
+* lklkl
+* lklk
+
+Have fun!
+
+---
+
+When you feel done working with this exercise, move along to [exercise 2]({% link exercise2.md %}).
 
 
  
