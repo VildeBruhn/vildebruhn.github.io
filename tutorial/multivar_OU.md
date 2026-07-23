@@ -55,7 +55,7 @@ Different ways to parameterize the __A__ matrix allows testing a range of evolut
 
 For a data set consisting of two traits, there are four possible parameterizations of the __A__ matrix (see panels below): 
 
-1. Independent adaptation of both trait: panel a)
+1. Independent adaptation of both traits: panel a)
 2. Trait Y affecting the optimum of trait X: panel b)
 3. Trait X affecting the optimum of trait Y: panel c)
 4. Trait X affecting the optimum of trait Y, and the traits X and Y affecting each others optima: panel d)
