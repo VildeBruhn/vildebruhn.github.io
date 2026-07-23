@@ -29,3 +29,5 @@ Before continuing with the [tutorial]({% link tutorial/introduction.md %}), plea
 __Dates:__ August 31 – September 1, 2026
 
 __Location:__ Friedrich-Alexander-Universität, Geozentrum Nordbayern, Germany (as part of the [Analytical Paleobiology Summer School](https://www.paleosynthesis.nat.fau.de/science-schools/) organized by [PaleoSynthesis](https://www.paleosynthesis.nat.fau.de/))
+
+Please see the [schedule]({% link schedule.md %}) for a detailed overview of the teaching in this workshop.
