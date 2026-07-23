@@ -40,20 +40,27 @@ P^{-1}\Sigma\Sigma^{T}(P^{-1})^{T}
 \right)
 P^{T}
 \Biggr]
-e^{-A^{T}t_{ij}}.
+e^{-A^{T}t_{ij}}
 \end{aligned}
 $$
 
 where __P__ is the orthogonal matrix of eigenvectors of __A__, $\sum\sum^{T}$, is the [Cholesky decomposition](https://en.wikipedia.org/wiki/Cholesky_decomposition) of the __R__ matrix, $\lambda_i$ is the $i\text{th}$ eigenvalue of __A__, $t_a$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$, and $t_{ij}$ is the time separating two samples $z_i$ and $z_j$, while $\odot$ represents the [Hadamard (element-wise) product](https://en.wikipedia.org/wiki/Hadamard_product_(matrices)).
 
-Different ways to parameterize the A matrix allows testing a range of evolutionary hypotheses using the multivariate OU process. While the R matrix in the multivariate version of the unbiased random walk (and in the multivariate OU model) either needs to be diagonal (only elements on the diagonal while off-diagonal elements are zero) or complete (in the sense that both the diagonal and off-diagonal elements are non-zero), this is not the case for the A matrix. Generally, we can divide up the hypotheses being tested using the multivariate OU into four different types:
+Different ways to parameterize the __A__ matrix allows testing a range of evolutionary hypotheses using the multivariate Ornstein-Uhlenbeck (OU) process. While the __R__ matrix in the multivariate version of the unbiased random walk (and in the multivariate OU model) either needs to be diagonal (only elements on the diagonal while off-diagonal elements are zero) or complete (in the sense that both the diagonal and off-diagonal elements are non-zero), this is not the case for the __A__ matrix. Generally, we can divide up the hypotheses being tested using the multivariate OU into four different types:
 
-Independent evolution (only diagonal elements in both the A and the R matrix, i.e., equivalent to fitting univariate models to each trait separately.)
+* Independent evolution: only diagonal elements in both the __A__ and the __R__ matrix (i.e., equivalent to fitting univariate models to each trait separately).
 
-Independent adaptation (only diagonal elements in the A matrix while the R matrix is completely parameterized. In such a model, the traits are adapting independently toward their optima, but the stochastic changes in the traits are correlated.)
+* Independent adaptation: only diagonal elements in the __A__ matrix while the __R__ matrix is completely parameterized. In such a model, the traits are adapting independently toward their optima, but the stochastic changes in the traits are correlated.
 
-At least one trait affects the optimum of the other trait. The diagonal and at least one of the off-diagonal elements in the A matrix is non-zero. It is the trait in the column of the non-zero off-diagonal element that affects the optimum of the trait in the row of the non-zero off-diagonal element. A negative off-diagonal element means the trait evolves toward the optimum determined by the other trait, while a positive off-diagonal element means the trait evolve away from the optimum determined by the other trait. The stochastic changes in the trait can be either correlated or non-correlated.
+* At least one trait affects the optimum of the other trait. The diagonal and at least one of the off-diagonal elements in the __A__ matrix is non-zero. It is the trait in the column of the non-zero off-diagonal element that affects the optimum of the trait in the row of the non-zero off-diagonal element. A negative off-diagonal element means the trait evolves toward the optimum determined by the other trait, while a positive off-diagonal element means the trait evolve away from the optimum determined by the other trait. The stochastic changes in the trait can be either correlated or non-correlated.
 
-The same traits affect each others optimum (but to different degrees). The same off-diagonal elements on both sides of the diagonal are parameterized in the A matrix. The stochastic changes in the trait can be either correlated or non-correlated.
+* The same traits affect each others optimum, but to different degrees. The same off-diagonal elements on both sides of the diagonal are parameterized in the __A__ matrix. The stochastic changes in the trait can be either correlated or non-correlated.
 
-For a data set consisting of two traits, there are four possible parameterizations of the A matrix (see panels below). Independent adaptation of both traits (panel a), trait Y affecting the optimum of trait X (panel b), trait X affecting the optimum of trait Y, and the traits X and Y affecting each others optima (panel d). Each of these four ways of parameterizing the A matrix can be combined with an R matrix with elements only on the diagonal (the stochastic changes in the traits are uncorrelated) or a completely parameterized R matrix (the stochastic changes in the traits are correlated).
+For a data set consisting of two traits, there are four possible parameterizations of the __A__ matrix (see panels below): 
+
+1. Independent adaptation of both trait: panel a)
+2. Trait Y affecting the optimum of trait X: panel b)
+3. Trait X affecting the optimum of trait Y: panel c)
+4. Trait X affecting the optimum of trait Y, and the traits X and Y affecting each others optima: (panel d)
+
+Each of these four ways of parameterizing the __A__ matrix can be combined with an __R__ matrix with elements only on the diagonal (the stochastic changes in the traits are uncorrelated) or a completely parameterized __R__ matrix (the stochastic changes in the traits are correlated).
