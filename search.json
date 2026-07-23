@@ -3,13 +3,34 @@ layout: null
 ---
 
 [
+{% assign first = true %}
+
+{% comment %} Regular pages {% endcomment %}
 {% for page in site.pages %}
   {% if page.title %}
-  {
-    "title": {{ page.title | jsonify }},
-    "url": {{ page.url | relative_url | jsonify }},
-    "content": {{ page.content | strip_html | normalize_whitespace | jsonify }}
-  }{% unless forloop.last %},{% endunless %}
+    {% unless first %},{% endunless %}
+    {
+      "title": {{ page.title | jsonify }},
+      "url": {{ page.url | relative_url | jsonify }},
+      "content": {{ page.content | markdownify | strip_html | normalize_whitespace | jsonify }}
+    }
+    {% assign first = false %}
   {% endif %}
 {% endfor %}
+
+{% comment %} Collections (e.g. tutorials) {% endcomment %}
+{% for collection in site.collections %}
+  {% for doc in collection.docs %}
+    {% if doc.title %}
+      {% unless first %},{% endunless %}
+      {
+        "title": {{ doc.title | jsonify }},
+        "url": {{ doc.url | relative_url | jsonify }},
+        "content": {{ doc.content | markdownify | strip_html | normalize_whitespace | jsonify }}
+      }
+      {% assign first = false %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
 ]
