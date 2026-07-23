@@ -72,7 +72,7 @@ The last thing to do is to convert the data into a multivariate evoTS object:
 evoTS_data <- make.multivar.evoTS(ln_data$body_size, ln_data$waterflow)
 ```
 
-Now you are ready to start analyse the data!
+Now you are ready to analyse the data!
 
 
  
