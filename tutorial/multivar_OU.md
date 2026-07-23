@@ -172,5 +172,30 @@ stats::cov2cor(OUOU_model2$R)
 
 The half-life for the log diameter and log number of ribs are 6.1% and 4.9% of the length of the time series, which translates into $13728 \times 0.061 = 837$ and $13728 \times 0.049 = 673$ years, respectively. The correlation of the stochastic changes is substantial, but much reduced compared to the estimate of the correlation from the multivariate unbiased random walk. This is because a substantial part of the trait dynamics in a multivariate OU model is due to the deterministic approach of the traits toward the optima. The model has an almost identical relative fit compared to the multivariate unbiased random walk according to AICc, but is out-competed by the unbiased random walk with a mode shift.
 
-We now test if a more complex parameterization of the __A__ matrix gives us a better relative model fit according to AICc.
+We now test if a more complex parameterization of the __A__ matrix gives us a better relative model fit according to AICc:
+
+```r
+OUOU_model3 <- fit.multivariate.OU(diam_ln_ribs_ln, A.matrix = "upper.tri", R.matrix = "symmetric")
+OUOU_model4 <- fit.multivariate.OU(diam_ln_ribs_ln, A.matrix = "full", R.matrix = "symmetric")
+OUOU_model5 <- fit.multivariate.OU(diam_ln_ribs_ln, A.matrix = "OUBM")
+```
+
+And look at the AICc results:
+
+```r
+OUOU_model3$AICc;OUOU_model4$AICc;OUOU_model5$AICc
+```
+```r
+>
+[1] -350.0442
+[1] -380.0126
+[1] -305.4217
+```
+
+The best model is a model where each trait affects the optimum of the other trait (`OUOU_model4`).
+
+However, before we trust this result, we should make sure to run the multivariate models from different initial starting values to increase our chances of finding a potentially higher peak on the log-likelihood surface. The number of iterations can be defined by the `iterations` argument. The starting values are drawn from a normal distribution with a standard deviation of one. The user can define a larger or smaller standard deviation using the argument `iter.sd`.
+
+All models possible to investigate using the `fit.multivariate.OU` function can also be investigated using the `fit.multivariate.OU.user.defined` function, as the latter lets the user define which elements in the __A__ and __R__ matrices that are parameterised. Which elements in __A__ and __R__ that should be parameterised or set to zero are given by 1 and 0 respectively. We can for example fit a model with a lower triangle __A__ matrix and a symmetric __R__ matrix. A lower triangle __A__ matrix means the diameter is affecting the optimum of the number of ribs:
+
 
