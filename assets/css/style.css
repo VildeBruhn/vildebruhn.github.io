@@ -344,3 +344,83 @@ figcaption {
   width: 18px;
   height: 18px;
 }
+
+/* ==========================================================
+   Search
+   ========================================================== */
+
+.search-box {
+
+  margin-top: 40px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #d7d2c6;
+}
+
+#search-input {
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 8px 0;
+
+  border: none;
+
+  border-bottom: 1px solid #d7d2c6;
+
+  background: transparent;
+
+  font-family: Georgia, serif;
+
+  font-size: 0.95rem;
+
+  color: #111;
+}
+
+#search-input:focus {
+
+  outline: none;
+
+  border-bottom-color: #7A8A57;
+
+}
+
+#search-input::placeholder {
+
+  color: #999;
+
+}
+
+#results-container {
+
+  list-style: none;
+
+  padding: 0;
+
+  margin-top: 15px;
+
+}
+
+#results-container li {
+
+  margin: 8px 0;
+
+}
+
+#results-container a {
+
+  text-decoration: none;
+
+  color: #666;
+
+  font-size: 0.9rem;
+
+}
+
+#results-container a:hover {
+
+  color: #7A8A57;
+
+}
