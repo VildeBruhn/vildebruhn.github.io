@@ -10,7 +10,7 @@ permalink: /exercise1/
 
 ## Data
 
-In this exercise, we will use parts of a dataset from [Jensen _et. al_ (2022)](https://www.pnas.org/doi/abs/10.1073/pnas.2207634119), looking into body size adaptations in a wild population of Atlantic salmon (_Salmo salar_) residing in a river impacted by hydropower development, affecting the waterflow in the river. The phenotypic time series used here can also be downloaded (in raw version) from the [PETS database]({% link /other_resources/PETS.md %}). The body mass is measured as weight (grams). The waterflow (climatic variable) is measured as volume/time ($\frac{m^3}{s}$) in june to september. The measurements take place over 61 years (with 7 years missing) from 1955-2016, a total of 54 measured years. The data include number of samples (N), trait/waterflow mean, trait/waterflow variance, and the age of the sample in million years (where the oldest sample has age = 0).
+In this exercise, we will use parts of a dataset from [Jensen _et. al_ (2022)](https://www.pnas.org/doi/abs/10.1073/pnas.2207634119), looking into body size adaptations in a wild population of Atlantic salmon (_Salmo salar_) residing in a river impacted by hydropower development, affecting the waterflow in the river. The phenotypic time series used here can also be downloaded (in raw version) from the [PETS database]({% link /other_resources/PETS.md %}). The body mass is measured as weight (grams). The waterflow (climatic variable) is measured as volume/time ($\frac{m^3}{s}$) in june to september. The measurements take place over 61 years (with 7 years missing) from 1955-2016, a total of 54 measured years. The data include number of samples (N), trait/waterflow mean, trait/waterflow variance, and the age (year of sampling) in million years (where the oldest sample has age = 0).
 
 <small>Note: Where the sample size is 1, the variance is set to a number very close to zero because it is not possible to take the logarithm of zero.</small>
 
@@ -46,7 +46,33 @@ data$waterflow <- as.list(waterflow)
 And now we can transform the data into paleoTS objects:
 
 ```r
-paleo_data <- lapply(data, function(x) {
-  as.paleoTS(mm = x$trait_mean, vv = x$trait_var, nn = x$N, tt = x$age_MY, oldest = "first")
+paleoTS_data <- lapply(data, function(x) {
+  paleoTS::as.paleoTS(mm = x$trait_mean, vv = x$trait_var, nn = x$N, tt = x$age_MY, oldest = "first")
 })
+```
+
+Next, we log-transform the data:
+
+```r
+ln_data <- lapply(paleoTS_data, paleoTS::ln.paleoTS)
+```
+
+We also convert the time vector to relative time (0 to 1):
+
+```r
+ln_data <- lapply(ln_data, function(x) {
+  x$tt <- x$tt/(max(x$tt))
+  x
+})
+```
+
+The last thing to do is to convert the data into a multivariate evoTS object:
+
+```r
+evoTS_data <- make.multivar.evoTS(ln_data$body_size, ln_data$waterflow)
+```
+
+Now you are ready to start analyse the data!
+
+
  
