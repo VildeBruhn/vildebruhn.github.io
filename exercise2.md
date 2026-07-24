@@ -18,6 +18,7 @@ Place the files in your working directory.
 
 ## Import and prepare data in R
 
+Import the text files and get them into the correct format, the same way you did in exercise 1.
 
 ## Analyses and questions
 
