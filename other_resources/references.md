@@ -46,6 +46,8 @@ Hunt, G., S. Wicaksono, J. E. Brown, and G. K. Macleod. 2010. Climate-driven bod
 
 Hunt, G., M. J. Hopkins, and S. Lidgard. 2015 Simple versus complex models of trait evolution and stasis as a response to environmental change. _PNAS_ 112:4885–4890.
 
+Hunt, G., W. Martínez-Rivera, M. J. Hopkins, J. Fricks, and B. Sterner. 2026. Using state space models to understand trait evolution in fossil lineages. _Paleobiology_ 52(1):89-103.
+
 Jensen, A. J., Hagen, I. J., ,Czorlich, Y., Bolstad, G. H., Bremset, G., Finstad, B., Hindar, K., Skaala, Ø., and S. Karlsson. 2022. Large-effect loci mediate rapid adaptation of salmon body size after river regulation. _PNAS_ 119(44):e220763411.
 
 Lande, R. 1979. Quantitative genetic analysis of multivariate evolution, applied to brain: body size allometry. _Evolution_ 33:402-416.
