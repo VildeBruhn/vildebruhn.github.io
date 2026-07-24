@@ -22,8 +22,6 @@ Import the text files and get them into the correct format, the same way you did
 
 ## Analyses and questions
 
-## Analyses and questions
-
 Use what you have learned in the tutorial to explore the data. 
 
 Suggestions for questions to think about:
