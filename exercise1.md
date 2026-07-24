@@ -80,11 +80,9 @@ Use what you have learned in the tutorial to explore the data. You can for examp
 
 Suggestions for questions to think about:
 
-* klklkl
-* lklkl
-* lklk
-
-Have fun!
+* Which model fit the data best?
+* What does it mean that a model fit the data best?
+* What are the biological interpretations of your results?
 
 ---
 
