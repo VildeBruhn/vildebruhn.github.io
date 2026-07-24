@@ -10,13 +10,7 @@ Akaike. H. 1974. A new look at the statistical model identification. _IEEE Trans
 
 Bartoszek, K., J. Pienaar, P. Mostad, S. Andersson, and T. F. Hansen. 2012 A phylogenetic comparative method for studying multivariate adaptation. _Journal of Theoretical Biology_ 314:204–215.
 
-Burnham, K. P. and D. R. Anderson. 2002. Model Selection and multimodel inference: a practical information-theoretic approach (2nd ed.) - _Springer-Verlag_.
-
 Clavel, J., G. Escarguel, and G. Merceron. 2015. mvmorph: an r package for fitting multivariate evolutionary models to morphometric data. _Methods in Ecology and Evolution_ 6:1311–1319.
-
-Cooper, N., and A. Purvis, 2010. Body size evolution in mammals: complexity in tempo and mode. _The American Naturalist_ 175:727–738.
-
-Edwards, A. W. F. 1992. Likelihood. expanded edition _Johns Hopkins University Press_. Baltimore, MD.
 
 Felsenstein, J. 1973. Maximum-likelihood estimation of evolutionary trees from continuous characters. _The American Journal of Human Genetics_ 25:471–492.
 
