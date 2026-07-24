@@ -176,7 +176,7 @@ attr(,"class")
 [1] "paleoTSfit"
 ```
 
-A multivariate random walk with correlated changes has a much better fit compared to the model assuming uncorrelated changes in the traits according to AICc. This indicates that the traits are not evolving independently of each other. The estimated __R__ matrix indicates that the first trait has about half the rate of evolution as the second trait and that there is substantial covariance in the evolutionary changes of the two traits. How the two traits correlate in their changes can be computed by standardizing the covariance with the product of the standard deviations on the diagonal (this can also be done using the function `cov2cor` in the `stats` package):
+A multivariate random walk with correlated changes has a much better fit compared to the model assuming uncorrelated changes in the traits according to AICc [Akaike 1974](https://ieeexplore.ieee.org/abstract/document/1100705?casa_token=5JLebXVlAh0AAAAA:q3a5uf8or9NqCn-QAnfQhL8X0rT8njgoup4yHDdoP0UXWncVQvPz3eEXDzlyFkNoqx_58BIPXg). This indicates that the traits are not evolving independently of each other. The estimated __R__ matrix indicates that the first trait has about half the rate of evolution as the second trait and that there is substantial covariance in the evolutionary changes of the two traits. How the two traits correlate in their changes can be computed by standardizing the covariance with the product of the standard deviations on the diagonal (this can also be done using the function `cov2cor` in the `stats` package):
 
 ```r
 0.3780642/(sqrt(0.2680092)*sqrt(0.5524616))
