@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Introduction
-permalink: /day2/introduction/
+permalink: /day1/introduction/
 ---
 
 # evoTS - Analyses of evolutionary time series
