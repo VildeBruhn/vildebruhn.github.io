@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Exercise 2
-permalink: /exercise2/
+title: Exercise 4
+permalink: /day2/exercise4/
 ---
 
-# Exercise 2
+# Exercise 4
 
 ---
 
