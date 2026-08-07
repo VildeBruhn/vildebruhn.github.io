@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Multivariate Ornstein-Uhlenbeck models
-permalink: /tutorial/multivar_OU/
+permalink: /day2/multivar_OU/
 ---
 
 
