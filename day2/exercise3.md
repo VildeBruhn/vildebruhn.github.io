@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Exercise 3
-permalink: /exercise3/
+permalink: /day2/exercise3/
 ---
 
 # Exercise 3
