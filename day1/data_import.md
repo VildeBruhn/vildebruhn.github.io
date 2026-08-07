@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Data import
-permalink: /tutorial/data_import/
+permalink: /day1/data_import/
 ---
 
 ## 1. Getting data into evoTS format
