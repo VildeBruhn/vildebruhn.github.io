@@ -257,4 +257,4 @@ Another option is to define which initial parameter values the optimisation proc
 
 ---
 
-Now, let's move over to [Exercise 1]({% link exercise1.md %}).
+Now, let's move over to [Exercise 3]({% link day2/exercise3.md %}).
