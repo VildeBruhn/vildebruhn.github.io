@@ -86,7 +86,7 @@ Suggestions for questions to think about:
 
 ---
 
-When you feel done working with this exercise, move along to [exercise 4]({% link /day2/exercise4.md %}).
+When you feel done working with this exercise, move along to [exercise 4]({% link day2/exercise4.md %}).
 
 
  
