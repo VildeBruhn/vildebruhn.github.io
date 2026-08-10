@@ -158,6 +158,6 @@ The 3D plot can be rotated vertically and horizontally to get a better overview 
 An Ornstein-Uhlenbeck model describes the evolution of a trait towards an optimum. The paleoTS package includes an Ornstein-Uhlenbeck (OU) model of evolution with a single, fixed optimum ([Hunt et al. 2008](https://academic.oup.com/evolut/article-abstract/62/3/700/6853647)), portraying evolutionary adaptation of a trait towards a fixed peak on the adaptive landscape. However, peaks in the adaptive landscape might not be fixed and the evoTS package contains functions to fit OU models where the optimum (peak) is constantly changing position according to an unbiased random walk. Such a model was proposed by [Hansen et al. (2008)](https://academic.oup.com/evolut/article-abstract/62/8/1965/6853095) for analyses of phylogenetic comparative data. Adjusted to describe phenotypic evolution within a single lineage, the expected trait mean and its variance and covariance are given by the following expressions:
 
 $$
-E[z_i] = e^{(-\alphat_i)}z_0 + (1-e^{-\alphat_i})\theta
+E[z_i] = e^{(-\alpha t_i)}z_0 + (1-e^{-\alpha t_i})\theta
 $$
 
