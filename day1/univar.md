@@ -78,14 +78,20 @@ Another way to assess the uncertainty of the estimated parameters is to explore 
 
 Investigating the likelihood surface can be helpful for several reasons.
 
-Computing the likelihood surface is a great way to explore which parameter combinations that have an almost identical likelihood compared to the maximum likelihood values. Investigating the log-likelihood surface is also an approach to assess uncertainty in the estimated parameters. A large range of parameter values that have almost the same log-likelihood is an indication that we should be careful putting too much emphasis on only the maximum-likelihood (best) estimates of the parameters. The functions in evoTS calculating log-likelihood surfaces report the upper and lower parameter estimates that are within two support units of the best estimate as a way to assess uncertainty in parameters ([Edwards 1992](https://www.press.jhu.edu/books/title/1877/likelihood)). While standard errors computed from the [Hessian matrix](https://en.wikipedia.org/wiki/Hessian_matrix) are always symmetric around the point estimate, the log-likelihood surface might not be (multivariate) normal. The reported upper and lower parameter estimates are therefore often not symmetrical around the maximum likelihood parameter estimates.
-
-Estimating parameters in a model using maximum likelihood always run the risk of returning parameters from a local and not a global optimum in the likelihood landscape. Investigating the support surface for combinations of parameters is one way to explore the topology of the likelihood-surface.
-
-Ridges in the log-likelihood surface can make it challenging to identify maximum likelihood estimates of the model parameters in certain cases. Flat ridges may for example cause identifiability issues and problems for the model to converge. Investigating the log-likelihood surface can therefore help diagnose challenges related to failures of model convergence.
+1. Computing the likelihood surface is a great way to explore which parameter combinations that have an almost identical likelihood compared to the maximum likelihood values. Investigating the log-likelihood surface is also an approach to assess uncertainty in the estimated parameters. A large range of parameter values that have almost the same log-likelihood is an indication that we should be careful putting too much emphasis on only the maximum-likelihood (best) estimates of the parameters. The functions in evoTS calculating log-likelihood surfaces report the upper and lower parameter estimates that are within two support units of the best estimate as a way to assess uncertainty in parameters ([Edwards 1992](https://www.press.jhu.edu/books/title/1877/likelihood)). While standard errors computed from the [Hessian matrix](https://en.wikipedia.org/wiki/Hessian_matrix) are always symmetric around the point estimate, the log-likelihood surface might not be (multivariate) normal. The reported upper and lower parameter estimates are therefore often not symmetrical around the maximum likelihood parameter estimates.
+2. Estimating parameters in a model using maximum likelihood always run the risk of returning parameters from a local and not a global optimum in the likelihood landscape. Investigating the support surface for combinations of parameters is one way to explore the topology of the likelihood-surface.
+3. Ridges in the log-likelihood surface can make it challenging to identify maximum likelihood estimates of the model parameters in certain cases. Flat ridges may for example cause identifiability issues and problems for the model to converge. Investigating the log-likelihood surface can therefore help diagnose challenges related to failures of model convergence.
 
 The evoTS package contain functions to create likelihood surfaces for univariate models in evoTS and paleoTS (e.g., `loglik.surface.stasis`, `loglik.surface.URW`, `loglik.surface.GRW`, `loglik.surface.OU`). These functions need a paleoTS object and vectors containing candidate values for the parameters to be evaluated. Which candidate values to investigate is trial-and-error, but the maximum likelihood estimate of the parameter should always be in the interval.
 
 For the decelerated model of evolution, the vectors given to the arguments `vstep.vec` and `r.vec` define the pairwise combinations of parameters for which the function will estimate the log-likelihood. The resolution of the input vectors therefore determines how accurate the visual representation of the support surface is, including the returned upper and lower estimates printed in the console. A higher resolution gives better precision, but demands more computation time. Note that the computed support surface is conditional on the best estimates of the other model parameters that are not part of the support surface (e.g., the estimated ancestral trait value is assumed to be 3.7195253 in the example below).
 
-One way to define the candidate values is to use the `seq` function.
+One way to define the candidate values is to use the `seq` function:
+
+```r
+> loglik.surface.decel(ln.diameter, vstep.vec = seq(0,1.3,0.01), r.vec = seq(-5,0,0.01))
+      lower upper
+vstep  0.18  1.26
+r     -3.23 -0.21
+```
+
