@@ -161,3 +161,7 @@ $$
 E[z_i] = e^{(-\alpha t_i)}z_0 + (1-e^{-\alpha t_i})\theta
 $$
 
+$$
+Var[z_i] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{(-2\aplha t_i)}) + \sigma^2_{\theta} t_i \left[\frac{1-2(1-e^{-\alpha t_i})}{\alpha t_i} \right] + \epsilon_i
+$$
+
