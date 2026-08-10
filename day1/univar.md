@@ -135,3 +135,5 @@ A support surface can be produced using the `loglik.surface.accel` function:
 vstep 0.090  5.00
 r     0.035  1.35
 ```
+
+![Accel_logl_surface](/assets/images/accel_logl_surface.png)
