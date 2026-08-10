@@ -70,7 +70,7 @@ attr(,"class")
 
 The output returns the log-likelihood of the model parameters (logl), the AICc score (AICc), the number (K) of estimated parameters (parameters), the length of the analysed time series (n), the model name (modelName) and the method used to parameterise the model (method). Under parameters, _anc_ is the estimated ancestral trait value, _vstep_ is the initial value for the step distribution, and _r_ describes the exponential decay in the $v_{step}$ parameter through time.
 
-The time it takes to half the net rate of evolution can be calculated based on the value of $r$ using $\frac{−𝑙𝑛(2)}{𝑟}$. The half-life parameter is interpreted based on the time-scale used when analysing the data. Since time from start to end in our data has been scaled to unit length, the estimated half-life represent the percent of the total length of the time series it takes for the rate of evolution to half. The half-life is $\frac{-ln(2)}{-1.3114667} = 0.53$ in this example. The total length of the analyzed time series is 13 728 years, which means it takes $13728 * 0.53 = 7276$ years for the net rate of evolution to be reduced by 50%.
+The time it takes to half the net rate of evolution can be calculated based on the value of $r$ using $\frac{−𝑙𝑛(2)}{𝑟}$. The half-life parameter is interpreted based on the time-scale used when analysing the data. Since time from start to end in our data has been scaled to unit length, the estimated half-life represent the percent of the total length of the time series it takes for the rate of evolution to half. The half-life is $\frac{-ln(2)}{-1.3114667} = 0.53$ in this example. The total length of the analyzed time series is 13 728 years, which means it takes $13728 \times 0.53 = 7276$ years for the net rate of evolution to be reduced by 50%.
 
 What are the uncertainty of the estimated parameters in this model? Standard errors of the parameters are returned by setting `hess = TRUE` when fitting a model. The standard errors are calculated based on the [Hessian matrix](https://en.wikipedia.org/wiki/Hessian_matrix), which is a square matrix of partial second order derivatives.
 
@@ -107,7 +107,19 @@ The accelerated evolution model is identical to the decelerated model except tha
 The accelerated evolution model can be fitted using the `opt.joint.accel` function:
 
 ```r
+> opt.joint.accel(ln.diameter)
+$logL
+[1] 77.57017
 
+$AICc
+[1] -148.7336
+
+$parameters
+      anc     vstep         r 
+3.7104896 0.2387427 0.0000010 
+
+$modelName
+[1] "Accel"
 
 $method
 [1] "Joint"
