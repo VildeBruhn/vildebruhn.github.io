@@ -162,6 +162,10 @@ E[z_i] = e^{(-\alpha t_i)}z_0 + (1-e^{-\alpha t_i})\theta
 $$
 
 $$
-Var[z_i] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{(-2\aplha t_i)}) + \sigma^2_{\theta} t_i \left[\frac{1-2(1-e^{-\alpha t_i})}{\alpha t_i} \right] + \epsilon_i
+Var[z_i] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{(-2\alpha t_i)}) + \sigma^2_{\theta} t_i \left[\frac{1-2(1-e^{-\alpha t_i})}{\alpha t_i} \right] + \epsilon_i
+$$
+
+$$
+Cov[z_i, z_j] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{(-2\alpha t_a)}) e^{-\alpha t_{ij}} + \sigma^2_{\theta} t_a \left[\frac{1-(1+e^{-\alpha t_{ij})(1-e^{-\alpha t_a})}{\alpha t_i} \right]
 $$
 
