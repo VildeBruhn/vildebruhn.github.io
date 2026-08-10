@@ -95,3 +95,4 @@ vstep  0.18  1.26
 r     -3.23 -0.21
 ```
 
+![Decel_logl_surface](/assets/images/decel_logl_surface.png)
