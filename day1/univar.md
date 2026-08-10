@@ -98,3 +98,40 @@ r     -3.23 -0.21
 ![Decel_logl_surface](/assets/images/decel_logl_surface.png)
 
 From the likelihood surface and from the printed confidence intervals, we see that $r$ values between -3.23 and -0.21 are within 2 log-likelihood units from the best estimate for this parameter. This suggests we should be careful to exclude the possibility that the half-life of the decay in the rate of evolution is as much as 330% (45 312 years) or as low as 21% (2 946 years) of the investigated time interval.
+
+
+## Accelerated-evolution model
+
+The accelerated evolution model is identical to the decelerated model except that the $r$ parameter is constrained to be 0 or larger, which means the rate of evolution is accelerating with time.
+
+The accelerated evolution model can be fitted using the `opt.joint.accel` function:
+
+```r
+
+
+$method
+[1] "Joint"
+
+$se
+NULL
+
+$K
+[1] 3
+
+$n
+[1] 63
+
+attr(,"class")
+[1] "paleoTSfit"
+```
+
+The accelerated evolution model has a lower (worse) log-likelihood and higher (worse) AICc score compared to the decelerated model of evolution.
+
+A support surface can be produced using the `loglik.surface.accel` function:
+
+```r
+> loglik.surface.accel(ln.diameter, vstep = seq(0,5,0.01), r.vec = seq(0,1.5, 0.005))
+      lower upper
+vstep 0.090  5.00
+r     0.035  1.35
+```
