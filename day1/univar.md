@@ -68,7 +68,7 @@ attr(,"class")
 [1] "paleoTSfit"
 ```
 
-The output returns the log-likelihood of the model parameters ($\text{$logl}$), the AICc score ($\text{$AICc}$), the number ($\text{$K}$) of estimated parameters ($\text{$parameters}$), the length of the analysed time series ($\text{$n}$), the model name ($\text{$modelName}$) and the method used to parameterise the model ($\text{$method}). Under $\text{$parameters}$, _anc_ is the estimated ancestral trait value, _vstep_ is the initial value for the step distribution, and _r_ describes the exponential decay in the $v_{step}$ parameter through time.
+The output returns the log-likelihood of the model parameters (logl), the AICc score (AICc), the number (K) of estimated parameters (parameters), the length of the analysed time series (n), the model name (modelName) and the method used to parameterise the model (method). Under parameters, _anc_ is the estimated ancestral trait value, _vstep_ is the initial value for the step distribution, and _r_ describes the exponential decay in the $v_{step}$ parameter through time.
 
 The time it takes to half the net rate of evolution can be calculated based on the value of $r$ using $\frac{−𝑙𝑛(2)}{𝑟}$. The half-life parameter is interpreted based on the time-scale used when analysing the data. Since time from start to end in our data has been scaled to unit length, the estimated half-life represent the percent of the total length of the time series it takes for the rate of evolution to half. The half-life is $\frac{-ln(2)}{-1.3114667} = 0.53$ in this example. The total length of the analyzed time series is 13 728 years, which means it takes $13728 * 0.53 = 7276$ years for the net rate of evolution to be reduced by 50%.
 
