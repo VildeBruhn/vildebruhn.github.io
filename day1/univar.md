@@ -26,5 +26,5 @@ E[z_i] = z_0
 $$
 
 $$
-Var[z_i] = \sigma^2_{step.0}\bigl[\frac{e^{rt_i}-1}{r}\bigr] + \epsilon_i
+Var[z_i] = \sigma^2_{step.0}\left[\frac{e^{rt_i}-1}{r}\right] + \epsilon_i
 $$
