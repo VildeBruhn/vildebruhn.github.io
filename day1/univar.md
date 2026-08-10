@@ -28,3 +28,7 @@ $$
 $$
 Var[z_i] = \sigma^2_{step.0}\left[\frac{e^{rt_i}-1}{r}\right] + \epsilon_i
 $$
+
+$$
+Cov[z_i, z_j] = \sigma^2_{step.0}\left[\frac{e^{rt_{min}} - 1}{r}\right]
+$$
