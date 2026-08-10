@@ -169,3 +169,78 @@ $$
 Cov[z_i, z_j] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{(-2\alpha t_a)}) e^{-\alpha t_{ij}} + \sigma^2_{\theta} t_a \left[\frac{1-(1+e^{-\alpha t_{ij}})(1-e^{-\alpha t_a})}{\alpha t_i} \right]
 $$
 
+where $z_i$ is the expected trait value for the $i\text{th}$ sample, $z_0$ is the ancestral trait mean, $t_i$ is the time interval from the ancestral population mean (the start of the time series, which has a time of 0) to the $i\text{th}$ sample, $\theta$ is the optimum, $\alpha$ measures the rate of adaptation to the optimum, $\sigma^2_{step} is the variance of the stochastic perturbations of $z$, and $\sigma^2_{\theta}$ is the variance of the stochastic perturbations of the optimum, $t_a$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$, and $t_{ij} is the time separating two samples $z_i$ and $z_j$. The estimation (sampling) error $\epsilon_i$ of the population means contribute to the expected variance between two population means.
+
+The model can be fitted using the `opt.joint.OUBM function`:
+
+```r
+> opt.joint.OUBM(ln.diameter)
+$logL
+[1] 78.5667
+
+$AICc
+[1] -148.4437
+
+$parameters
+anc/theta.0 vstep.trait       alpha   vstep.opt 
+ 3.71050957  0.25577371  4.45009756  0.00000001 
+
+$modelName
+[1] "OU model with moving optimum (ancestral state at optimum)"
+
+$method
+[1] "Joint"
+
+$K
+[1] 4
+
+$n
+[1] 63
+
+$iter
+[1] NA
+
+$se
+NULL
+
+attr(,"class")
+[1] "paleoTSfit"
+```
+
+The _vstep.opt_ parameter describes the rate of change in the optimum. This is extremely small (virtually zero) in the example above, which means the optimum is essentially fixed. The alpha in the OU model represents the strength of the pull towards the optimum ([Hansen 1997](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1558-5646.1997.tb01457.x)). A parameter that is easier to interpret compared to the alpha is the half-life, $\frac{ln(2){\alpha}$, which is the time it takes for the trait to move half-way from the ancestral state to the optimum. The half life is therefore a quantification of the speed of adaptation towards the optimal state. As for the decelerated and accelerated models of evolution, the interpretation of the half-life depends on the time interval covered by the time series. Since the time interval of the time series we analyse is scaled to unit length (i.e., the time from the start to the end of the time series is 1), this means the half-life can be interpreted as the percent of the total length of the time series. The half-life in our example is $\frac{ln(2){\alpha} = 0.16$. According to this point estimate, it takes the trait 16% of the total length of the time series to evolve half-way towards the optimum, which is about $13728 years \times 0.16 = 2197 years$.
+
+Note that the name of the first reported parameter is _anc/theta.0_. This parameter represents the ancestral trait value, but also the value of the “ancestral” optimum. The default option in the `opt.joint.OUBM` function is to assume that the trait was perfectly adapted at the start of the time series (the argument `anc.opt = TRUE`), but this can be changed by setting `anc.opt = FALSE`, like this:
+
+```r
+> opt.joint.OUBM(ln.diameter, opt.anc  = FALSE)
+$logL
+[1] 80.71298
+
+$AICc
+[1] -150.3733
+
+$parameters
+        anc vstep.trait     theta.0       alpha   vstep.opt 
+ 3.70316688  0.27295686  3.89044533 11.89309009  0.00000001 
+
+$modelName
+[1] "OU model with moving optimum"
+
+$method
+[1] "Joint"
+
+$K
+[1] 5
+
+$n
+[1] 63
+
+$iter
+[1] NA
+
+$se
+NULL
+
+attr(,"class")
+[1] "paleoTSfit"
+```
