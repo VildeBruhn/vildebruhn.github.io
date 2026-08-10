@@ -166,6 +166,6 @@ Var[z_i] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e
 $$
 
 $$
-Cov[z_i, z_j] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{(-2\alpha t_a)}) e^{-\alpha t_{ij}} + \sigma^2_{\theta} t_a \left[\frac{1-(1+e^{-\alpha t_{ij})(1-e^{-\alpha t_a})}{\alpha t_i} \right]
+Cov[z_i, z_j] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{(-2\alpha t_a)}) e^{-\alpha t_{ij}} + \sigma^2_{\theta} t_a \left[\frac{1-(1+e^{-\alpha t_{ij}})(1-e^{-\alpha t_a})}{\alpha t_i} \right]
 $$
 
