@@ -32,7 +32,9 @@ You can also see the [paleoTS vignette](https://cran.r-project.org/web/packages/
 
 ## Data included in evoTS
 
-Two evolutionary sequences (time series) of phenotypic change are included in the evoTS package. The data are from the diatom lineage _Stephanodiscus yellowstonensis_ and were originally published in [Theriot _et al._ (2006)](https://www.cambridge.org/core/journals/paleobiology/article/abs/late-quaternary-rapid-morphological-evolution-of-an-endemic-diatom-in-yellowstone-lake-wyoming/B28737E2C2B8FBEC5D0577B5757401A5). Each trait consists of 63 samples spanning almost 14 000 years of phenotypic change.
+Two evolutionary sequences (time series) of phenotypic change are included in the evoTS package. The data are from the diatom lineage _Stephanodiscus yellowstonensis_ and were originally published in [Theriot _et al._ (2006)](https://www.cambridge.org/core/journals/paleobiology/article/abs/late-quaternary-rapid-morphological-evolution-of-an-endemic-diatom-in-yellowstone-lake-wyoming/B28737E2C2B8FBEC5D0577B5757401A5). Each trait (number of ribs and the diameter) consists of 63 samples spanning almost 14 000 years of phenotypic change.
+
+You can access the data by typing ```ribs_S.yellowstonensis```or ```diameter_S.yellowstonensis```. 
 
 We will use these data to illustrate many of the functions implemented in evoTS.
 
