@@ -29,6 +29,7 @@ In an unbiased random walk, trait changes are drawn randomly from a normal distr
 determining the magnitude of the fluctuations around the mean. When the mean is zero, we have an unbiased random walk with no specific direction ([Hunt 2006](https://www.cambridge.org/core/journals/paleobiology/article/abs/fitting-and-comparing-models-of-phyletic-evolution-random-walks-and-beyond/1B03F54C04ED6174FDE9672E63DAD0D2)). 
 
 ![Unbiased random walk](/assets/images/URW.png)
+*[Kinneberg and Voje (2026)](https://academic.oup.com/evolut/article/80/1/97/8280398)*
 
 When the mean is not equal to zero, the changes have an average direction and are biased towards an increase (positive $\mu_{step}$) or decrease (negative $\mu_{step}$) of the trait mean over time. This biased version of the model is what is often referred to as a general random walk model, trend model, or directional evolution. Here, we will use the term general random walk. Both the unbiased and general random walk are originally composed of the two parameters $\mu_{step}$ and $\sigma^2_{step}$, with a third parameter, the ancestral state ($z_0$), which is part of the calculation of the expected mean trait at time $t_i$.
 
