@@ -55,135 +55,10 @@ The decelerated model of evolution can be fitted to a time series using the `opt
 
 ## Ornstein-Uhlenbeck processes
 
-The last three single-mode models are different versions of an Ornstein-Uhlenbeck (OU) process. The OU process consists of a stochastic and a deterministic part. The stochastic part is similar to the unbiased random walk, while the deterministic part allows the trait to evolve towards an optimal trait value ($\theta$). The strength of attraction towards the optimum is determined by the $\alpha$ parameter (Hansen 1997; Hunt et al. 2008). In the simplest OU model, the optimum is fixed (Hunt et al. 2008). The OU model with a moving optimum is defined when allowing for the optimum to move according to an unbiased random walk with the variance 𝜎²𝜃 (Hansen et al. 2008; Voje 2023). A special case of this latter model is when the ancestral trait state has the same value as the ancestral optimum (Voje 2023). 
+The last three single-mode models are different versions of an Ornstein-Uhlenbeck (OU) process. The OU process consists of a stochastic and a deterministic part. The stochastic part is similar to the unbiased random walk, while the deterministic part allows the trait to evolve towards an optimal trait value ($\theta$). The strength of attraction towards the optimum is determined by the $\alpha$ parameter ([Hansen 1997](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1558-5646.1997.tb01457.x); Hunt et al. 2008). In the simplest OU model, the optimum is fixed ([Hunt et al. 2008](https://academic.oup.com/evolut/article-abstract/62/3/700/6853647)). The OU model with a moving optimum is defined when allowing for the optimum to move according to an unbiased random walk with the variance $\sigma^2_{\theta}$ [Hansen et al. (2008)](https://academic.oup.com/evolut/article-abstract/62/8/1965/6853095); [Voje 2023](https://www.cambridge.org/core/journals/paleobiology/article/fitting-and-evaluating-univariate-and-multivariate-models-of-withinlineage-evolution/8F16773B4F432B702D030675ABE5BAFD)). A special case of this latter model is when the ancestral trait state has the same value as the ancestral optimum ([Voje 2023](https://www.cambridge.org/core/journals/paleobiology/article/fitting-and-evaluating-univariate-and-multivariate-models-of-withinlineage-evolution/8F16773B4F432B702D030675ABE5BAFD)). 
 
 
-
-## Decelerated-evolution model
-
-
-
-The decelerated model of evolution can be fitted to a time series using the `opt.joint.decel` function, like this:
-
-```r
-> opt.joint.decel(ln.diameter)
-$logL
-[1] 78.67217
-
-$AICc
-[1] -150.9376
-
-$parameters
-       anc      vstep          r 
- 3.7195253  0.4308633 -1.3114667 
-
-$modelName
-[1] "Decel"
-
-$method
-[1] "Joint"
-
-$se
-NULL
-
-$K
-[1] 3
-
-$n
-[1] 63
-
-attr(,"class")
-[1] "paleoTSfit"
-```
-
-The output returns the log-likelihood of the model parameters (logl), the AICc score (AICc), the number (K) of estimated parameters (parameters), the length of the analysed time series (n), the model name (modelName) and the method used to parameterise the model (method). Under parameters, _anc_ is the estimated ancestral trait value, _vstep_ is the initial value for the step distribution, and _r_ describes the exponential decay in the $v_{step}$ parameter through time.
-
-The time it takes to half the net rate of evolution can be calculated based on the value of $r$ using $\frac{−𝑙𝑛(2)}{𝑟}$. The half-life parameter is interpreted based on the time-scale used when analysing the data. Since time from start to end in our data has been scaled to unit length, the estimated half-life represent the percent of the total length of the time series it takes for the rate of evolution to half. The half-life is $\frac{-ln(2)}{-1.3114667} = 0.53$ in this example. The total length of the analyzed time series is 13 728 years, which means it takes $13728 \times 0.53 = 7276$ years for the net rate of evolution to be reduced by 50%.
-
-What are the uncertainty of the estimated parameters in this model? Standard errors of the parameters are returned by setting `hess = TRUE` when fitting a model. The standard errors are calculated based on the [Hessian matrix](https://en.wikipedia.org/wiki/Hessian_matrix), which is a square matrix of partial second order derivatives.
-
-Another way to assess the uncertainty of the estimated parameters is to explore the likelihood-surface of the fitted model.
-
-Investigating the likelihood surface can be helpful for several reasons.
-
-1. Computing the likelihood surface is a great way to explore which parameter combinations that have an almost identical likelihood compared to the maximum likelihood values. Investigating the log-likelihood surface is also an approach to assess uncertainty in the estimated parameters. A large range of parameter values that have almost the same log-likelihood is an indication that we should be careful putting too much emphasis on only the maximum-likelihood (best) estimates of the parameters. The functions in evoTS calculating log-likelihood surfaces report the upper and lower parameter estimates that are within two support units of the best estimate as a way to assess uncertainty in parameters ([Edwards 1992](https://www.press.jhu.edu/books/title/1877/likelihood)). While standard errors computed from the [Hessian matrix](https://en.wikipedia.org/wiki/Hessian_matrix) are always symmetric around the point estimate, the log-likelihood surface might not be (multivariate) normal. The reported upper and lower parameter estimates are therefore often not symmetrical around the maximum likelihood parameter estimates.
-2. Estimating parameters in a model using maximum likelihood always run the risk of returning parameters from a local and not a global optimum in the likelihood landscape. Investigating the support surface for combinations of parameters is one way to explore the topology of the likelihood-surface.
-3. Ridges in the log-likelihood surface can make it challenging to identify maximum likelihood estimates of the model parameters in certain cases. Flat ridges may for example cause identifiability issues and problems for the model to converge. Investigating the log-likelihood surface can therefore help diagnose challenges related to failures of model convergence.
-
-The evoTS package contain functions to create likelihood surfaces for univariate models in evoTS and paleoTS (e.g., `loglik.surface.stasis`, `loglik.surface.URW`, `loglik.surface.GRW`, `loglik.surface.OU`). These functions need a paleoTS object and vectors containing candidate values for the parameters to be evaluated. Which candidate values to investigate is trial-and-error, but the maximum likelihood estimate of the parameter should always be in the interval.
-
-For the decelerated model of evolution, the vectors given to the arguments `vstep.vec` and `r.vec` define the pairwise combinations of parameters for which the function will estimate the log-likelihood. The resolution of the input vectors therefore determines how accurate the visual representation of the support surface is, including the returned upper and lower estimates printed in the console. A higher resolution gives better precision, but demands more computation time. Note that the computed support surface is conditional on the best estimates of the other model parameters that are not part of the support surface (e.g., the estimated ancestral trait value is assumed to be 3.7195253 in the example below).
-
-One way to define the candidate values is to use the `seq` function:
-
-```r
-> loglik.surface.decel(ln.diameter, vstep.vec = seq(0,1.3,0.01), r.vec = seq(-5,0,0.01))
-      lower upper
-vstep  0.18  1.26
-r     -3.23 -0.21
-```
-
-![Decel_logl_surface](/assets/images/decel_logl_surface.png)
-
-From the likelihood surface and from the printed confidence intervals, we see that $r$ values between -3.23 and -0.21 are within 2 log-likelihood units from the best estimate for this parameter. This suggests we should be careful to exclude the possibility that the half-life of the decay in the rate of evolution is as much as 330% (45 312 years) or as low as 21% (2 946 years) of the investigated time interval.
-
-
-## Accelerated-evolution model
-
-The accelerated evolution model is identical to the decelerated model except that the $r$ parameter is constrained to be 0 or larger, which means the rate of evolution is accelerating with time.
-
-The accelerated evolution model can be fitted using the `opt.joint.accel` function:
-
-```r
-> opt.joint.accel(ln.diameter)
-$logL
-[1] 77.57017
-
-$AICc
-[1] -148.7336
-
-$parameters
-      anc     vstep         r 
-3.7104896 0.2387427 0.0000010 
-
-$modelName
-[1] "Accel"
-
-$method
-[1] "Joint"
-
-$se
-NULL
-
-$K
-[1] 3
-
-$n
-[1] 63
-
-attr(,"class")
-[1] "paleoTSfit"
-```
-
-The accelerated evolution model has a lower (worse) log-likelihood and higher (worse) AICc score compared to the decelerated model of evolution.
-
-A support surface can be produced using the `loglik.surface.accel` function:
-
-```r
-> loglik.surface.accel(ln.diameter, vstep = seq(0,5,0.01), r.vec = seq(0,1.5, 0.005))
-      lower upper
-vstep 0.090  5.00
-r     0.035  1.35
-```
-
-![Accel_logl_surface](/assets/images/accel_logl_surface.png)
-
-The 3D plot can be rotated vertically and horizontally to get a better overview of the likelihood surface, which is why the observation angle is different for this 3D plot compared to the 3D plot for the decelerated model.
-
-
-## Ornstein-Uhlenbeck model with moving optimum
-
-An Ornstein-Uhlenbeck model describes the evolution of a trait towards an optimum. The paleoTS package includes an Ornstein-Uhlenbeck (OU) model of evolution with a single, fixed optimum ([Hunt et al. 2008](https://academic.oup.com/evolut/article-abstract/62/3/700/6853647)), portraying evolutionary adaptation of a trait towards a fixed peak on the adaptive landscape. However, peaks in the adaptive landscape might not be fixed and the evoTS package contains functions to fit OU models where the optimum (peak) is constantly changing position according to an unbiased random walk. Such a model was proposed by [Hansen et al. (2008)](https://academic.oup.com/evolut/article-abstract/62/8/1965/6853095) for analyses of phylogenetic comparative data. Adjusted to describe phenotypic evolution within a single lineage, the expected trait mean and its variance and covariance are given by the following expressions:
+An Ornstein-Uhlenbeck model adjusted to describe phenotypic evolution within a single lineage has the expected trait mean and its variance and covariance are given by the following expressions:
 
 $$
 E[z_i] = e^{(-\alpha t_i)}z_0 + (1-e^{-\alpha t_i})\theta
@@ -197,9 +72,19 @@ $$
 Cov[z_i, z_j] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{(-2\alpha t_a)}) e^{-\alpha t_{ij}} + \sigma^2_{\theta} t_a \left[\frac{1-(1+e^{-\alpha t_{ij}})(1-e^{-\alpha t_a})}{\alpha t_i} \right]
 $$
 
-where $z_i$ is the expected trait value for the $i\text{th}$ sample, $z_0$ is the ancestral trait mean, $t_i$ is the time interval from the ancestral population mean (the start of the time series, which has a time of 0) to the $i\text{th}$ sample, $\theta$ is the optimum, $\alpha$ measures the rate of adaptation to the optimum, $\sigma^2_{step}$ is the variance of the stochastic perturbations of $z$, and $\sigma^2_{\theta}$ is the variance of the stochastic perturbations of the optimum, $t_a$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$, and $t_{ij}$ is the time separating two samples $z_i$ and $z_j$. The estimation (sampling) error $\epsilon_i$ of the population means contribute to the expected variance between two population means.
+where 
+- $z_i$ is the expected trait value for the $i\text{th}$ sample
+- $z_0$ is the ancestral trait mean
+- $t_i$ is the time interval from the ancestral population mean (the start of the time series, which has a time of 0) to the $i\text{th}$ sample
+- $\theta$ is the optimum
+- $\alpha$ measures the rate of adaptation to the optimum
+- $\sigma^2_{step}$ is the variance of the stochastic perturbations of $z$
+- $\sigma^2_{\theta}$ is the variance of the stochastic perturbations of the optimum
+- $t_a$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$
+- $t_{ij}$ is the time separating two samples $z_i$ and $z_j$
+- The estimation (sampling) error $\epsilon_i$ of the population means contribute to the expected variance between two population means
 
-The model can be fitted using the `opt.joint.OUBM function`:
+The OU model with a moving optimum can be fitted using the `opt.joint.OUBM function`.
 
 ```r
 > opt.joint.OUBM(ln.diameter)
