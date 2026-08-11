@@ -111,7 +111,7 @@ The last three single-mode models are different versions of an Ornstein-Uhlenbec
 
 The Ornstein-Uhlenbeck models adjusted to describe phenotypic evolution within a single lineage has the expected trait mean and its variance and covariance are given by the following expressions:
 
-<big>_OU with fixed optimum_</big>
+#### _OU with fixed optimum_
 
 $$
 E[z_i] = e^{-\alpha t_i}z_0 + (1-e^{-\alpha t_i})\theta
@@ -125,7 +125,7 @@ $$
 Cov[z_i, z_j] = \left[\frac{\sigma^2_{step}}{2\alpha}\right] e^{-\alpha t_{ij}} (1-e^{-2\alpha t_{min}}) 
 $$
 
-#### _OU with moving optimum_ #### 
+#### _OU with moving optimum_  
 
 $$
 E[z_i] = e^{-\alpha t_i}z_0 + (1-e^{-\alpha t_i})\theta
