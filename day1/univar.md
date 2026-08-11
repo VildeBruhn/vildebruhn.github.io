@@ -19,7 +19,28 @@ The following additional univariate models have been implemented in the evoTS pa
 
 ## Stasis and strict stasis
 
-The stasis model is a white noise process composed of two parameters, the optimal phenotype ($\theta$) and the variance ($\omega$). The trait means are normally distributed with the mean equal to $\theta$ and the variance equal to $\omega$ ([Hunt 2006](https://www.cambridge.org/core/journals/paleobiology/article/abs/fitting-and-comparing-models-of-phyletic-evolution-random-walks-and-beyond/1B03F54C04ED6174FDE9672E63DAD0D2)). When the variance is zero, there are no true fluctuations around the optimum (except those explained by sampling error alone), and the model collapses to strict stasis with only one parameter ($\theta$; [Hunt et al. 2015](https://www.pnas.org/doi/abs/10.1073/pnas.1403662111)). 
+The stasis model is a white noise process composed of two parameters, the optimal phenotype ($\theta$) and the variance ($\omega$). The trait means are normally distributed with the mean equal to $\theta$ and the variance equal to $\omega$ ([Hunt 2006](https://www.cambridge.org/core/journals/paleobiology/article/abs/fitting-and-comparing-models-of-phyletic-evolution-random-walks-and-beyond/1B03F54C04ED6174FDE9672E63DAD0D2)). The expected trait mean and its variance and covariance are given by the following expressions:
+
+$$
+E[z_i] = \theta
+$$
+
+$$
+Var[z_i] = \omega + \epsilon_i
+$$
+
+$$
+Cov[z_i, z_j] = \omega t_{min}
+$$
+
+where 
+- $z_i$ is the expected trait value for population $i$ in the time series
+- $\theta$ is the optimum trait value
+- $\omega$ is the variance of the trait values
+- $\epsilon_i$ is the sampling error influencing the variance in each sample $i$ 
+- $t_{min}$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$.
+
+When the variance is zero, there are no true fluctuations around the optimum (except those explained by sampling error alone), and the model collapses to strict stasis with only one parameter ($\theta$; [Hunt et al. 2015](https://www.pnas.org/doi/abs/10.1073/pnas.1403662111)). 
 
 
 ## Unbiased random walk and general random walk
