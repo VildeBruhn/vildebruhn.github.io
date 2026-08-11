@@ -50,10 +50,8 @@ where
 - $z_0$ is the ancestral trait mean
 - $\sigma^2_{step}$ is the step distribution
 - $t_i$ is the time interval from the ancestral population mean (the start of the fossil sequence, which has a time of 0) to the $i\text{th}$ population
-- The variance in each sample $i$ is influenced by the sampling error, $\epsilon_i$
+- $\epsilon_i$ is the sampling error influencing the variance in each sample $i$ 
 - $t_{min}$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$.
-
-
 
 
 ## Decelerated and accelerated evolution
