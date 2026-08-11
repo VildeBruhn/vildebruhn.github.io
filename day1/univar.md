@@ -31,7 +31,29 @@ determining the magnitude of the fluctuations around the mean. When the mean is 
 ![Unbiased random walk](/assets/images/URW.png)
 <small>Figure from [Kinneberg and Voje (2026)](https://academic.oup.com/evolut/article/80/1/97/8280398)</small>
 
-When the mean is not equal to zero, the changes have an average direction and are biased towards an increase (positive $\mu_{step}$) or decrease (negative $\mu_{step}$) of the trait mean over time. This biased version of the model is what is often referred to as a general random walk model, trend model, or directional evolution. Here, we will use the term general random walk. Both the unbiased and general random walk are originally composed of the two parameters $\mu_{step}$ and $\sigma^2_{step}$, with a third parameter, the ancestral state ($z_0$), which is part of the calculation of the expected mean trait at time $t_i$.
+When the mean is not equal to zero, the changes have an average direction and are biased towards an increase (positive $\mu_{step}$) or decrease (negative $\mu_{step}$) of the trait mean over time. This biased version of the model is what is often referred to as a general random walk model, trend model, or directional evolution. Here, we will use the term general random walk. Both the unbiased and general random walk are originally composed of the two parameters $\mu_{step}$ and $\sigma^2_{step}$, with a third parameter, the ancestral state ($z_0$), which is part of the calculation of the expected mean trait at time $t_i$. The expected trait mean and its variance and covariance are given by the following expressions:
+
+$$
+E[z_i] = z_0
+$$
+
+$$
+Var[z_i] = \sigma^2_{step} t_i + \epsilon_i
+$$
+
+$$
+Cov[z_i, z_j] = \sigma^2_{step} t_{min}
+$$
+
+where 
+- $z_i$ is the expected trait value for population $i$ in the time series
+- $z_0$ is the ancestral trait mean
+- $\sigma^2_{step}$ is the step distribution
+- $t_i$ is the time interval from the ancestral population mean (the start of the fossil sequence, which has a time of 0) to the $i\text{th}$ population
+- The variance in each sample $i$ is influenced by the sampling error, $\epsilon_i$
+- $t_{min}$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$.
+
+
 
 
 ## Decelerated and accelerated evolution
