@@ -3,3 +3,7 @@ description: "Workshop materials and resources"
 
 markdown: kramdown
 highlighter: rouge
+
+kramdown:
+  input: GFM
+  math_engine: mathjax
