@@ -30,7 +30,7 @@ Var[z_i] = \omega + \epsilon_i
 $$
 
 $$
-Cov[z_i, z_j] = \omega
+Cov[z_i, z_j] = 0
 $$
 
 where 
