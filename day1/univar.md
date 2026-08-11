@@ -41,6 +41,8 @@ where
 
 When the variance is zero, there are no true fluctuations around the optimum (except those explained by sampling error alone), and the model collapses to strict stasis with only one parameter ($\theta$; [Hunt et al. 2015](https://www.pnas.org/doi/abs/10.1073/pnas.1403662111)). 
 
+The stasis model can be fitted using the `paleoTS::opt.joint.Stasis` function, and strict stasis using the `paleoTS::opt.joint.StrictStasis` function.
+
 
 ## Unbiased random walk and general random walk
 
@@ -72,6 +74,8 @@ where
 - $t_i$ is the time interval from the ancestral population mean (the start of the fossil sequence, which has a time of 0) to the $i\text{th}$ population
 - $\epsilon_i$ is the sampling error influencing the variance in each sample $i$ 
 - $t_{min}$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$.
+
+The unbiased random walk model can be fitted using the `paleoTS::opt.joint.URW` function, and general random walk using the `paleoTS::opt.joint.GRW` function.
 
 
 ## Decelerated and accelerated evolution
@@ -131,5 +135,5 @@ where
 - $t_{ij}$ is the time separating two samples $z_i$ and $z_j$
 - The estimation (sampling) error $\epsilon_i$ of the population means contribute to the expected variance between two population means
 
-The OU model with a moving optimum can be fitted using the `opt.joint.OUBM function`.
+The OU model with a moving optimum can be fitted using the `opt.joint.OUBM` function.
 
