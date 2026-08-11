@@ -137,5 +137,5 @@ where
 
 The OU model with a fixed optimum can be fitted using the `paleoTS::opt.joint.OU` function.
 The OU model with a moving optimum can be fitted using the `opt.joint.OUBM` function.
-The OU model with a moving optimum and with the ancestral state at optimum can be fitted using the `opt.joint.OUBM` function, specifying `opt.anc = TRUE`.
+The OU model with a moving optimum and with the ancestral state at optimum can be fitted using the `opt.joint.OUBM` function together with the argument `opt.anc = TRUE`.
 
