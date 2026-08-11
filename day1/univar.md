@@ -114,7 +114,7 @@ The Ornstein-Uhlenbeck models adjusted to describe phenotypic evolution within a
 #### _OU with fixed optimum_ #### 
 
 $$
-E[z_i] = e^{(-\alpha t_i)}z_0 + (1-e^{-\alpha t_i})\theta
+E[z_i] = e^{-\alpha t_i}z_0 + (1-e^{-\alpha t_i})\theta
 $$
 
 $$
@@ -128,7 +128,7 @@ $$
 #### _OU with moving optimum_ #### 
 
 $$
-E[z_i] = e^{(-\alpha t_i)}z_0 + (1-e^{-\alpha t_i})\theta
+E[z_i] = e^{-\alpha t_i}z_0 + (1-e^{-\alpha t_i})\theta
 $$
 
 $$
