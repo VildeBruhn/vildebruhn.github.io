@@ -109,7 +109,23 @@ The decelerated model of evolution can be fitted to a time series using the `opt
 The last three single-mode models are different versions of an Ornstein-Uhlenbeck (OU) process. The OU process consists of a stochastic and a deterministic part. The stochastic part is similar to the unbiased random walk, while the deterministic part allows the trait to evolve towards an optimal trait value ($\theta$). The strength of attraction towards the optimum is determined by the $\alpha$ parameter ([Hansen 1997](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1558-5646.1997.tb01457.x); Hunt et al. 2008). In the simplest OU model, the optimum is fixed ([Hunt et al. 2008](https://academic.oup.com/evolut/article-abstract/62/3/700/6853647)). The OU model with a moving optimum is defined when allowing for the optimum to move according to an unbiased random walk with the variance $\sigma^2_{\theta}$ [Hansen et al. (2008)](https://academic.oup.com/evolut/article-abstract/62/8/1965/6853095); [Voje 2023](https://www.cambridge.org/core/journals/paleobiology/article/fitting-and-evaluating-univariate-and-multivariate-models-of-withinlineage-evolution/8F16773B4F432B702D030675ABE5BAFD)). A special case of this latter model is when the ancestral trait state has the same value as the ancestral optimum ([Voje 2023](https://www.cambridge.org/core/journals/paleobiology/article/fitting-and-evaluating-univariate-and-multivariate-models-of-withinlineage-evolution/8F16773B4F432B702D030675ABE5BAFD)). 
 
 
-An Ornstein-Uhlenbeck model adjusted to describe phenotypic evolution within a single lineage has the expected trait mean and its variance and covariance are given by the following expressions:
+The Ornstein-Uhlenbeck models adjusted to describe phenotypic evolution within a single lineage has the expected trait mean and its variance and covariance are given by the following expressions:
+
+### _OU with fixed optimum_ ### 
+
+$$
+E[z_i] = e^{(-\alpha t_i)}z_0 + (1-e^{-\alpha t_i})\theta
+$$
+
+$$
+Var[z_i] = \left[\frac{\sigma^2_{step}}{2\alpha}\right] (1-e^{(-2\alpha t_i)}) + \epsilon_i
+$$
+
+$$
+Cov[z_i, z_j] = \left[\frac{\sigma^2_{step}}{2\alpha}\right] e^{-\alpha t_{ij}} (1-e^{(-2\alpha t_{min})}) 
+$$
+
+### _OU with moving optimum_ ### 
 
 $$
 E[z_i] = e^{(-\alpha t_i)}z_0 + (1-e^{-\alpha t_i})\theta
