@@ -37,8 +37,7 @@ where
 - $z_i$ is the expected trait value for population $i$ in the time series
 - $\theta$ is the optimum trait value
 - $\omega$ is the variance of the trait values
-- $\epsilon_i$ is the sampling error influencing the variance in each sample $i$ 
-- $t_{min}$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$.
+- $\epsilon_i$ is the sampling error influencing the variance in each sample $i$
 
 When the variance is zero, there are no true fluctuations around the optimum (except those explained by sampling error alone), and the model collapses to strict stasis with only one parameter ($\theta$; [Hunt et al. 2015](https://www.pnas.org/doi/abs/10.1073/pnas.1403662111)). 
 
