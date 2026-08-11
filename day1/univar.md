@@ -99,7 +99,7 @@ where
 - $z_i$ is the ancestral trait mean
 - $\sigma^2_{step_0}$ is the step distribution
 - $r$ describes the exponential decay or increase in the net rate of change through time and is constrained to be $0$ or smaller for the decelerated evolution model, and $0$ or larger for the accelerated evolution model
-- $t_i$ is the time interval from the ancestral population mean (the start of the fossil sequence, which has a time of $0$) to the $i\text{th}$ population
+- $t_i$ is the time interval from the ancestral population mean (i.e., the start of the time series, which has a time of $0$) to the $i\text{th}$ population
 - $t_{min}$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$.
 
 The decelerated model of evolution can be fitted to a time series using the `opt.joint.decel` function, and the accelerated model by using the `opt.joint.accel` function.
@@ -142,7 +142,7 @@ $$
 where 
 - $z_i$ is the expected trait value for the $i\text{th}$ sample
 - $z_0$ is the ancestral trait mean
-- $t_i$ is the time interval from the ancestral population mean (the start of the time series, which has a time of $0$) to the $i\text{th}$ sample
+- $t_i$ is the time interval from the ancestral population mean (i.e., the start of the time series, which has a time of $0$) to the $i\text{th}$ sample
 - $\theta$ is the optimum
 - $\alpha$ measures the rate of adaptation to the optimum
 - $\sigma^2_{step}$ is the variance of the stochastic perturbations of $z$
