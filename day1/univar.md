@@ -33,7 +33,7 @@ $$
 Cov[z_i, z_j] = \sigma^2_{step_0}\left[\frac{e^{rt_{min}} - 1}{r}\right]
 $$
 
-where $z_i$ is the expected trait value for population i in the time series, $z_i$ is the ancestral trait mean, $\sigma^2_{step_0}$ is the step distribution, $r$ describes the exponential decay in the net rate of change through time and is constrained to be $0$ or smaller, $t_i$ is the time interval from the ancestral population mean (the start of the fossil sequence, which has a time of $0$) to the $i\text{th}$ population, and $t_{min}$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$.
+where $z_i$ is the expected trait value for population i in the time series, $z_i$ is the ancestral trait mean, $\sigma^2_{step_0}$ is the step distribution, $r$ describes the exponential decay in the net rate of change through time and is constrained to be $0$ or smaller, $t_i$ is the time interval from the ancestral population mean (the start of the fossil sequence, which has a time of $0$) to the $i$th population, and $t_{min}$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$.
 
 The decelerated model of evolution can be fitted to a time series using the `opt.joint.decel` function, like this:
 
