@@ -125,7 +125,7 @@ $$
 Cov[z_i, z_j] = \left[\frac{\sigma^2_{step}}{2\alpha}\right] e^{-\alpha t_{ij}} (1-e^{-2\alpha t_{min}}) 
 $$
 
-#### _OU with moving optimum_  
+<u>OU with moving optimum</u>
 
 $$
 E[z_i] = e^{-\alpha t_i}z_0 + (1-e^{-\alpha t_i})\theta
