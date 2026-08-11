@@ -30,7 +30,7 @@ Var[z_i] = \omega + \epsilon_i
 $$
 
 $$
-Cov[z_i, z_j] = \omega t_{min}
+Cov[z_i, z_j] = \omega
 $$
 
 where 
