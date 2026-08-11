@@ -99,12 +99,12 @@ where
 - $z_i$ is the ancestral trait mean
 - $\sigma^2_{step_0}$ is the step distribution
 - $r$ describes the exponential decay or increase in the net rate of change through time and is constrained to be $0$ or smaller for the decelerated evolution model, and $0$ or larger for the accelerated evolution model
-- $t_i$ is the time interval from the ancestral population mean (the start of the fossil sequence, which has a time of 0) to the $i\text{th}$ population
+- $t_i$ is the time interval from the ancestral population mean (the start of the fossil sequence, which has a time of $0$) to the $i\text{th}$ population
 - $t_{min}$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$.
 
 The decelerated model of evolution can be fitted to a time series using the `opt.joint.decel` function, and the accelerated model by using the `opt.joint.accel` function.
 
-## Ornstein-Uhlenbeck processes
+## Ornstein-Uhlenbeck models
 
 The last three single-mode models are different versions of an Ornstein-Uhlenbeck (OU) process. The OU process consists of a stochastic and a deterministic part. The stochastic part is similar to the unbiased random walk, while the deterministic part allows the trait to evolve towards an optimal trait value ($\theta$). The strength of attraction towards the optimum is determined by the $\alpha$ parameter ([Hansen 1997](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1558-5646.1997.tb01457.x); Hunt et al. 2008). In the simplest OU model, the optimum is fixed ([Hunt et al. 2008](https://academic.oup.com/evolut/article-abstract/62/3/700/6853647)). The OU model with a moving optimum is defined when allowing for the optimum to move according to an unbiased random walk with the variance $\sigma^2_{\theta}$ [Hansen et al. (2008)](https://academic.oup.com/evolut/article-abstract/62/8/1965/6853095); [Voje 2023](https://www.cambridge.org/core/journals/paleobiology/article/fitting-and-evaluating-univariate-and-multivariate-models-of-withinlineage-evolution/8F16773B4F432B702D030675ABE5BAFD)). A special case of this latter model is when the ancestral trait state has the same value as the ancestral optimum ([Voje 2023](https://www.cambridge.org/core/journals/paleobiology/article/fitting-and-evaluating-univariate-and-multivariate-models-of-withinlineage-evolution/8F16773B4F432B702D030675ABE5BAFD)). 
 
@@ -126,7 +126,7 @@ $$
 where 
 - $z_i$ is the expected trait value for the $i\text{th}$ sample
 - $z_0$ is the ancestral trait mean
-- $t_i$ is the time interval from the ancestral population mean (the start of the time series, which has a time of 0) to the $i\text{th}$ sample
+- $t_i$ is the time interval from the ancestral population mean (the start of the time series, which has a time of $0$) to the $i\text{th}$ sample
 - $\theta$ is the optimum
 - $\alpha$ measures the rate of adaptation to the optimum
 - $\sigma^2_{step}$ is the variance of the stochastic perturbations of $z$
@@ -135,5 +135,7 @@ where
 - $t_{ij}$ is the time separating two samples $z_i$ and $z_j$
 - The estimation (sampling) error $\epsilon_i$ of the population means contribute to the expected variance between two population means
 
+The OU model with a fixed optimum can be fitted using the `paleoTS::opt.joint.OU` function.
 The OU model with a moving optimum can be fitted using the `opt.joint.OUBM` function.
+The OU model with a moving optimum and with the ancestral state at optimum can be fitted using the `opt.joint.OUBM` function, specifying `opt.anc = TRUE`.
 
