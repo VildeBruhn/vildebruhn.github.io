@@ -111,32 +111,32 @@ The last three single-mode models are different versions of an Ornstein-Uhlenbec
 
 The Ornstein-Uhlenbeck models adjusted to describe phenotypic evolution within a single lineage has the expected trait mean and its variance and covariance are given by the following expressions:
 
-### _OU with fixed optimum_ ### 
+#### _OU with fixed optimum_ #### 
 
 $$
 E[z_i] = e^{(-\alpha t_i)}z_0 + (1-e^{-\alpha t_i})\theta
 $$
 
 $$
-Var[z_i] = \left[\frac{\sigma^2_{step}}{2\alpha}\right] (1-e^{(-2\alpha t_i)}) + \epsilon_i
+Var[z_i] = \left[\frac{\sigma^2_{step}}{2\alpha}\right] (1-e^{-2\alpha t_i}) + \epsilon_i
 $$
 
 $$
-Cov[z_i, z_j] = \left[\frac{\sigma^2_{step}}{2\alpha}\right] e^{-\alpha t_{ij}} (1-e^{(-2\alpha t_{min})}) 
+Cov[z_i, z_j] = \left[\frac{\sigma^2_{step}}{2\alpha}\right] e^{-\alpha t_{ij}} (1-e^{-2\alpha t_{min}}) 
 $$
 
-### _OU with moving optimum_ ### 
+#### _OU with moving optimum_ #### 
 
 $$
 E[z_i] = e^{(-\alpha t_i)}z_0 + (1-e^{-\alpha t_i})\theta
 $$
 
 $$
-Var[z_i] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{(-2\alpha t_i)}) + \sigma^2_{\theta} t_i \left[\frac{1-2(1-e^{-\alpha t_i})}{\alpha t_i} \right] + \epsilon_i
+Var[z_i] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{-2\alpha t_i}) + \sigma^2_{\theta} t_i \left[\frac{1-2(1-e^{-\alpha t_i})}{\alpha t_i} \right] + \epsilon_i
 $$
 
 $$
-Cov[z_i, z_j] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{(-2\alpha t_a)}) e^{-\alpha t_{ij}} + \sigma^2_{\theta} t_a \left[\frac{1-(1+e^{-\alpha t_{ij}})(1-e^{-\alpha t_a})}{\alpha t_i} \right]
+Cov[z_i, z_j] = \left[\frac{\sigma^2_{step} + \sigma^2_{\theta}}{2\alpha}\right] (1-e^{-2\alpha t_a}) e^{-\alpha t_{ij}} + \sigma^2_{\theta} t_a \left[\frac{1-(1+e^{-\alpha t_{ij}})(1-e^{-\alpha t_a})}{\alpha t_i} \right]
 $$
 
 where 
