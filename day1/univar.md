@@ -155,3 +155,5 @@ The OU model with a fixed optimum can be fitted using the `paleoTS::opt.joint.OU
 The OU model with a moving optimum can be fitted using the `opt.joint.OUBM` function.
 The OU model with a moving optimum and with the ancestral state at optimum can be fitted using the `opt.joint.OUBM` function together with the argument `opt.anc = TRUE`.
 
+In the [next section]({% link day1/univar_apply.md %}), we will learn how to apply these models to actual data in evoTS.
+
