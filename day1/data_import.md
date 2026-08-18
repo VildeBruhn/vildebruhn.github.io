@@ -58,5 +58,12 @@ plotevoTS(ln_diameter)
 
 ![plotevoTS](/assets/images/diameter.png)
 
+
+## Simulating data
+
+It is possible to simulate data for all implemented models in evoTS. Standard R-package documentation can be seen by entering `?sim.OUBM` and `?sim.accel.decel`.
+
+---
+
 Later, in the excersises, we will go through how to import data into R and transform the data to paleoTS/evoTS format. But for now, this example dataset is all you need for the introduction to [univariate models]({% link day1/univar.md %}).
 
