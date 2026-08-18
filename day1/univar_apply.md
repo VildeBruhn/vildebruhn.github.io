@@ -22,6 +22,20 @@ The different univariate models can be applied to datasets in paleoTS/evoTS usin
 
 Below, we will look at outputs from fitting the decelerated evolution, accelerated evolution and OU models to the example dataset in evoTS. We will also show you how to use evoTS to assess the uncertainty of the estimated parameters by exploring the likelihood-surface.
 
+We will use the dataset x. Get the data into the right paleoTS format like this:
+
+```r
+ln_diameter <- paleoTS::ln.paleoTS(diameter_S.yellowstonensis)
+```
+
+We then convert the time vector in the data set to unit length (i.e., the length in time from the oldest to youngest sample/population in the data set becomes 1):
+
+```r
+ln_diameter$tt <- ln_diameter$tt/(max(ln_diameter$tt))
+```
+
+We will start with the decelerated-evolution model.
+
 
 ## Decelerated-evolution model
 
