@@ -504,7 +504,7 @@ attr(,"class")
 
 The function returns a list of the highest log-likelihood found for each investigated model. A detailed output from the model with the lowest AICc value among the 16 candidate models is also given. An OU-Stasis model with a shift point at sample (population) 38 has the best relative fit according to AICc. Note, however, that the model-combination GRW-OU has an almost equal AICc score relative to the best model. Also the combination of two OU models (each with their own fixed optimum) shows a good relative fit to the data.
 
-Evaluating relativ fit of a model to a dataset using AICc gives no guarantee that the best model among those tested represents a good statistical description of the empirical data (e.g., Pennell et al. 2015). In the [next section]({% link day1/adequacy.md %}), we will give an introduction to absolute model fit, using adequacy testing.
+Evaluating relativ fit of a model to a dataset using AICc gives no guarantee that the best model among those tested represents a good statistical description of the empirical data (e.g., [Pennell et al. 2015](https://www.journals.uchicago.edu/doi/10.1086/682022)). In the [next section]({% link day1/adequacy.md %}), we will give an introduction to absolute model fit, using adequacy testing.
 
 
 
