@@ -14,6 +14,8 @@ In this exercise, we will use parts of a dataset from [Jensen _et al._ (2022)](h
 
 <small>_Note: Where the sample size is 1 for the waterflow dataset, the variance is set to $\text{trait_mean} \times 0.05$ ._</small>
 
+$\text{trait_mean} \times 0.05$
+
 Download the <a href="{{ '/assets/data_exercises/body_size.txt' | relative_url }}" download>body size measurements</a> and <a href="{{ '/assets/data_exercises/waterflow_jun_sep.txt' | relative_url }}" download>waterflow</a> data (click the links), and place the files in your working directory.
 
 
