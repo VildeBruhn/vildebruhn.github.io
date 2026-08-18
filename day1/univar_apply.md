@@ -7,6 +7,21 @@ permalink: /day1/univar_apply/
 
 # Applying the univariate models in evoTS
 
+The different univariate models can be applied to datasets in paleoTS/evoTS using the `opt.joint...` functions. Here's an overview:
+
+- Stasis: `paleoTS::opt.joint.Stasis`
+- Strict stasis: `paleoTS::opt.joint.StrictStasis`
+- Unbiased random walk: `paleoTS::opt.joint.URW`
+- General random walk: `paleoTS::opt.joint.GRW`
+- Decelerated evolution: `opt.joint.decel`
+- Accelerated evolution: `opt.joint.accel`
+- OU model with a fixed optimum: `paleoTS::opt.joint.OU`
+- OU model with a moving optimum: `opt.joint.OUBM`
+- OU model with a moving optimum and with the ancestral state at optimum: `opt.joint.OUBM` with the argument `opt.anc = TRUE`.
+
+
+Below, we will look at outputs from fitting the decelerated evolution, accelerated evolution and OU models to the example dataset in evoTS. We will also show you how to use evoTS to assess the uncertainty of the estimated parameters by exploring the likelihood-surface.
+
 
 ## Decelerated-evolution model
 
