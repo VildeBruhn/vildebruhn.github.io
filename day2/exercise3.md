@@ -46,7 +46,7 @@ And now we can transform the data into paleoTS objects:
 
 ```r
 paleoTS_data <- lapply(data, function(x) {
-  paleoTS::as.paleoTS(mm = x$trait_mean, vv = x$trait_var, nn = x$N, tt = x$age_MY, oldest = "first")
+  paleoTS::as.paleoTS(mm = x$trait_mean, vv = x$trait_var, nn = x$N, tt = x$time, oldest = "first")
 })
 ```
 
