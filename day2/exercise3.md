@@ -12,7 +12,7 @@ permalink: /day2/exercise3/
 
 In this exercise, we will use parts of a dataset from [Jensen _et al._ (2022)](https://www.pnas.org/doi/abs/10.1073/pnas.2207634119), looking into body size adaptations in a wild population of Atlantic salmon (_Salmo salar_). The salomon resides in a river impacted by hydropower development, affecting the waterflow in the river. The phenotypic time series used here can also be downloaded (in raw version) from the [PETS database](https://pets.nhm.uio.no/PETS/). The body size is measured as weight (grams). The waterflow (climatic variable) is measured as volume/time ($\frac{m^3}{s}$) from june to september. The measurements take place over 61 years from 1955-2016,with 7 years missing, a total of 54 measured years. The data include number of samples (N), trait/waterflow mean, trait/waterflow variance, and the age (year of sampling) in million years (where the oldest sample has age = 0).
 
-<small>_Note: Where the sample size is 1 for the waterflow dataset, the variance is set to $\text{mean} \times 0.05$ ._</small>
+<small>Note: Where the sample size is 1 for the waterflow dataset, the variance is set to $\text{mean} \times 0.05$.</small>
 
 $\text{mean} \times 0.05$
 
