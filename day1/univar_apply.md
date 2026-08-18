@@ -20,15 +20,15 @@ The different univariate models can be applied to datasets in paleoTS/evoTS usin
 - OU model with a moving optimum and with the ancestral state at optimum: `opt.joint.OUBM` with the argument `opt.anc = TRUE`.
 
 
-Below, we will look at outputs from fitting the decelerated evolution, accelerated evolution and OU models to the example dataset in evoTS. We will also show you how to use evoTS to assess the uncertainty of the estimated parameters by exploring the likelihood-surface.
+Below, we will look at outputs from fitting the decelerated evolution, accelerated evolution and OU models to the example dataset in evoTS. We will also show you how to compare the fit of different models, including how to use evoTS to assess the uncertainty of the estimated parameters by exploring the likelihood-surface. In the last part, we will go through how to fit all univariate models at once and how to fit combinations of univariate models to a time series (mode shift models).
 
-We will use the dataset x. Get the data into the right paleoTS format like this:
+We will use the time series with the diameter of _Stephanodiscus yellowstonensis_. Get the data into the right paleoTS format like this:
 
 ```r
 ln_diameter <- paleoTS::ln.paleoTS(diameter_S.yellowstonensis)
 ```
 
-We then convert the time vector in the data set to unit length (i.e., the length in time from the oldest to youngest sample/population in the data set becomes 1):
+We then convert the time vector in the dataset to unit length (i.e., the length in time from the oldest to youngest sample/population in the data set becomes 1):
 
 ```r
 ln_diameter$tt <- ln_diameter$tt/(max(ln_diameter$tt))
@@ -40,11 +40,16 @@ We will start with the decelerated-evolution model.
 ## Decelerated-evolution model
 
 
-
-The decelerated model of evolution can be fitted to a time series using the `opt.joint.decel` function, like this:
+Fit the decelerated model of evolution to the time series by running:
 
 ```r
-> opt.joint.decel(ln.diameter)
+opt.joint.decel(ln.diameter)
+```
+
+You will get an output like this:
+
+```r
+>
 $logL
 [1] 78.67217
 
@@ -95,7 +100,10 @@ For the decelerated model of evolution, the vectors given to the arguments `vste
 One way to define the candidate values is to use the `seq` function:
 
 ```r
-> loglik.surface.decel(ln.diameter, vstep.vec = seq(0,1.3,0.01), r.vec = seq(-5,0,0.01))
+loglik.surface.decel(ln.diameter, vstep.vec = seq(0,1.3,0.01), r.vec = seq(-5,0,0.01))
+```
+```r
+>
       lower upper
 vstep  0.18  1.26
 r     -3.23 -0.21
@@ -110,10 +118,16 @@ From the likelihood surface and from the printed confidence intervals, we see th
 
 The accelerated evolution model is identical to the decelerated model except that the $r$ parameter is constrained to be 0 or larger, which means the rate of evolution is accelerating with time.
 
-The accelerated evolution model can be fitted using the `opt.joint.accel` function:
+Fit the accelerated evolution model like this:
 
 ```r
-> opt.joint.accel(ln.diameter)
+opt.joint.accel(ln.diameter)
+```
+
+And you will get an output like this:
+
+```r
+> 
 $logL
 [1] 77.57017
 
@@ -161,8 +175,16 @@ The 3D plot can be rotated vertically and horizontally to get a better overview 
 
 ## Ornstein-Uhlenbeck models
 
+To assess the fit of an OU model with a moving optimum, you use this function:
+
 ```r
-> opt.joint.OUBM(ln.diameter)
+opt.joint.OUBM(ln.diameter)
+```
+
+Which will give you an output like this:
+
+```r
+>
 $logL
 [1] 78.5667
 
@@ -200,7 +222,13 @@ The _vstep.opt_ parameter describes the rate of change in the optimum. This is e
 Note that the name of the first reported parameter is _anc/theta.0_. This parameter represents the ancestral trait value, but also the value of the “ancestral” optimum. The default option in the `opt.joint.OUBM` function is to assume that the trait was perfectly adapted at the start of the time series (the argument `anc.opt = TRUE`), but this can be changed by setting `anc.opt = FALSE`, like this:
 
 ```r
-> opt.joint.OUBM(ln.diameter, opt.anc  = FALSE)
+opt.joint.OUBM(ln.diameter, opt.anc  = FALSE)
+```
+
+Which gives an output like this:
+
+```r
+>
 $logL
 [1] 80.71298
 
@@ -236,7 +264,11 @@ attr(,"class")
 Setting `opt.anc = FALSE` estimates a separate “ancestral” value for the optimum (_theta.0_). The rate of change in the optimum (_vstep.opt_) is still negligible, which means this model is virtually identical to a model where the optimum is fixed. This can be shown by fitting an OU model where the optimum is fixed, which is the model included in the paleoTS package:
 
 ```r
-> paleoTS::opt.joint.OU(ln.diameter)
+paleoTS::opt.joint.OU(ln.diameter)
+```
+
+```r
+> 
 $logL
 [1] 80.71298
 
@@ -275,7 +307,11 @@ The user can choose the number of iterations of the numerical optimization of th
 Here, we run the `opt.joint.OUBM` function (assuming the trait value is perfectly adapted at the start of the sequence) from 100 different starting points (i.e., 100 different initial parameter values):
 
 ```r
-> opt.joint.OUBM(ln.diameter, opt.anc = TRUE, iterations = 100)
+opt.joint.OUBM(ln.diameter, opt.anc = TRUE, iterations = 100)
+```
+
+```r
+>
 $logL
 [1] 78.5667
 
@@ -315,7 +351,10 @@ The evoTS package contains functions to estimate likelihood surfaces for the dif
 The OU model with a fixed optimum had the best relative model fit according to AICc among the three versions of the OU model we investigated. The maximum likelihood estimate of the half-life from this OU model is $\frac{log(2)}{11.8941} = 0.0583$. The maximum likelihood estimate of the stationary variance is $\frac{0.2730}{2 \times 11.8941} = 0.0115$. But these are only point-estimates. We can explore the support interval around these point estimates of the half-life and the stationary variance using the `loglik.surface.OU` function:
 
 ```r
-> loglik.surface.OU(ln.diameter, stat.var.vec=seq(0,0.1,0.001), h.vec=seq(0,0.4,0.001))
+loglik.surface.OU(ln.diameter, stat.var.vec=seq(0,0.1,0.001), h.vec=seq(0,0.4,0.001))
+```
+```r
+>
       lower upper
 stationary variance 0.007 0.053
 half-life           0.029 0.305
@@ -331,7 +370,10 @@ Half-life values up to 30% of the total length of the time series are within two
 A quick way to evaluate the relative fit of all univariate models in the evoTS and paleoTSpackages (excluding models with mode shifts) is to use the `fit.all.univariate` function:
 
 ```r
-> fit.all.univariate(ln.diameter, pool = TRUE)
+fit.all.univariate(ln.diameter, pool = TRUE)
+```
+```r
+>
 
 Comparing 9 models [n = 63, method = Joint]
 
@@ -353,7 +395,10 @@ OU model with moving optimum                                80.71298 5 -150.3733
 There is no a priori reason why a lineage should follow only one mode of evolution. The evoTS package allows for investigating all pairwise model combinations of the models stasis, unbiased random walk (URW), trend (GRW) and an Ornstein-Uhlenbeck (OU) process with a fixed optimum using the function `fit.mode.shift`. It is possible to either investigate specific shift points using the argument `shift.point` or investigate all possible shift points, like below:
 
 ```r
-> fit.mode.shift(ln.diameter, model1 = "URW", model2 = "URW", minb = 10)
+fit.mode.shift(ln.diameter, model1 = "URW", model2 = "URW", minb = 10)
+```
+```r
+>
 [1] "Searching all possible shift points in the evolutionary sequence"
 Total # hypotheses:  44 
 1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  
@@ -398,7 +443,10 @@ attr(,"class")
 The function `fit.mode.shift` can also be used to fit all pairwise combinations of the four models by setting the `fit.all` argument as `TRUE`. If a shift point is not defined (using the `shift.point` argument), all possible shift points are investigated for all models:
 
 ```r
-> fit.mode.shift(ln.diameter, fit.all = TRUE, minb = 10)
+fit.mode.shift(ln.diameter, fit.all = TRUE, minb = 10)
+```
+```r
+>
 [1] "Searching all possible shift points in the evolutionary sequence"
 1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  
 Comparing 16 models [n = 63, method = Joint]
@@ -455,6 +503,9 @@ attr(,"class")
 ```
 
 The function returns a list of the highest log-likelihood found for each investigated model. A detailed output from the model with the lowest AICc value among the 16 candidate models is also given. An OU-Stasis model with a shift point at sample (population) 38 has the best relative fit according to AICc. Note, however, that the model-combination GRW-OU has an almost equal AICc score relative to the best model. Also the combination of two OU models (each with their own fixed optimum) shows a good relative fit to the data.
+
+Evaluating relativ fit of a model to a dataset using AICc gives no guarantee that the best model among those tested represents a good statistical description of the empirical data (e.g., Pennell et al. 2015). In the next section, we will give an introduction absolute model fit, using adequacy testing.
+
 
 
 ## Simulating data
