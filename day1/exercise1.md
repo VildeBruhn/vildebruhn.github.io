@@ -22,7 +22,7 @@ After exploring the webpage for a bit, download a time series you want to work w
 
 Here, we select a time series on teeth crown height in a lineage of extinct giant sharks (_Carcharocles megalodon_) from [Pimiento and Balk (2015)](https://www.cambridge.org/core/journals/paleobiology/article/bodysize-trends-of-the-extinct-giant-shark-carcharocles-megalodon-a-deeptime-perspective-on-marine-apex-predators/03A62B39329A8595DD129EEC9BE8A065).
 
-![PETS data](
+![PETS data](/assets/images/PETS.png)
 
 
 ## Import and prepare data in R
