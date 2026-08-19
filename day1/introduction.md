@@ -4,11 +4,11 @@ title: Introduction
 permalink: /day1/introduction/
 ---
 
-# evoTS - Analyses of evolutionary time series
+# evoTS and paleoTS - Analyses of evolutionary time series
 
 ---
 
-The evoTS package facilitates univariate and multivariate analyses of phenotypic change within lineages.
+The evoTS and paleoTS packages facilitates univariate and multivariate analyses of phenotypic change within lineages.
 
 The evoTS package extends the univariate modeling framework implemented in the [paleoTS](https://github.com/cran/paleoTS) package ([Hunt 2006](https://www.cambridge.org/core/journals/paleobiology/article/abs/fitting-and-comparing-models-of-phyletic-evolution-random-walks-and-beyond/1B03F54C04ED6174FDE9672E63DAD0D2); [2008a](https://www.cambridge.org/core/journals/paleobiology/article/abs/gradual-or-pulsed-evolution-when-should-punctuational-explanations-be-preferred/1AADB47912CC292829F033DBC9CFDD5E); [2008b](https://www.cambridge.org/core/journals/the-paleontological-society-papers/article/abs/evolutionary-patterns-within-fossil-lineages-modelbased-assessment-of-modes-rates-punctuations-and-process/7F9B1795A84936CE45FC2BD94EEF9E71); [Hunt et al. 2008](https://academic.oup.com/evolut/article-abstract/62/3/700/6853647); [2010](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1475-4983.2010.01007.x); [2015](https://www.pnas.org/doi/abs/10.1073/pnas.1403662111)) and has been developed to mirror the user experience from paleoTS as much as possible. For example, all univariate models implemented in evoTS are fitted to a paleoTS object (i.e., the data format used in paleoTS). The fit of all univariate models available in paleoTS and evoTS are directly comparable.
 
