@@ -28,4 +28,4 @@ Import and prepare the data for analysis as we did in exercise 1, none of the ti
 
 ---
 
-This was the last exercise for today. Tomorrow we will move on to [multivariate models]({% link day2/multivar_URW.md %})
+This was the last exercise for today. Tomorrow we will move on to [multivariate models]({% link day2/multivar_URW.md %}). See you then!
