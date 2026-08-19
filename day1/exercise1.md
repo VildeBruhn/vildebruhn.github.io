@@ -16,7 +16,7 @@ The phenotypic traits have been measured in units on a ratio scale, and include 
 
 See the [PETS help page](https://pets.nhm.uio.no/PETS/) for an explanation of the content in the data tables you can download.
 
-After exploring the webpage for a bit, download a time series you want to work with and place it in your working directory. You download the dataset by selecting the specific study un _View/download individual series_ and then clicking Download on the right side. For this exercise you can download the time series as a paleoTS object. Also check in the metadata wether or not the data is log-transformed. If not, log-transform the data before continuing with analyses. 
+After exploring the webpage for a bit, download a time series you want to work with and place it in your working directory. You download the dataset by selecting the specific study un _View/download individual series_ and then clicking _Download_ on the right side. For this exercise you can download the time series as a text file. Also check in the metadata wether or not the data is log-transformed. If not, log-transform the data before continuing with analyses. 
 
 ### Example of how to download and import data from PETS:
 
