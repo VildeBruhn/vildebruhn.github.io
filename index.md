@@ -13,8 +13,9 @@ This workshop introduces phenotypic time series analysis using the R packages pa
 - Explore temporal evolutionary dynamics
 - Use paleoTS/evoTS workflows
 - Interpret evolutionary patterns and processes
+- Assess relative and absolute fit
 
-The workshop combines a theoretical introduction with hands-on exercises. By the end of the workshop, you will have gained practical experience in analysing time series data and interpreting multivariate patterns through time.
+The workshop combines a theoretical introduction with hands-on exercises. By the end of the workshop, you will have gained practical experience in analysing time series data and interpreting univariate and multivariate patterns through time.
 
 ## Prerequisites
 
