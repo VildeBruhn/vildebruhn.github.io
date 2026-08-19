@@ -92,7 +92,7 @@ That the random walk model passed all tests can also be seen in the visual repre
 
 ![Adequacy RW](/assets/images/adequacy_RW.png)
 
-To summarize: Among the three candidate models stasis, unbiased random walk and general random walk, the unbiased random walk has the best relative model fit to the data based on AICc. However, a relative better fit for a model to a time series is no guarantee that the model represents a sufficiently good statistical explanation of the observed trait dynamics. We therefore assessed the absolute fit of the unbiased random walk model to the data by running adequacy models. The unbiased random walk model passed all adequacy tests, which suggest that the model represents an adequate statistical description of the time series.
+To summarize: among the three candidate models stasis, unbiased random walk and general random walk, the unbiased random walk has the best relative model fit to the data based on AICc. However, a relative better fit for a model to a time series is no guarantee that the model represents a sufficiently good statistical explanation of the observed trait dynamics. We therefore assessed the absolute fit of the unbiased random walk model to the data by running adequacy models. The unbiased random walk model passed all adequacy tests, which suggest that the model represents an adequate statistical description of the time series.
 
 If we take a look at the plot of how the trait changes over 6 million years, it seems to suggest a trend towards becoming bigger. Therefore, let's assess the adequacy for the general random walk model as well. This model did show a quite similar fit to the data based on the AICc scores. We can use the wrapper function `fit3adequacy.trend` to run all three adequacy tests simultaneously:
 
@@ -117,6 +117,20 @@ The general random walk (trend) model fails the autocorrelation test and the run
 
 ![Adequacy trend](/assets/images/adequacy_trend.png)
 
+Functions for running each adequacy test alone are provided in the package (e.g., `auto.corr.test.stasis`, `runs.test.RW`, `slope.test.trend`). The wrapper functions for investigating the adequacy of the different univariate models are as follows:
+
+* Stasis: `fit4adequacy.stasis`
+* Strict stasis: `fit4adequacy.stasis`
+* Unbiased random walk: `fit3adequacy.RW`
+* General random walk: `fit3adequacy.RW`
+* Decelerated evolution: `fit3adequacy.decel`
+* Accelerated evolution: first reverse the time series, then use `fit3adequacy.decel`
+* OU with fixed optimum, moving optimum, and moving optimum with ancestral state at optimum: use `fit3adequacy.OU` but only look at the two statistics assessing the number of runs and level of autocorrelation.
+
+
+---
+
+Now that you have gotten an introduction to univariate models, adequacy testing and the different R packages involved, head over to the [first exercise].
 
 
 
