@@ -130,7 +130,7 @@ Functions for running each adequacy test alone are provided in the package (e.g.
 
 ---
 
-Now that you have gotten an introduction to univariate models, adequacy testing and the different R packages involved, head over to the [first exercise].
+Now that you have gotten an introduction to univariate models, adequacy testing and the different R packages involved, head over to the [first exercise]({% link day1/exercise1.md %}).
 
 
 
