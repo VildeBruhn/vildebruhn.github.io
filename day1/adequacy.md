@@ -92,6 +92,31 @@ That the random walk model passed all tests can also be seen in the visual repre
 
 ![Adequacy RW](/assets/images/adequacy_RW.png)
 
+To summarize: Among the three candidate models stasis, unbiased random walk and general random walk, the unbiased random walk has the best relative model fit to the data based on AICc. However, a relative better fit for a model to a time series is no guarantee that the model represents a sufficiently good statistical explanation of the observed trait dynamics. We therefore assessed the absolute fit of the unbiased random walk model to the data by running adequacy models. The unbiased random walk model passed all adequacy tests, which suggest that the model represents an adequate statistical description of the time series.
+
+If we take a look at the plot of how the trait changes over 6 million years, it seems to suggest a trend towards becoming bigger. Therefore, let's assess the adequacy for the general random walk model as well. This model did show a quite similar fit to the data based on the AICc scores. We can use the wrapper function `fit3adequacy.trend` to run all three adequacy tests simultaneously:
+
+```r
+fit3adequacy.trend(element.length)
+```
+```
+>
+$info
+                   Value
+replications     1000.00
+confidence level    0.95
+
+$summary
+           estimate  min.sim max.sim p-value result
+auto.corr    0.0464  0.00424   0.985   0.002 FAILED
+runs.test  -0.54272 -5.29741 1.28601   0.038 FAILED
+slope.test  0.00637  -0.1247 0.24548   0.956 PASSED
+```
+
+The general random walk (trend) model fails the autocorrelation test and the runs test, and passes the slope test. This suggests that this model is not an adequate statistical description of the data. We can also see this in the distributions of test statistics:
+
+![Adequacy trend](/assets/images/adequacy_trend.png)
+
 
 
 
