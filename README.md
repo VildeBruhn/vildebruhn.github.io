@@ -1,1 +1,1 @@
-# Multivariate analysis with evoTS
+# Phenotypic time series analysis
