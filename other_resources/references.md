@@ -48,6 +48,8 @@ Hunt, G., S. Wicaksono, J. E. Brown, and G. K. Macleod. 2010. Climate-driven bod
 
 Hunt, G., M. J. Hopkins, and S. Lidgard. 2015. Simple versus complex models of trait evolution and stasis as a response to environmental change. PNAS 112:4885–4890.
 
+Jones, D. 2009. Directional evolution in the conodont _Pterospathodus_. Paleobiology 35:413-431.
+
 Lande, R. 1979. Quantitative genetic analysis of multivariate evolution, applied to brain: body size allometry. Evolution 33:402-416.
 
 Pennell, M. W., R. G. FitsJohn, W. K. Cornwell, and L. J. Harmon. 2015. Model Adequacy and the Macroevolution of Angiosperm Functional Traits. The American Naturalist 186:E33–50.
