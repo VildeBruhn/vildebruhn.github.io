@@ -24,6 +24,12 @@ Here, we select a time series on teeth crown height in a lineage of extinct gian
 
 ![PETS data](/assets/images/PETS.png)
 
+After downloading the paleoTS object, load the object like this:
+
+```r
+
+
+
 
 ## Import and prepare data in R
 
