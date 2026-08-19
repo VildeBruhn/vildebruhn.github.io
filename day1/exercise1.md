@@ -71,4 +71,4 @@ Feel free to analyse several time series if you have time!
 
 ---
 
-When you are done with this exercise, move on to the [next one]({% link day1/exercise2.md %})
+When you are done with this exercise, move on to the [next one]({% link day1/exercise2.md %}).
