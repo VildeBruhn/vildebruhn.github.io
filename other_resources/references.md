@@ -52,7 +52,13 @@ Jones, D. 2009. Directional evolution in the conodont _Pterospathodus_. Paleobio
 
 Lande, R. 1979. Quantitative genetic analysis of multivariate evolution, applied to brain: body size allometry. Evolution 33:402-416.
 
+Malmgren, B. A., and J. P. Kennett. 1981. Phyletic Gradualism in a Late Cenozoic Planktonic Foraminiferal Lineage; DSDP Site 284, Southwest Pacific. Paleobiology 7:230–240.
+
+Marcolini, F., and R. A. Martin. 2008. Mosaic evolution in first lower molars of Pliocene _Ogmodontomys_ (Rodentia: Arvicolidae) from the Meade Basin of southwestern Kansas (USA). N. Jb. Geol. Paläont. Abh. 249:313–332.
+
 Pennell, M. W., R. G. FitsJohn, W. K. Cornwell, and L. J. Harmon. 2015. Model Adequacy and the Macroevolution of Angiosperm Functional Traits. The American Naturalist 186:E33–50.
+
+Pimiento, C., and M. A. Balk. 2015. Body-size trends of the extinct giant shark _Carcharocles megalodon_: a deep-time perspective on marine apex predators. Paleobiology 2015:479-490.
 
 Reitan, T., T. Schweder, and J. Henderiks. 2012. Phenotypic evolution studied by layered stochastic differential equations. The Annals of Applied Statistics. 6:1531–1551.
 
