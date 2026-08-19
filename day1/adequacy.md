@@ -33,6 +33,12 @@ library(adePEM)
 
 An example data called `element.length` is available as part of the adePEM package. The data is a time series of the evolution of element length (measured in mm) in the conodont _Pterospathodus_ and was originally published by [Jones (2009)](https://www.cambridge.org/core/journals/paleobiology/article/directional-evolution-in-the-conodont-pterospathodus/19235BF6CAC0FD0F1A126F23BA9319B8). The data (element.length) is already a paleoTS object. We can first have a look at the data by plotting it:
 
+```r
+plot.paleoTS(element.length)
+```
+
+![Element length](/assets/images/element_length.png)
+
 
 
 
