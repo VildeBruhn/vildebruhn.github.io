@@ -14,25 +14,27 @@ If you don't have R and Rstudio on your laptop already, you can install the R so
 After installing R, you can install Rstudio by following the directions [here](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads). If you need an introduction on how to use Rstudio, you can find one [here](https://www.datacamp.com/tutorial/r-studio-tutorial?dc_referrer=https%3A%2F%2Fwww.google.com%2F).
 
 ## evoTS and paleoTS
-Now that you have the basic software installed, open R studio and install the evoTS package.
+Now that you have the basic software installed, open R studio and install the paleoTS and evoTS package.
 
 Install from CRAN like this:
 
 ```r
 install.packages("evoTS")
+install.packages("paleoTS")
 ```
 
-Or from GitHub like this:
+Or evoTS from GitHub like this:
 
 ```r
 install.packages("devtools")
 devtools::install_github("klvoje/evoTS")
 ```
 
-Check if the package is installed by running:
+Check if the packages are installed by running:
 
 ```r
 library(evoTS)
+library(paleoTS)
 ```
 
 ## Other packages
