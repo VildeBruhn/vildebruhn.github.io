@@ -13,3 +13,27 @@ Measures of relative model fit, including AICc, do not address whether the best 
 
 The adequacy tests are intended to determine how likely it is that a model X, given parameters Y, can reproduce the trait dynamics seen in dataset Z ([Voje 2018](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13083)). In the adequacy tests for stasis and strict stasis, four statistical characteristics of a white noise process are tested. (1) The amount of fluctuations around the fixed optimum does not increase or decrease over time; (2) deviations from the optimum are random (i.e., if there are many positive or negative deviations following each other it would indicate non-randomness); (3) the time series show low autocorrelation; and (4) net evolution is small ([Voje 2018](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13083)). The first three statistics are also used for the unbiased random walk and the general random walk. To apply the same statistics on these models, the time series are detrended to behave like a white noise process ([Voje 2018](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13083)). For decelerated evolution, statistic (2) and (3) are used together with a fifth statistic (5), evaluating if the magnitude of trait change decreases with time ([Voje 2020](https://academic.oup.com/evolut/article/74/1/188/6726926)). Statistics (2), (3), and (5) are also applied to accelerated evolution, but (5) is instead assessing increased, not decreased, exploration of morphospace with time. For the OU models, statistics (2) and (3) are used to investigate absolute fit. When detrended, the OU models also have the same expectation as a white noise process. Failure on one adequacy test does not predict failure on the others ([Voje 2020](https://academic.oup.com/evolut/article/74/1/188/6726926)). A model is deemed an adequate fit to a time series only if it passes all of the tests applied. For the mode-shift models, it is possible to assess absolute model fit for each of the two models separately. A a mode-shift model is adequate only if each of the two models pass all the applied adequacy tests.
 
+
+## Adequacy tests with `adePEM`
+
+The [adePEM package](http://github.com/klvoje/adePEM) developed in [Voje (2018)](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13083) can be used to assess the absolute fit of phenotypic evolutionary models to time series. The package contains tests to assess the adequacy of all the univariate models mentioned above. 
+
+To install and load the package in R, use the following code:
+
+```r
+install.packages("devtools")
+
+devtools::install_github("klvoje/adePEM")
+
+library(adePEM)
+```
+
+
+## How to use `adePEM`
+
+An example data called `element.length` is available as part of the adePEM package. The data is a time series of the evolution of element length (measured in mm) in the conodont _Pterospathodus_ and was originally published by [Jones (2009)](https://www.cambridge.org/core/journals/paleobiology/article/directional-evolution-in-the-conodont-pterospathodus/19235BF6CAC0FD0F1A126F23BA9319B8). The data (element.length) is already a paleoTS object. We can first have a look at the data by plotting it:
+
+
+
+
+
