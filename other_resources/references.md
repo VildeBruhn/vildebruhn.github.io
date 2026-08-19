@@ -60,4 +60,6 @@ Schweder, T. 1970. Composable Markov processes. Journal of Applied Probability 7
 
 Theriot, E. C., S. C., Fritz, C. Whitlock, C. and D. J. Conley. 2006. Late Quaternary rapid morphological evolution of an endemic diatom in Yellowstone Lake, Wyoming. Paleobiology 32:38–54.
 
+Voje, K. L. 2018. Assessing adequacy of models of phyletic evolution in the fossil record. Methods in Ecology and Evolution 9:2402-2413.
+
 Voje, K. L. 2020. Testing eco‐evolutionary predictions using fossil data: Phyletic evolution following ecological opportunity. Evolution 74:188–200.
