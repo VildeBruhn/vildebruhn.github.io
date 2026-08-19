@@ -7,11 +7,11 @@ title: Start
 
 ---
 
-This workshop introduces multivariate methods for analysing evolutionary time series using the R package evoTS. We will learn how to
+This workshop introduces phenotypic time series analysis using the R packages paleoTS, evoTS and adePEM. We will learn how to
 
-- Work with multivariate datasets
+- Work with univariate and multivariate datasets
 - Explore temporal evolutionary dynamics
-- Use evoTS workflows
+- Use paleoTS/evoTS workflows
 - Interpret evolutionary patterns and processes
 
 The workshop combines a theoretical introduction with hands-on exercises. By the end of the workshop, you will have gained practical experience in analysing time series data and interpreting multivariate patterns through time.
