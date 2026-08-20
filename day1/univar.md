@@ -16,6 +16,8 @@ The following additional univariate models have been implemented in the evoTS pa
 * A accelerated-evolution model (an unbiased random walk with an exponential increase in the rate of change over time)
 * Ornstein-Uhlenbeck processes where the optimum changes according to an unbiased random walk.
 
+Below, we will give a theoretical introduction to the univariate models.
+
 
 ## Stasis and strict stasis
 
