@@ -20,7 +20,7 @@ The different univariate models can be applied to datasets in paleoTS/evoTS usin
 - OU model with a moving optimum and with the ancestral state at optimum: `evoTS::opt.joint.OUBM` with the argument `opt.anc = TRUE`.
 
 
-Below, we will look at outputs from fitting the decelerated evolution, accelerated evolution and OU models to the example dataset in evoTS. We will also show you how to compare the fit of different models, including how to use evoTS to assess the uncertainty of the estimated parameters by exploring the loglikelihood-surface. In the last part, we will go through how to fit all univariate models at once and how to fit combinations of univariate models to a time series (mode-shift models).
+Below, we will look at outputs from fitting the decelerated evolution, accelerated evolution and OU models to the example dataset in evoTS. We will also show you how to compare the fit of different models, including how to use evoTS to assess the uncertainty of the estimated parameters by exploring the log-likelihood surface. In the last part, we will go through how to fit all univariate models at once and how to fit combinations of univariate models to a time series (mode-shift models).
 
 We will use the time series with the diameter of _Stephanodiscus yellowstonensis_. Get the data into the right paleoTS format like this:
 
@@ -43,43 +43,28 @@ We will start with the decelerated-evolution model.
 Fit the decelerated model of evolution to the time series by running:
 
 ```r
-opt.joint.decel(ln.diameter)
+opt.joint.decel(ln_diameter)
 ```
 
 You will get an output like this:
 
 ```r
 >
-$logL
-[1] 78.67217
+paleoTSfit object [n = 63 , K = 3 ]
 
-$AICc
-[1] -150.9376
+Model:  Decel 
+Method:  Joint 
+log-likelihood =  78.67217 
+AICc =  -150.9376 
 
-$parameters
+Parameter estimates: 
        anc      vstep          r 
- 3.7195253  0.4308633 -1.3114667 
+ 3.7195270  0.4309393 -1.3116638 
 
-$modelName
-[1] "Decel"
-
-$method
-[1] "Joint"
-
-$se
-NULL
-
-$K
-[1] 3
-
-$n
-[1] 63
-
-attr(,"class")
-[1] "paleoTSfit"
+Additional elements not printed:  convergence logLFunction 
 ```
 
-The output returns the log-likelihood of the model parameters (logl), the AICc score (AICc), the number (K) of estimated parameters (parameters), the length of the analysed time series (n), the model name (modelName) and the method used to parameterise the model (method). Under parameters, _anc_ is the estimated ancestral trait value, _vstep_ is the initial value for the step distribution, and _r_ describes the exponential decay in the $v_{step}$ parameter through time.
+The output returns the log-likelihood of the model parameters (_log-likelihood_), the AICc score (_AICc_), the number (_K_) of estimated parameters, the length of the analysed time series (_n_), the model name (_Model_) and the method used to parameterise the model (_Method_). Under _Parameter estimates_, _anc_ is the estimated ancestral trait value, _vstep_ is the initial value for the step distribution, and _r_ describes the exponential decay in the $v_{step}$ parameter through time.
 
 The time it takes to half the net rate of evolution can be calculated based on the value of $r$ using $\frac{−𝑙𝑛(2)}{𝑟}$. The half-life parameter is interpreted based on the time-scale used when analysing the data. Since time from start to end in our data has been scaled to unit length, the estimated half-life represent the percent of the total length of the time series it takes for the rate of evolution to half. The half-life is $\frac{-ln(2)}{-1.3114667} = 0.53$ in this example. The total length of the analyzed time series is 13 728 years, which means it takes $13728 \times 0.53 = 7276$ years for the net rate of evolution to be reduced by 50%.
 
