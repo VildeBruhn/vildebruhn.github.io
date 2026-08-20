@@ -111,7 +111,7 @@ The decelerated model of evolution can be fitted to a time series using the `evo
 The last three single-mode models are different versions of an Ornstein-Uhlenbeck (OU) process. The OU process consists of a stochastic and a deterministic part. The stochastic part is similar to the unbiased random walk, while the deterministic part allows the trait to evolve towards an optimal trait value ($\theta$). The strength of attraction towards the optimum is determined by the $\alpha$ parameter ([Hansen 1997](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1558-5646.1997.tb01457.x); [Hunt et al. 2008](https://academic.oup.com/evolut/article-abstract/62/3/700/6853647)). In the simplest OU model, the optimum is fixed ([Hunt et al. 2008](https://academic.oup.com/evolut/article-abstract/62/3/700/6853647)). The OU model with a moving optimum is defined when allowing for the optimum to move according to an unbiased random walk with the variance $\sigma^2_{\theta}$ ([Hansen et al. (2008)](https://academic.oup.com/evolut/article-abstract/62/8/1965/6853095); [Voje 2023](https://www.cambridge.org/core/journals/paleobiology/article/fitting-and-evaluating-univariate-and-multivariate-models-of-withinlineage-evolution/8F16773B4F432B702D030675ABE5BAFD)). A special case of this latter model is when the ancestral trait state has the same value as the ancestral optimum ([Voje 2023](https://www.cambridge.org/core/journals/paleobiology/article/fitting-and-evaluating-univariate-and-multivariate-models-of-withinlineage-evolution/8F16773B4F432B702D030675ABE5BAFD)). 
 
 
-The Ornstein-Uhlenbeck models adjusted to describe phenotypic evolution within a single lineage has the expected trait mean and its variance and covariance are given by the following expressions:
+The Ornstein-Uhlenbeck models adjusted to describe phenotypic evolution within a single lineage has the expected trait mean, variance and covariance given by the following expressions:
 
 <u>OU with fixed optimum</u>
 
@@ -154,8 +154,8 @@ where
 - The estimation (sampling) error $\epsilon_i$ of the population means contribute to the expected variance between two population means
 
 The OU model with a fixed optimum can be fitted using the `paleoTS::opt.joint.OU` function.
-The OU model with a moving optimum can be fitted using the `opt.joint.OUBM` function.
-The OU model with a moving optimum and with the ancestral state at optimum can be fitted using the `opt.joint.OUBM` function together with the argument `opt.anc = TRUE`.
+The OU model with a moving optimum can be fitted using the `evoTS::opt.joint.OUBM` function.
+The OU model with a moving optimum and with the ancestral state at optimum can be fitted using the `evoTS::opt.joint.OUBM` function together with the argument `opt.anc = TRUE`.
 
 ---
 
