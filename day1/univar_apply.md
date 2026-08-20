@@ -5,7 +5,7 @@ permalink: /day1/univar_apply/
 ---
 
 
-# Applying the univariate models in evoTS
+# Applying the univariate models in paleoTS/evoTS
 
 The different univariate models can be applied to datasets in paleoTS/evoTS using the `opt.joint...` functions. Here's an overview:
 
