@@ -8,7 +8,7 @@ permalink: /day1/exercise2/
 
 In this exercise, we will use three time series to assess relative and absolute fit. You can download the time series by clicking the links below:
 
-- <a href="{{ '/assets/data_exercises/ts_1.txt' | relative_url }}" download>__Time series 1__</a>: mean teeth crown height in a lineage of extinct giant sharks (_Carcharocles megalodon_) from [Pimiento and Balk (2015)](https://www.cambridge.org/core/journals/paleobiology/article/bodysize-trends-of-the-extinct-giant-shark-carcharocles-megalodon-a-deeptime-perspective-on-marine-apex-predators/03A62B39329A8595DD129EEC9BE8A065)
+- <a href="{{ '/assets/data_exercises/ts_1.txt' | relative_url }}" download>__Time series 1__</a>: teeth crown width in a lineage of extinct giant sharks (_Carcharocles megalodon_) from [Pimiento and Balk (2015)](https://www.cambridge.org/core/journals/paleobiology/article/bodysize-trends-of-the-extinct-giant-shark-carcharocles-megalodon-a-deeptime-perspective-on-marine-apex-predators/03A62B39329A8595DD129EEC9BE8A065)
 - <a href="{{ '/assets/data_exercises/ts_2.txt' | relative_url }}" download>__Time series 2__</a>: mean number of chambers in a lineage of foraminifera (_Globorotalia sp._) from [Malmgren and Kennet (1981)](https://www.jstor.org/stable/2400475)
 - <a href="{{ '/assets/data_exercises/ts_3.txt' | relative_url }}" download>__Time series 3__</a>: first lower molar occlusal surface in a lineage of Pliocene _Ogmodontomys_ (rodents) from [Marcolini and Martin (2008)](https://www.academia.edu/48202602/Mosaic_evolution_in_first_lower_molars_of_Pliocene_I_Ogmodontomys_I_Rodentia_Arvicolidae_from_the_Meade_Basin_of_southwestern_Kansas_USA_)
 
