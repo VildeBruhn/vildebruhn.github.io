@@ -55,7 +55,7 @@ determining the magnitude of the fluctuations around the mean. When the mean is 
 ![Unbiased random walk](/assets/images/URW.png)
 <small>Figure from [Kinneberg and Voje (2026)](https://academic.oup.com/evolut/article/80/1/97/8280398)</small>
 
-When the mean is not equal to zero, the changes have an average direction and are biased towards an increase (positive $\mu_{step}$) or decrease (negative $\mu_{step}$) of the trait mean over time. This biased version of the model is what is often referred to as a general random walk model, trend model, or directional evolution. Here, we will use the term general random walk. Both the unbiased and general random walk are originally composed of the two parameters $\mu_{step}$ and $\sigma^2_{step}$, with a third parameter, the ancestral state ($z_0$), which is part of the calculation of the expected mean trait at time $t_i$. The expected trait mean and its variance and covariance are given by the following expressions:
+When the mean is not equal to zero, the changes have an average direction and are biased towards an increase (positive $\mu_{step}$) or decrease (negative $\mu_{step}$) of the trait mean over time. This biased version of the model is what is often referred to as a general random walk model, biased random walk, trend model, or directional evolution. Here, we will use the term general random walk. Both the unbiased and general random walk are originally composed of the two parameters $\mu_{step}$ and $\sigma^2_{step}$, with a third parameter, the ancestral state ($z_0$), which is part of the calculation of the expected mean trait at time $t_i$. The expected trait mean and its variance and covariance are given by the following expressions:
 
 $$
 E[z_i] = z_0
