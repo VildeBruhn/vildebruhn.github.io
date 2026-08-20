@@ -44,7 +44,7 @@ If we for example want to investigate proportional phenotypic change in the diam
 ln_diameter <- paleoTS::ln.paleoTS(diameter_S.yellowstonensis)
 ```
 
-We then convert the time vector in the data set to unit length (i.e., the length in time from the oldest to youngest sample/population in the data set becomes 1):
+We then convert the time vector in the dataset to unit length (i.e., the length in time from the oldest to youngest sample/population in the data set becomes 1):
 
 ```r
 ln_diameter$tt <- ln_diameter$tt/(max(ln_diameter$tt))
