@@ -175,145 +175,92 @@ The _vstep.opt_ parameter describes the rate of change in the optimum. This is e
 Note that the name of the first reported parameter is _anc/theta.0_. This parameter represents the ancestral trait value, but also the value of the “ancestral” optimum. The default option in the `opt.joint.OUBM` function is to assume that the trait was perfectly adapted at the start of the time series (the argument `anc.opt = TRUE`), but this can be changed by setting `anc.opt = FALSE`, like this:
 
 ```r
-opt.joint.OUBM(ln.diameter, opt.anc  = FALSE)
+opt.joint.OUBM(ln_diameter, opt.anc  = FALSE)
 ```
 
 Which gives an output like this:
 
 ```r
 >
-$logL
-[1] 80.71298
+paleoTSfit object [n = 63 , K = 5 ]
 
-$AICc
-[1] -150.3733
+Model:  OU model with moving optimum 
+Method:  Joint 
+log-likelihood =  80.71298 
+AICc =  -150.3733 
 
-$parameters
+Parameter estimates: 
         anc vstep.trait     theta.0       alpha   vstep.opt 
- 3.70316688  0.27295686  3.89044533 11.89309009  0.00000001 
-
-$modelName
-[1] "OU model with moving optimum"
-
-$method
-[1] "Joint"
-
-$K
-[1] 5
-
-$n
-[1] 63
-
-$iter
-[1] NA
-
-$se
-NULL
-
-attr(,"class")
-[1] "paleoTSfit"
+ 3.70316688  0.27295687  3.89044533 11.89309026  0.00000001
 ```
 
 Setting `opt.anc = FALSE` estimates a separate “ancestral” value for the optimum (_theta.0_). The rate of change in the optimum (_vstep.opt_) is still negligible, which means this model is virtually identical to a model where the optimum is fixed. This can be shown by fitting an OU model where the optimum is fixed, which is the model included in the paleoTS package:
 
 ```r
-paleoTS::opt.joint.OU(ln.diameter)
+paleoTS::opt.joint.OU(ln_diameter)
 ```
 
 ```r
 > 
-$logL
-[1] 80.71298
+paleoTSfit object [n = 63 , K = 4 ]
 
-$AICc
-[1] -152.7363
+Model:  OU 
+Method:  Joint 
+Convergence:  Successful 
+log-likelihood =  80.71298 
+AICc =  -152.7363 
 
-$parameters
+Parameter estimates: 
        anc      vstep      theta      alpha 
- 3.7031735  0.2729604  3.8904516 11.8941703 
+ 3.7031741  0.2729583  3.8904507 11.8938651 
 
-$modelName
-[1] "OU"
-
-$method
-[1] "Joint"
-
-$se
-NULL
-
-$K
-[1] 4
-
-$n
-[1] 63
-
-attr(,"class")
-[1] "paleoTSfit"
+Additional elements not printed:  convergence logLFunction
 ```
 
 The fixed optimum model gives the same log-likelihood value as the model where the optimum was allowed to change (but actually did not). The fixed optimum model has a better AICc score as this model contains one less parameter (the parameter describing the rate of change in the optimum).
 
-It is good practice to repeat any numerical optimization procedure from different starting points. This is especially important when the model has several parameters, as parameter-rich models may contain more than one peak in the log-likelihood surface. The OUBM model is a type of model that may have several local peaks in the likelihood space.
+It is good practice to repeat any numerical optimisation procedure from different starting points. This is especially important when the model has several parameters, as parameter-rich models may contain more than one peak in the log-likelihood surface. The OUBM model is a type of model that may have several local peaks in the log-likelihood space.
 
-The user can choose the number of iterations of the numerical optimization of the OUBM model using the argument `iterations`. The function will return the parameter values from the run with the highest log-likelihood. The starting values in each iteration are drawn from a normal distribution with mean zero and a standard deviation set by the user (default is 1). The initial values for the _vstep_ and _alpha_ parameters are constrained to be equal or larger than 0.
+The user can choose the number of iterations of the numerical optimisation of the OUBM model using the argument `iterations`. The function will return the parameter values from the run with the highest log-likelihood. The starting values in each iteration are drawn from a normal distribution with mean zero and a standard deviation set by the user (default is 1). The initial values for the _vstep_ and _alpha_ parameters are constrained to be equal or larger than 0.
 
 Here, we run the `opt.joint.OUBM` function (assuming the trait value is perfectly adapted at the start of the sequence) from 100 different starting points (i.e., 100 different initial parameter values):
 
 ```r
-opt.joint.OUBM(ln.diameter, opt.anc = TRUE, iterations = 100)
+opt.joint.OUBM(ln_diameter, opt.anc = TRUE, iterations = 100)
 ```
 
 ```r
 >
-$logL
-[1] 78.5667
+The optimization method is executed from multiple different starting points. Number of iterations: 100
+paleoTSfit object [n = 63 , K = 4 ]
 
-$AICc
-[1] -148.4437
+Model:  OU model with moving optimum (ancestral state at optimum) 
+Method:  Joint 
+log-likelihood =  78.5667 
+AICc =  -148.4437 
 
-$parameters
+Parameter estimates: 
 anc/theta.0 vstep.trait       alpha   vstep.opt 
- 3.71050949  0.25577331  4.45009314  0.00000001 
-
-$modelName
-[1] "OU model with moving optimum (ancestral state at optimum)"
-
-$method
-[1] "Joint"
-
-$K
-[1] 4
-
-$n
-[1] 63
-
-$iter
-[1] 100
-
-$se
-NULL
-
-attr(,"class")
-[1] "paleoTSfit"
+ 3.71050950  0.25577394  4.45011150  0.00000001 
 ```
 
-From the output, we see that the likelihood score of the best model among the 100 model runs is identical to the score when we ran the model without any iterations. However, the maximum likelihood parameter estimates are slightly different (e.g., a difference in the sixth decimal for the _vstep_ parameter), but not to an extent that changes our interpretation of the trait dynamics.
+From the output, we see that the log-likelihood score of the best model among the 100 model runs is identical to the score when we ran the model without any iterations. However, the maximum log-likelihood parameter estimates are slightly different (e.g., a difference in the seventh decimal for the _vstep_ parameter), but not to an extent that changes our interpretation of the trait dynamics.
 
-The evoTS package contains functions to estimate likelihood surfaces for the different versions of the OU models (`loglik.surface.OU` and `loglik.surface.OUBM`). In these functions, the likelihood surface is not estimated as a function of the step variance and alpha parameter directly, but rather as a function of two related parameters that are easier to give a biological interpretation. The stationary variance, $\frac{v_{step}}{2\alpha}$, represents the equilibrium variance of the OU process ([Hansen et al. 2008](https://academic.oup.com/evolut/article-abstract/62/8/1965/6853095)) and describes the variance expected in the trait after the trait has reached the optimum. The half-life, $\frac{log(2)}{\alpha}$, is the amount of time it takes for the trait to move half-way from the ancestral state to the optimum. The half-life is informative regarding the speed of adaptation toward the optimal state. To get an idea for which candidate values to investigate for the likelihood-surface, we first need to calculate the maximum likelihood values of the stationary variance and half-life parameters from the model output.
+The evoTS package contains functions to estimate log-likelihood surfaces for the different versions of the OU models (`loglik.surface.OU` and `loglik.surface.OUBM`). In these functions, the log-likelihood surface is not estimated as a function of the step variance and alpha parameter directly, but rather as a function of two related parameters that are easier to use for biological interpretation. The stationary variance, $\frac{v_{step}}{2\alpha}$, represents the equilibrium variance of the OU process ([Hansen et al. 2008](https://academic.oup.com/evolut/article-abstract/62/8/1965/6853095)) and describes the variance expected in the trait after the trait has reached the optimum. The half-life, $\frac{log(2)}{\alpha}$, is the amount of time it takes for the trait to move half-way from the ancestral state to the optimum. The half-life is informative regarding the speed of adaptation toward the optimal state. To get an idea for which candidate values to investigate for the log-likelihood surface, we first need to calculate the maximum log-likelihood values of the stationary variance and half-life parameters from the model output.
 
-The OU model with a fixed optimum had the best relative model fit according to AICc among the three versions of the OU model we investigated. The maximum likelihood estimate of the half-life from this OU model is $\frac{log(2)}{11.8941} = 0.0583$. The maximum likelihood estimate of the stationary variance is $\frac{0.2730}{2 \times 11.8941} = 0.0115$. But these are only point-estimates. We can explore the support interval around these point estimates of the half-life and the stationary variance using the `loglik.surface.OU` function:
+The OU model with a fixed optimum had the best relative model fit according to AICc among the three versions of the OU model we investigated. The maximum log-likelihood estimate of the half-life from this OU model is $\frac{ln(2)}{11.8938651} = 0.0583$. The maximum log-likelihood estimate of the stationary variance is $\frac{0.2729583}{2 \times 11.8938651} = 0.0115$. But these are only point-estimates. We can explore the support interval around these point estimates of the half-life and the stationary variance using the `loglik.surface.OU` function:
 
 ```r
-loglik.surface.OU(ln.diameter, stat.var.vec=seq(0,0.1,0.001), h.vec=seq(0,0.4,0.001))
+loglik.surface.OU(ln_diameter, stat.var.vec=seq(0,0.1,0.001), h.vec=seq(0,0.4,0.001))
 ```
 ```r
 >
-      lower upper
+                    lower upper
 stationary variance 0.007 0.053
 half-life           0.029 0.305
 ```
 
-![OU_logl_surface](/assets/images/OU_logl_surface.png)
+![OU_logl_surface](/assets/images/loglik_OU.png)
 
 Half-life values up to 30% of the total length of the time series are within two log-likelihood units from the best estimate. This indicates that substantially slower evolution than the point estimate of a 6% half-life cannot be ruled out as a possibility.
 
