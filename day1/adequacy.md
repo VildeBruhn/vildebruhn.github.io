@@ -11,7 +11,7 @@ Measures of relative model fit, including AICc, do not address whether the best 
 ![Adequacy](/assets/images/adequacy.png)
 <small>Figure from [Voje (2018)](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13083)</small>
 
-The adequacy tests are intended to determine how likely it is that a model X, given parameters Y, can reproduce the trait dynamics seen in dataset Z ([Voje 2018](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13083)). In the adequacy tests for stasis and strict stasis, four statistical characteristics of a white noise process are tested. (1) The amount of fluctuations around the fixed optimum does not increase or decrease over time; (2) deviations from the optimum are random (i.e., if there are many positive or negative deviations following each other it would indicate non-randomness); (3) the time series show low autocorrelation; and (4) net evolution is small ([Voje 2018](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13083)). The first three statistics are also used for the unbiased random walk and the general random walk. To apply the same statistics on these models, the time series are detrended to behave like a white noise process ([Voje 2018](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13083)). For decelerated evolution, statistic (2) and (3) are used together with a fifth statistic (5), evaluating if the magnitude of trait change decreases with time ([Voje 2020](https://academic.oup.com/evolut/article/74/1/188/6726926)). Statistics (2), (3), and (5) are also applied to accelerated evolution, but (5) is instead assessing increased, not decreased, exploration of morphospace with time. For the OU models, statistics (2) and (3) are used to investigate absolute fit. When detrended, the OU models also have the same expectation as a white noise process. Failure on one adequacy test does not predict failure on the others ([Voje 2020](https://academic.oup.com/evolut/article/74/1/188/6726926)). A model is deemed an adequate fit to a time series only if it passes all of the tests applied. For the mode-shift models, it is possible to assess absolute model fit for each of the two models separately. A a mode-shift model is adequate only if each of the two models pass all the applied adequacy tests.
+The adequacy tests are intended to determine how likely it is that a model X, given parameters Y, can reproduce the trait dynamics seen in dataset Z ([Voje 2018](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13083)). In the adequacy tests for stasis and strict stasis, four statistical characteristics of a white noise process are tested. (1) The amount of fluctuations around the fixed optimum does not increase or decrease over time; (2) deviations from the optimum are random (i.e., if there are many positive or negative deviations following each other it would indicate non-randomness); (3) the time series show low autocorrelation; and (4) net evolution is small ([Voje 2018](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13083)). The first three statistics are also used for the unbiased random walk and the general random walk. To apply the same statistics on these models, the time series are detrended to behave like a white noise process ([Voje 2018](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13083)). For decelerated evolution, statistic (2) and (3) are used together with a fifth statistic (5), evaluating if the magnitude of trait change decreases with time ([Voje 2020](https://academic.oup.com/evolut/article/74/1/188/6726926)). Statistics (2), (3), and (5) are also applied to accelerated evolution, but (5) is instead assessing increased, not decreased, exploration of morphospace with time. For the OU models, statistics (2) and (3) are used to investigate absolute fit. When detrended, the OU models also have the same expectation as a white noise process. Failure on one adequacy test does not predict failure on the others ([Voje 2020](https://academic.oup.com/evolut/article/74/1/188/6726926)). A model is deemed an adequate fit to a time series only if it passes all of the tests applied. For the mode-shift models, it is possible to assess absolute model fit for each of the two models separately. A mode-shift model is adequate only if each of the two models pass all the applied adequacy tests.
 
 
 ## Adequacy tests with `adePEM`
@@ -34,14 +34,14 @@ library(adePEM)
 An example data called `element.length` is available as part of the adePEM package. The data is a time series of the evolution of element length (measured in mm) in the conodont _Pterospathodus_ and was originally published by [Jones (2009)](https://www.cambridge.org/core/journals/paleobiology/article/directional-evolution-in-the-conodont-pterospathodus/19235BF6CAC0FD0F1A126F23BA9319B8). The data (element.length) is already a paleoTS object. We can first have a look at the data by plotting it:
 
 ```r
-plot.paleoTS(element.length)
+plotevoTS(element.length)
 ```
 
 ![Element length](/assets/images/element_length.png)
 
 Time (the x-axis) is in millions of years and the trait is measured in millimeters. Error bars represent one standard error.
 
-As an example, we then run the `fit3models` function from the paleoTS package to check the relative fit of the stasis, unbiased random walk and general random walk to the data:
+As an example, we run the `fit3models` function from the paleoTS package to check the relative fit of the stasis, unbiased random walk and general random walk to the data:
 
 ```r
 paleoTS::fit3models(element.length, pool=TRUE)
@@ -73,12 +73,12 @@ confidence level    0.95
 
 $summary
            estimate  min.sim max.sim p-value result
-auto.corr    -0.318 -0.74014  0.4842   0.506 PASSED
-runs.test   1.09003 -2.37144 3.55835   0.624 PASSED
-slope.test  0.01199 -0.01997 0.04383   0.526 PASSED
+auto.corr    -0.318 -0.80022 0.41149   0.538 PASSED
+runs.test   1.09003 -2.97359 3.34277   0.606 PASSED
+slope.test  0.01199  -0.0172  0.0383   0.552 PASSED
 ```
 
-The first part of the output summarizes the number of bootstrap replications (the number of simulated data sets) used for assessing model adequacy and the confidence level. 1000 replications and a confidence level of 0.95 are the default settings, but both can be defined by the user when running the `fit3adequacy.RW` function.
+The first part of the output summarizes the number of bootstrap replications (the number of simulated datasets) used for assessing model adequacy and the confidence level. 1000 replications and a confidence level of 0.95 are the default settings, but both can be defined by the user when running the `fit3adequacy.RW` function.
 
 The second part of the output contains information on the results of the adequacy tests. The first column names the adequacy tests. The second column gives the test statistic computed on the real data. From the second column, we see that the autocorrelation is calculated to be negative and the slope test (which is the least-squares slope of how the (detrended) data changes with time) is positive.
 
