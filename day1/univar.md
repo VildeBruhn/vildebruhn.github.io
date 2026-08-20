@@ -4,7 +4,7 @@ title: Univariate models
 permalink: /day1/univar/
 ---
 
-# Univariate models in evoTS
+# Univariate models
 
 The evoTS package contains a range of univariate models that expand and supplement the models available in paleoTS.
 
