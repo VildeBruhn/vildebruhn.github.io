@@ -13,11 +13,11 @@ The different univariate models can be applied to datasets in paleoTS/evoTS usin
 - Strict stasis: `paleoTS::opt.joint.StrictStasis`
 - Unbiased random walk: `paleoTS::opt.joint.URW`
 - General random walk: `paleoTS::opt.joint.GRW`
-- Decelerated evolution: `opt.joint.decel`
-- Accelerated evolution: `opt.joint.accel`
+- Decelerated evolution: `evoTS::opt.joint.decel`
+- Accelerated evolution: `evoTS::opt.joint.accel`
 - OU model with a fixed optimum: `paleoTS::opt.joint.OU`
-- OU model with a moving optimum: `opt.joint.OUBM`
-- OU model with a moving optimum and with the ancestral state at optimum: `opt.joint.OUBM` with the argument `opt.anc = TRUE`.
+- OU model with a moving optimum: `evoTS::opt.joint.OUBM`
+- OU model with a moving optimum and with the ancestral state at optimum: `evoTS::opt.joint.OUBM` with the argument `opt.anc = TRUE`.
 
 
 Below, we will look at outputs from fitting the decelerated evolution, accelerated evolution and OU models to the example dataset in evoTS. We will also show you how to compare the fit of different models, including how to use evoTS to assess the uncertainty of the estimated parameters by exploring the likelihood-surface. In the last part, we will go through how to fit all univariate models at once and how to fit combinations of univariate models to a time series (mode shift models).
