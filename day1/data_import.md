@@ -61,7 +61,7 @@ plotevoTS(ln_diameter)
 
 ## Simulating data
 
-It is possible to simulate data for all implemented models in evoTS. Standard R-package documentation can be seen by entering `?sim.OUBM` and `?sim.accel.decel`.
+It is possible to simulate data for all implemented models in paleoTS and evoTS. Standard R-package documentation can be seen by entering for example `?sim.OUBM` and `?sim.accel.decel`.
 
 ---
 
