@@ -85,7 +85,7 @@ For the decelerated model of evolution, the vectors given to the arguments `vste
 One way to define the candidate values is to use the `seq` function:
 
 ```r
-loglik.surface.decel(ln.diameter, vstep.vec = seq(0,1.3,0.01), r.vec = seq(-5,0,0.01))
+loglik.surface.decel(ln_diameter, vstep.vec = seq(0,1.3,0.01), r.vec = seq(-5,0,0.01))
 ```
 ```r
 >
