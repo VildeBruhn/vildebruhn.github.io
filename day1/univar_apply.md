@@ -96,7 +96,7 @@ r     -3.23 -0.21
 
 ![Decel_logl_surface](/assets/images/loglik_decel.png)
 
-From the likelihood surface and from the printed confidence intervals, we see that $r$ values between -3.23 and -0.21 are within 2 log-likelihood units from the best estimate for this parameter. This suggests we should be careful to exclude the possibility that the half-life of the decay in the rate of evolution is as much as 330% (45 312 years) or as low as 21% (2 946 years) of the investigated time interval.
+From the log-likelihood surface and from the printed confidence intervals, we see that $r$ values between -3.23 and -0.21 are within 2 log-likelihood units from the best estimate for this parameter. This suggests we should be careful to exclude the possibility that the half-life of the decay in the rate of evolution is as much as 330% (45 312 years) or as low as 21% (2 946 years) of the investigated time interval.
 
 
 ## Accelerated-evolution model
@@ -106,40 +106,25 @@ The accelerated evolution model is identical to the decelerated model except tha
 Fit the accelerated evolution model like this:
 
 ```r
-opt.joint.accel(ln.diameter)
+opt.joint.accel(ln_diameter)
 ```
 
 And you will get an output like this:
 
 ```r
 > 
-$logL
-[1] 77.57017
+paleoTSfit object [n = 63 , K = 3 ]
 
-$AICc
-[1] -148.7336
+Model:  Accel 
+Method:  Joint 
+log-likelihood =  77.57017 
+AICc =  -148.7336 
 
-$parameters
+Parameter estimates: 
       anc     vstep         r 
-3.7104896 0.2387427 0.0000010 
+3.7104897 0.2387415 0.0000010 
 
-$modelName
-[1] "Accel"
-
-$method
-[1] "Joint"
-
-$se
-NULL
-
-$K
-[1] 3
-
-$n
-[1] 63
-
-attr(,"class")
-[1] "paleoTSfit"
+Additional elements not printed:  convergence logLFunction 
 ```
 
 The accelerated evolution model has a lower (worse) log-likelihood and higher (worse) AICc score compared to the decelerated model of evolution.
@@ -147,13 +132,16 @@ The accelerated evolution model has a lower (worse) log-likelihood and higher (w
 A support surface can be produced using the `loglik.surface.accel` function:
 
 ```r
-> loglik.surface.accel(ln.diameter, vstep = seq(0,5,0.01), r.vec = seq(0,1.5, 0.005))
+loglik.surface.accel(ln_diameter, vstep = seq(0,5,0.01), r.vec = seq(0,1.5, 0.005))
+```
+```r
+>
       lower upper
 vstep 0.090  5.00
 r     0.035  1.35
 ```
 
-![Accel_logl_surface](/assets/images/accel_logl_surface.png)
+![Accel_logl_surface](/assets/images/loglik_accel.png)
 
 The 3D plot can be rotated vertically and horizontally to get a better overview of the likelihood surface, which is why the observation angle is different for this 3D plot compared to the 3D plot for the decelerated model.
 
