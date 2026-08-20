@@ -14,7 +14,7 @@ In this exercise, we will use data from the [Phenotypic Evolution Time Series (P
 
 The phenotypic traits have been measured in units on a ratio scale, and include measures of lengths, widths, areas, counts etc. The database also includes phenotypic traits on ratio scales that have been log-transformed (e.g., log length in cm). Computing means and averages are meaningful statistical operations of measurements on a ratio scale (or log-transformed ratio scale variables), which is not the case for all scale types (e.g., measures on nominal or ordinal scales). Principal components scores are not part of the database for various reasons that could make the evolutionary interpretation of such scores difficult.
 
-See the [PETS help page](https://pets.nhm.uio.no/PETS/) for an explanation of the content in the data tables you can download.
+See the PETS help page for an explanation of the content in the data tables you can download.
 
 After exploring the webpage for a bit, download a time series you want to work with and place it in your working directory. You download the dataset by selecting the specific study un _View/download individual series_ and then clicking _Download_ on the right side. For this exercise you can download the time series as a text file. Also check in the metadata wether or not the data is log-transformed. If not, log-transform the data before continuing with analyses. 
 
