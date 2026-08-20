@@ -108,12 +108,12 @@ confidence level    0.95
 
 $summary
            estimate  min.sim max.sim p-value result
-auto.corr    0.0464  0.00424   0.985   0.002 FAILED
-runs.test  -0.54272 -5.29741 1.28601   0.038 FAILED
-slope.test  0.00637  -0.1247 0.24548   0.956 PASSED
+auto.corr    0.0464 -0.03124 0.97133   0.004 FAILED
+runs.test  -0.54272 -5.29741 0.18877    0.02 FAILED
+slope.test  0.00637 -0.12144 0.25748    0.96 PASSED
 ```
 
-The general random walk (trend) model fails the autocorrelation test and the runs test, and passes the slope test. This suggests that this model is not an adequate statistical description of the data. We can also see this in the distributions of test statistics:
+The general random walk (trend) model fails the autocorrelation test and the runs test, and passes the slope test. This suggests that this model is not an adequate statistical description of the data. We can also see this in the distributions of the test statistics:
 
 ![Adequacy trend](/assets/images/adequacy_trend.png)
 
