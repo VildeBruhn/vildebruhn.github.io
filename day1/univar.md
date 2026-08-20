@@ -104,7 +104,7 @@ where
 - $t_i$ is the time interval from the ancestral population mean (i.e., the start of the time series, which has a time of $0$) to the $i\text{th}$ population
 - $t_{min}$ is the time interval from the ancestral population to the oldest of the two populations $z_i$ and $z_j$.
 
-The decelerated model of evolution can be fitted to a time series using the `opt.joint.decel` function, and the accelerated model by using the `opt.joint.accel` function.
+The decelerated model of evolution can be fitted to a time series using the `evoTS::opt.joint.decel` function, and the accelerated model by using the `evoTS::opt.joint.accel` function.
 
 ## Ornstein-Uhlenbeck models
 
