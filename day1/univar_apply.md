@@ -20,7 +20,7 @@ The different univariate models can be applied to datasets in paleoTS/evoTS usin
 - OU model with a moving optimum and with the ancestral state at optimum: `evoTS::opt.joint.OUBM` with the argument `opt.anc = TRUE`.
 
 
-Below, we will look at outputs from fitting the decelerated evolution, accelerated evolution and OU models to the example dataset in evoTS. We will also show you how to compare the fit of different models, including how to use evoTS to assess the uncertainty of the estimated parameters by exploring the loglikelihood-surface. In the last part, we will go through how to fit all univariate models at once and how to fit combinations of univariate models to a time series (mode shift models).
+Below, we will look at outputs from fitting the decelerated evolution, accelerated evolution and OU models to the example dataset in evoTS. We will also show you how to compare the fit of different models, including how to use evoTS to assess the uncertainty of the estimated parameters by exploring the loglikelihood-surface. In the last part, we will go through how to fit all univariate models at once and how to fit combinations of univariate models to a time series (mode-shift models).
 
 We will use the time series with the diameter of _Stephanodiscus yellowstonensis_. Get the data into the right paleoTS format like this:
 
