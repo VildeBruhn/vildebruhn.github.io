@@ -39,7 +39,7 @@ library(paleoTS)
 
 ## Other packages
 
-If not already installed, you can also install these packages that we will use during the workshop:
+If not already installed, you can also install this packages that we will use during the workshop:
 
 ```r
 install.packages("tidyverse")
