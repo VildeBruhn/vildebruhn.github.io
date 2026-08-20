@@ -94,7 +94,7 @@ vstep  0.18  1.26
 r     -3.23 -0.21
 ```
 
-![Decel_logl_surface](/assets/images/decel_logl_surface.png)
+![Decel_logl_surface](/assets/images/loglik_decel.png)
 
 From the likelihood surface and from the printed confidence intervals, we see that $r$ values between -3.23 and -0.21 are within 2 log-likelihood units from the best estimate for this parameter. This suggests we should be careful to exclude the possibility that the half-life of the decay in the rate of evolution is as much as 330% (45 312 years) or as low as 21% (2 946 years) of the investigated time interval.
 
