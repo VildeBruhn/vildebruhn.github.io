@@ -267,10 +267,10 @@ Half-life values up to 30% of the total length of the time series are within two
 
 ## Fitting all univariate models in evoTS and paleoTS
 
-A quick way to evaluate the relative fit of all univariate models in the evoTS and paleoTSpackages (excluding models with mode shifts) is to use the `fit.all.univariate` function:
+A quick way to evaluate the relative fit of all univariate models in the evoTS and paleoTS packages (excluding models with mode shifts) is to use the `fit.all.univariate` function:
 
 ```r
-fit.all.univariate(ln.diameter, pool = TRUE)
+fit.all.univariate(ln_diameter, pool = TRUE)
 ```
 ```r
 >
@@ -295,55 +295,85 @@ OU model with moving optimum                                80.71298 5 -150.3733
 There is no a priori reason why a lineage should follow only one mode of evolution. The evoTS package allows for investigating all pairwise model combinations of the models stasis, unbiased random walk (URW), trend (GRW) and an Ornstein-Uhlenbeck (OU) process with a fixed optimum using the function `fit.mode.shift`. It is possible to either investigate specific shift points using the argument `shift.point` or investigate all possible shift points, like below:
 
 ```r
-fit.mode.shift(ln.diameter, model1 = "URW", model2 = "URW", minb = 10)
+fit.mode.shift(ln_diameter, model1 = "URW", model2 = "URW", minb = 10)
 ```
 ```r
 >
 [1] "Searching all possible shift points in the evolutionary sequence"
 Total # hypotheses:  44 
 1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  
-$logL
-[1] 79.27473
 
-$AICc
-[1] -149.8598
+paleoTSfit object [n = 63 , K = 4 ]
 
-$parameters
+Model:  URW-URW 
+Method:  Joint 
+log-likelihood =  79.27473 
+AICc =  -149.8598 
+
+Parameter estimates: 
        anc      vstep      vstep     shift1 
  3.7304865  0.2432606  0.2494830 52.0000000 
 
-$modelName
-[1] "URW-URW"
+Log-likelihoods of all tested shift-points
 
-$method
-[1] "Joint"
+ shift  all.logl   
+ 11    70.86731    
+ 12    68.59747    
+ 13    62.65156    
+ 14    65.41455    
+ 15    53.23718    
+ 16    60.25449    
+ 17    56.19608    
+ 18    45.50594    
+ 19    42.55632    
+ 20    44.70092    
+ 21    46.05836    
+ 22    46.58797    
+ 23    48.14004    
+ 24    44.19647    
+ 25    67.63474    
+ 26    57.82010    
+ 27    64.69928    
+ 28    69.73926    
+ 29    58.45089    
+ 30    55.26295    
+ 31    53.40897    
+ 32    64.95625    
+ 33    66.97684    
+ 34    66.65108    
+ 35    72.98220    
+ 36    65.42928    
+ 37    71.12637    
+ 38    76.39216  * 
+ 39    74.96141  * 
+ 40    74.07654    
+ 41    74.06923    
+ 42    77.98640  * 
+ 43    75.27489  * 
+ 44    73.96364    
+ 45    78.18181  * 
+ 46    74.92223  * 
+ 47    75.10229  * 
+ 48    77.07127  * 
+ 49    77.28518  * 
+ 50    79.12256  * 
+ 51    75.99980  * 
+ 52    79.27473  **
+ 53    76.45725  * 
+ 54    70.37393    
 
-$se
-NULL
+    Shift occurs immediately AFTER listed sample number
+    ** = maximum-likelihood shift point
+    *  = additional shift points in CI [ within 4.744 logL units; Chi-sq P = 0.95 , df =  4  ] 
 
-$K
-[1] 4
 
-$n
-[1] 63
-
-$all.logl
- [1] 70.86731 68.59747 62.65156 65.41455 53.23718 60.25449 56.19608 45.50594 42.55632 44.70092 46.05836 46.58797 48.14004 44.19647 67.63474 57.82010 64.69928 69.73926
-[19] 58.45089 55.26295 53.40897 64.95625 66.97684 66.65108 72.98220 65.42928 71.12637 76.39216 74.96141 74.07654 74.06923 77.98640 75.27489 73.96364 78.18181 74.92223
-[37] 75.10229 77.07127 77.28518 79.12256 75.99980 79.27473 76.45725 70.37393
-
-$GG
-shift1 
-    52 
-
-attr(,"class")
-[1] "paleoTSfit"
+Additional elements not printed:  convergence logLFunction
 ```
 
 The function `fit.mode.shift` can also be used to fit all pairwise combinations of the four models by setting the `fit.all` argument as `TRUE`. If a shift point is not defined (using the `shift.point` argument), all possible shift points are investigated for all models:
 
 ```r
-fit.mode.shift(ln.diameter, fit.all = TRUE, minb = 10)
+fit.mode.shift(ln_diameter, fit.all = TRUE, minb = 10)
 ```
 ```r
 >
@@ -351,58 +381,42 @@ fit.mode.shift(ln.diameter, fit.all = TRUE, minb = 10)
 1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  
 Comparing 16 models [n = 63, method = Joint]
 
-                  logL K       AICc      dAICc Akaike.wt
-Stasis-Stasis 53.24711 4  -97.80456 64.3140156     0.000
-Stasis-URW    72.84306 4 -136.99646 25.1221145     0.000
-Stasis-GRW    72.84414 5 -134.63564 27.4829349     0.000
-Stasis-OU     74.97027 6 -136.44053 25.6780478     0.000
-URW-URW       79.27473 4 -149.85981 12.2587671     0.001
-URW-GRW       79.54430 5 -148.03597 14.0826065     0.000
-URW-OU        85.34081 6 -157.18163  4.9369506     0.026
-GRW-GRW       84.03615 6 -154.57229  7.5462836     0.007
-GRW-OU        88.87002 7 -161.70368  0.4148986     0.254
-OU-OU         90.26555 8 -161.86443  0.2541469     0.275
-OU-GRW        84.14765 7 -152.25894  9.8596410     0.002
-OU-URW        83.90670 6 -154.31340  7.8051743     0.006
-OU-Stasis     87.80929 6 -162.11858  0.0000000     0.312
-GRW-URW       83.79338 5 -156.53412  5.5844543     0.019
-GRW-Stasis    86.49922 6 -159.49844  2.6201411     0.084
-URW-Stasis    83.36672 5 -155.68080  6.4377793     0.012
+                  logL K       AICc        dAICc Akaike.wt
+Stasis-Stasis 53.24711 4  -97.80456 64.320074965     0.000
+Stasis-URW    72.84306 4 -136.99646 25.128173828     0.000
+Stasis-GRW    72.84414 5 -134.63564 27.488994235     0.000
+Stasis-OU     74.97027 6 -136.44053 25.684107146     0.000
+URW-URW       79.27473 4 -149.85981 12.264826473     0.001
+URW-GRW       79.54430 5 -148.03597 14.088665864     0.000
+URW-OU        85.34081 6 -157.18163  4.943009963     0.025
+GRW-GRW       84.03615 6 -154.57229  7.552342941     0.007
+GRW-OU        88.86989 7 -161.70342  0.421222636     0.244
+OU-OU         90.39565 8 -162.12464  0.000000000     0.302
+OU-GRW        84.14765 7 -152.25894  9.865700453     0.002
+OU-URW        83.90670 6 -154.31340  7.811233629     0.006
+OU-Stasis     87.80929 6 -162.11858  0.006059335     0.301
+GRW-URW       83.79338 5 -156.53412  5.590513670     0.018
+GRW-Stasis    86.49922 6 -159.49844  2.626200413     0.081
+URW-Stasis    83.36672 5 -155.68080  6.443838616     0.012
 [[1]]
-$logL
-[1] 87.80929
 
-$AICc
-[1] -162.1186
+paleoTSfit object [n = 63 , K = 8 ]
 
-$parameters
-         anc        vstep     theta_OU        alpha        omega       shift1 
- 3.705695031  0.327387632  3.817864883  5.226471406  0.001870449 38.000000000 
+Model:  OU-OU 
+Method:  Joint 
+log-likelihood =  90.39565 
+AICc =  -162.1246 
 
-$modelName
-[1] "OU-Stasis"
+Parameter estimates: 
+        anc     vstep_1     theta_1     alpha_1     vstep_2     theta_2     alpha_2      shift1 
+  3.7070545   0.3481810   3.9108762  11.3991134   0.5607464   3.8174346 174.2326614  37.0000000 
 
-$method
-[1] "Joint"
-
-$se
-NULL
-
-$K
-[1] 6
-
-$n
-[1] 63
-
-$GG
-shift1 
-    38 
-
-attr(,"class")
-[1] "paleoTSfit"
+Additional elements not printed:  convergence logLFunction GG 
 ```
 
-The function returns a list of the highest log-likelihood found for each investigated model. A detailed output from the model with the lowest AICc value among the 16 candidate models is also given. An OU-Stasis model with a shift point at sample (population) 38 has the best relative fit according to AICc. Note, however, that the model-combination GRW-OU has an almost equal AICc score relative to the best model. Also the combination of two OU models (each with their own fixed optimum) shows a good relative fit to the data.
+The function returns a list of the highest log-likelihood found for each investigated model. A detailed output from the model with the lowest AICc value among the 16 candidate models is also given. An OU-OU model (each with their own fixed optimum) with a shift point at sample (population) 37 has the best relative fit according to AICc. Note, however, that the model-combination OU-stasis has an almost equal AICc score relative to the best model. Also the GRW-OU model shows a good relative fit to the data.
+
+---
 
 Evaluating relativ fit of a model to a dataset using AICc gives no guarantee that the best model among those tested represents a good statistical description of the empirical data (e.g., [Pennell et al. 2015](https://www.journals.uchicago.edu/doi/10.1086/682022)). In the [next section]({% link day1/adequacy.md %}), we will give an introduction to absolute model fit, using adequacy testing.
 
