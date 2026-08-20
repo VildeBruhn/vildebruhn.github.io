@@ -98,7 +98,7 @@ $$
 
 where 
 - $z_i$ is the expected trait value for population i in the time series
-- $z_i$ is the ancestral trait mean
+- $z_0$ is the ancestral trait mean
 - $\sigma^2_{step_0}$ is the step distribution
 - $r$ describes the exponential decay or increase in the net rate of change through time and is constrained to be $0$ or smaller for the decelerated evolution model, and $0$ or larger for the accelerated evolution model
 - $t_i$ is the time interval from the ancestral population mean (i.e., the start of the time series, which has a time of $0$) to the $i\text{th}$ population
