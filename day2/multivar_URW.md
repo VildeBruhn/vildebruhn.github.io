@@ -41,7 +41,7 @@ $$
 
 The current implementation of the multivariate unbiased random walk model allows testing six variants of the model. All variants of the model can be fitted using different specifications of `R` and `r` arguments in the `fit.multivariate.URW` function.
 
-There are two options for the structure of the __R__ matrix. Setting `R = "diagonal"` means only the diagonal elements of the __R__ matrix will be estimated while off-diagonal elements are set to 0 (see panel a) below). This parameterization of the __R__ matrix means the changes in the traits are assumed to be uncorrelated. Setting `R = "symmetric"` means all (both diagonal and off-diagonal) elements in the __R__ matrix are estimated (see panel b) below). This parameterization estimates how changes in the traits are correlated.
+There are two options for the structure of the __R__ matrix. Setting `R = "diagonal"` means only the diagonal elements of the __R__ matrix will be estimated while off-diagonal elements are set to $0$ (see panel a) below). This parameterization of the __R__ matrix means the changes in the traits are assumed to be uncorrelated. Setting `R = "symmetric"` means all (both diagonal and off-diagonal) elements in the __R__ matrix are estimated (see panel b) below). This parameterization estimates how changes in the traits are correlated.
 
 ![R-matrices](/assets/images/R_matrices.png)
 
@@ -49,19 +49,21 @@ The argument `r` in the `fit.multivariate.URW` function defines whether the rate
 
 To use the multivariate models, we first need multivariate data (i.e., at least two traits or variables).
 
-The data set on phenotypic evolution in _Stephanodiscus yellowstonensis_ ([Theriot et al. 2006](https://www.cambridge.org/core/journals/paleobiology/article/abs/late-quaternary-rapid-morphological-evolution-of-an-endemic-diatom-in-yellowstone-lake-wyoming/B28737E2C2B8FBEC5D0577B5757401A5)) contains data on the number of ribs in addition to the size of the diameter we have analysed so far. Before combining the rib and diameter data into a multivariate data set, we first do an approximate log-transformation of the rib data:
+The dataset on phenotypic evolution in _Stephanodiscus yellowstonensis_ ([Theriot et al. 2006](https://www.cambridge.org/core/journals/paleobiology/article/abs/late-quaternary-rapid-morphological-evolution-of-an-endemic-diatom-in-yellowstone-lake-wyoming/B28737E2C2B8FBEC5D0577B5757401A5)) contains data on the number of ribs in addition to the size of the diameter we have analysed so far. Before combining the rib and diameter data into a multivariate dataset, we first do an approximate log-transformation of the data:
 
 ```r
 ln_ribs <- paleoTS::ln.paleoTS(ribs_S.yellowstonensis)
+ln_diameter <- paleoTS::ln.paleoTS(diameter_S.yellowstonensis)
 ```
 
 and convert the time vector to unit length:
 
 ```r
 ln_ribs$tt <- ln_ribs$tt/(max(ln_ribs$tt))
+ln_diameter$tt <- ln_diameter$tt/(max(ln_diameter$tt))
 ```
 
-We combine the two paleoTS objects into a multivariate evoTS object using the `make.multivar.evoTS` function to make a multivariate data set ready to be analyzed in evoTS:
+We combine the two paleoTS objects into a multivariate evoTS object using the `make.multivar.evoTS` function to make a multivariate dataset ready to be analysed in evoTS:
 
 ```r
 diam_ln_ribs_ln <- make.multivar.evoTS(ln_diameter, ln_ribs)
@@ -78,33 +80,35 @@ plotevoTS.multivariate(diam_ln_ribs_ln, y_min = 3.4, y_max = 4.8, x.label = "Rel
 
 Eye-balling the data seems to suggest that the traits change in a coordinated fashion.
 
-We first fit a multivariate unbiased random walk model where the off-diagonal elements in the __R__ matrix are zero, and the rate of evolution is assumed constant. This is equivalent as fitting two separate univariate unbiased random walk models to each of the two time series.
+We first fit a multivariate unbiased random walk model where the off-diagonal elements in the __R__ matrix are zero, and the rate of evolution is assumed constant. This is equivalent to fitting two separate univariate unbiased random walk models to each of the two time series.
 
 ```r
 fit.multivariate.URW(diam_ln_ribs_ln, R = "diag", r = "fixed")
 ```
 ```r
-[1] "Model converged successfully."
+>
+$converge
+[1] "Model converged successfully"
 
 $modelName
-[1] "Multivariate Random walk (R matrix with zero off-diagonal elements)"
+[1] "Multivariate model: Random walk (R matrix with zero off-diagonal elements)"
 
 $logL
-[1] 136.1905
+[1] 138.2735
 
 $AICc
-[1] -263.6914
+[1] -267.8573
 
 $ancestral.values
-[1] 3.71049 4.00711
+[1] 3.728781 4.031994
 
 $SE.anc
 [1] NA
 
 $R
-          [,1]      [,2]
-[1,] 0.2387433 0.0000000
-[2,] 0.0000000 0.4568377
+         [,1]      [,2]
+[1,] 0.171991 0.0000000
+[2,] 0.000000 0.5559111
 
 $SE.R
 [1] NA
@@ -122,10 +126,10 @@ $iter
 [1] NA
 
 attr(,"class")
-[1] "paleoTSfit"
+[1] "evoTSmvFit"
 ```
 
-The returned parameters include the ancestral trait values for the two traits and the evolutionary rate matrix __R__. The diagonal in the __R__ matrix contains the step size (rate of evolution) parameters. The second trait (ribs) has about twice the rate of evolution as the first parameter (diameter). The off-diagonal elements are zero as this model is not estimating the covariance of the evolutionary changes in the two traits.
+The returned parameters include the ancestral trait values for the two traits and the evolutionary rate matrix __R__. The diagonal in the __R__ matrix contains the step size (rate of evolution) parameters. The second trait (ribs) has more than three times the rate of evolution as the first parameter (diameter). The off-diagonal elements are zero as this model is not estimating the covariance of the evolutionary changes in the two traits.
 
 Next, we fit a model that allows the off-diagonal elements in the R matrix to be different from zero. We do this by setting `R = "symmetric"`. We are still keeping the rate of change fixed through time.
 
@@ -138,24 +142,24 @@ $converge
 [1] "Model converged successfully"
 
 $modelName
-[1] "Multivariate Random walk (R matrix with non-zero off-diagonal elements)"
+[1] "Multivariate model: Random walk (R matrix with non-zero off-diagonal elements)"
 
 $logL
-[1] 182.3777
+[1] 183.0966
 
 $AICc
-[1] -353.7027
+[1] -355.1405
 
 $ancestral.values
-[1] 3.717695 4.025925
+[1] 3.733908 4.037094
 
 $SE.anc
 [1] NA
 
 $R
           [,1]      [,2]
-[1,] 0.2680092 0.3780642
-[2,] 0.3780642 0.5524616
+[1,] 0.2897505 0.4042712
+[2,] 0.4042712 0.5780543
 
 $SE.R
 [1] NA
@@ -173,36 +177,30 @@ $iter
 [1] NA
 
 attr(,"class")
-[1] "paleoTSfit"
+[1] "evoTSmvFit"
 ```
 
-A multivariate random walk with correlated changes has a much better fit compared to the model assuming uncorrelated changes in the traits according to AICc [Akaike 1974](https://ieeexplore.ieee.org/abstract/document/1100705?casa_token=5JLebXVlAh0AAAAA:q3a5uf8or9NqCn-QAnfQhL8X0rT8njgoup4yHDdoP0UXWncVQvPz3eEXDzlyFkNoqx_58BIPXg). This indicates that the traits are not evolving independently of each other. The estimated __R__ matrix indicates that the first trait has about half the rate of evolution as the second trait and that there is substantial covariance in the evolutionary changes of the two traits. How the two traits correlate in their changes can be computed by standardizing the covariance with the product of the standard deviations on the diagonal (this can also be done using the function `cov2cor` in the `stats` package):
+A multivariate random walk with correlated changes has a much better fit compared to the model assuming uncorrelated changes in the traits according to AICc [Akaike 1974](https://ieeexplore.ieee.org/abstract/document/1100705?casa_token=5JLebXVlAh0AAAAA:q3a5uf8or9NqCn-QAnfQhL8X0rT8njgoup4yHDdoP0UXWncVQvPz3eEXDzlyFkNoqx_58BIPXg). This indicates that the traits are not evolving independently of each other. The estimated __R__ matrix indicates that the first trait has about half the rate of evolution as the second trait and that there is substantial covariance in the evolutionary changes of the two traits. How the two traits correlate in their changes can be computed by standardising the covariance with the product of the standard deviations on the diagonal (this can also be done using the function `cov2cor` in the `stats` package):
 
 ```r
-0.3780642/(sqrt(0.2680092)*sqrt(0.5524616))
+0.4042712/(sqrt(0.2897505)*sqrt(0.5780543))
 ```
 ```r
 >
-[1] 0.9825161
+[1] 0.9878168
 ```
 
 or alternatively:
 
 ```r
 model1 <- fit.multivariate.URW(diam_ln_ribs_ln, R = "symmetric", r = "fixed")
-```
-```r
->
-[1] "Model converged successfully."
-```
-```r
 stats::cov2cor(model1$R)
 ```
 ```r
 >
-         [,1]     [,2]
-[1,] 1.000000 0.982516
-[2,] 0.982516 1.000000
+          [,1]      [,2]
+[1,] 1.0000000 0.9878167
+[2,] 0.9878167 1.0000000
 ```
 
 A correlation of 0.98 basically means the two traits evolve as a single trait, since at least part of the deviation from a correlation of 1 is due to measurement error.
