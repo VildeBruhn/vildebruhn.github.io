@@ -221,48 +221,51 @@ fit.multivariate.URW.shift(diam_ln_ribs_ln, hess = TRUE)
 ```r
 >
 Total # hypotheses:  44 
-1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  
-$converge
+1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  $converge
 [1] "Model converged successfully"
 
 $modelName
-[1] "Multivariate Random walk with two R matrices (with non-zero off-diagonal elements)"
+[1] "Multivariate model: Random walk with two R matrices (with non-zero off-diagonal elements)"
 
 $logL
-[1] 190.7035
+[1] 191.4232
 
 $AICc
-[1] -360.0108
+[1] -361.4503
 
 $ancestral.values
-[1] 3.730242 4.061121
+                  
+3.743612 4.047729 
 
 $SE.anc
-[1] 0.02942139 0.04554309
+[1] 0.01874859 0.02505847
 
 $R
 $R$R.1
           [,1]      [,2]
-[1,] 0.3712051 0.6509228
-[2,] 0.6509228 1.1705596
+[1,] 0.4316810 0.7019228
+[2,] 0.7019228 1.1413418
 
 $R$R.2
           [,1]      [,2]
-[1,] 0.2216526 0.2628519
-[2,] 0.2628519 0.3164376
+[1,] 0.2174425 0.2711459
+[2,] 0.2711459 0.3453505
 
 
 $SE.R
 $SE.R$SE.R.1
            [,1]       [,2]
-[1,] 0.01712463 0.02980279
-[2,] 0.02980279 0.06689237
+[1,] 0.01760289 0.02742754
+[2,] 0.02742754 0.04450097
 
 $SE.R$SE.R.2
             [,1]        [,2]
-[1,] 0.003596406 0.004424130
-[2,] 0.004424130 0.006407946
+[1,] 0.003626942 0.004427382
+[2,] 0.004427382 0.006380644
 
+
+$shift.point
+[1] 18
 
 $method
 [1] "Joint"
@@ -276,26 +279,11 @@ $n
 $iter
 [1] NA
 
-$parameters
-shift1 
-    18 
-
-$all.logl
- [1] 186.7757 185.1417 186.0625 189.5071 189.7518 187.6900 187.1944 190.7035 187.8904 187.7113 187.0241 186.5424 185.8391 185.3580 187.9486 185.8228 186.7893 186.8395
-[19] 187.8938 186.4932 185.8709 186.7557 186.0485 184.9683 184.9777 184.3315 183.9433 183.9788 182.8478 182.2962 181.5945 181.9293 181.2754 180.8469 181.1119 180.5572
-[37] 180.0302 179.8013 179.7917 180.0224 179.8181 179.8010 179.5718 179.7813
-
-$GG
-     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22] [,23] [,24] [,25] [,26] [,27] [,28]
-[1,]   11   12   13   14   15   16   17   18   19    20    21    22    23    24    25    26    27    28    29    30    31    32    33    34    35    36    37    38
-     [,29] [,30] [,31] [,32] [,33] [,34] [,35] [,36] [,37] [,38] [,39] [,40] [,41] [,42] [,43] [,44]
-[1,]    39    40    41    42    43    44    45    46    47    48    49    50    51    52    53    54
-
 attr(,"class")
-[1] "paleoTSfit"
+[1] "evoTSmvFit"
 ```
 
-Two __R__ matrices are returned (_R.1_ and _R.2_), along with their standard errors (since we used `hess = TRUE`). The estimated shift point is 18 (_shift1_). The rate of evolution is much larger in the second trait compared to the first trait (the diagonal elements in _R.1_) while the difference in the rate of evolution is much smaller after the shift point (the diagonal elements in _R.2_). The evolutionary correlation is 0.98 and 0.99 before and after the shift point. The number of parameters ($K$) for this model is 9 compared to 5 for the model where we estimated a single __R__ matrix for the multivariate data set. The model with two __R__ matrices has a lower (better) AICc score compared to the model with a single __R__ matrix. This difference in AICc scores is likely to be a result of the differences in rates of evolution in _R.1_ and _R.2_, since the evolutionary correlation is estimated to be very similar in both _R.1_ and _R.2_.
+Two __R__ matrices are returned (_R.1_ and _R.2_), along with their standard errors (since we used `hess = TRUE`). The estimated shift point is 18 (_shift1_). The rate of evolution is much larger in the first trait compared to the second trait (the diagonal elements in _R.1_) while the difference in the rate of evolution is much smaller after the shift point (the diagonal elements in _R.2_). The evolutionary correlation is 1 and 0.99 before and after the shift point. The number of parameters ($K$) for this model is 9 compared to 5 for the model where we estimated a single __R__ matrix for the multivariate dataset. The model with two __R__ matrices has a lower (better) AICc score compared to the model with a single __R__ matrix. This difference in AICc scores is likely to be a result of the differences in rates of evolution in _R.1_ and _R.2_, since the evolutionary correlation is estimated to be very similar in both _R.1_ and _R.2_.
 
 We now check if the multivariate accelerated and decelerated models have a better fit than the multivariate unbiased random walk models:
 
@@ -307,11 +295,11 @@ multi_accel$AICc;multi_decel$AICc
 ```
 ```r
 > 
-[1] -351.2512
-[1] -356.3287
+[1] -352.6852
+[1] -357.6313
 ```
 
-The multivariate decelerated evolution model has a similar (but worse) fit to the data compared to the multivariate unbiased random walk model with a single __R__ matrix, but is out-competed by the model estimating two __R__ matrices.
+The multivariate decelerated evolution model has a better fit to the data compared to the multivariate unbiased random walk model with a single __R__ matrix, but is out-competed by the model estimating two __R__ matrices.
 
 ---
 
