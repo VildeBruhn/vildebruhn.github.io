@@ -66,7 +66,7 @@ Each of these four ways of parameterizing the __A__ matrix can be combined with 
 
 An __A__ matrix with off-diagonal elements investigates [Granger causality](https://en.wikipedia.org/wiki/Granger_causality) between the two traits/variables ([Granger 1969](https://www.jstor.org/stable/1912791); [Schweder 1970](https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/composable-markov-processes/785465016063EBC975689240EDBFE0BA)). Simply speaking, we have evidence for Granger causality if observations in one time series is useful for forecasting observations in one or several other time series, which would be the case if one trait affects the optimum that another trait tracks with a lag. Multivariate OU models therefore enable us to move beyond interpreting correlations among variables. While correlation is a measure of linear dependence between two random variables, the time dimension (i.e., the lag/evolutionary inertia in the tracking of the changing optimum) of the potential relationship between two variables is important in Granger causality. And while a correlation is symmetric (the correlation between X and Y is the same as the correlation between Y and X), this is not necessarily the case for Granger causality. X can Granger-cause Y, without Y Granger-causing X.
 
-It is also possible to implement a model where the last trait in the data set evolves as an unbiased random walk which affects the optima for all other traits in the data set. This model can be fitted by defining `A.matrix = "OUBM"`, which sets the last diagonal element in the __A__ matrix to zero. A zero diagonal element in the __A__ matrix means there is no tendency for this trait to evolve towards an optimal value (which is the case for an unbiased random walk). Setting `A.matrix = "OUBM"` will automatically define the __R__ matrix to only have diagonal elements (i.e., this option for the __A__ matrix will override how the __R__ matrix is defined by the user). The reason for this is that the stochastic changes in the variable evolving as an unbiased random walk will affect the optimum of the other traits, which means the stochastic trait dynamics of the traits evolving according to an OU model should be independent of the changes in the optimum.
+It is also possible to implement a model where the last trait in the dataset evolves as an unbiased random walk which affects the optima for all other traits in the data set. This model can be fitted by defining `A.matrix = "OUBM"`, which sets the last diagonal element in the __A__ matrix to zero. A zero diagonal element in the __A__ matrix means there is no tendency for this trait to evolve towards an optimal value (which is the case for an unbiased random walk). Setting `A.matrix = "OUBM"` will automatically define the __R__ matrix to only have diagonal elements (i.e., this option for the __A__ matrix will override how the __R__ matrix is defined by the user). The reason for this is that the stochastic changes in the variable evolving as an unbiased random walk will affect the optimum of the other traits, which means the stochastic trait dynamics of the traits evolving according to an OU model should be independent of the changes in the optimum.
 
 Multivariate OU models can be fitted using two different functions in evoTS. The function `fit.multivariate.OU` allows the user to use pre-defined arguments for the __A__ and __R__ matrices to parameterise these matrices. The `A.matrix` can either be defined as `“diag”` (panel a) above), `“upper.tri”` (panel b) above), `“lower.tri”` (panel c) above), and `“full”` (panel d) above). The default is `“diag”`. The `R.matrix` can be defined as `“diag”` or `“symmetric”`. The function `fit.multivariate.OU` allows the user to test all (sensible) hypotheses for multivariate data that consists of two traits.
 
@@ -74,7 +74,7 @@ If the data consists of more than two traits, it is recommended to use the funct
 
 We will investigate whether the two traits from the _S. yellowstonensis_ lineage show evidence of independent evolution (only diagonal elements in the __A__ and __R__ matrices) or whether only the adaptation part of the trait dynamics is independent in the two traits (diagonal __A__ matrix and symmetric __R__ matrix). We will test these hypotheses using the `fit.multivariate.OU` function.
 
-Note that the multivariate OU model demands much more computational time compared to univariate models and simple multivariate models (like the multivariate unbiased random walk). The computational time grows exponentially with the dimension of the variance–covariance matrix (e.g., [Felsenstein 1973](https://pmc.ncbi.nlm.nih.gov/articles/PMC1762641/); [Hadﬁeld and Nakagawa 2010](https://academic.oup.com/jeb/article-abstract/23/3/494/7412248); [Freckleton 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2012.00220.x). The time it takes to fit the multivariate OU models therefore both depends on the number of traits and the length of the time series. Setting `trace = TRUE` allows the user to keep an eye on how the optimisation proceeds.
+Note that the multivariate OU model demands much more computational time compared to univariate models and simple multivariate models (like the multivariate unbiased random walk). The computational time grows exponentially with the dimension of the variance–covariance matrix (e.g., [Felsenstein 1973](https://pmc.ncbi.nlm.nih.gov/articles/PMC1762641/); [Hadﬁeld and Nakagawa 2010](https://academic.oup.com/jeb/article-abstract/23/3/494/7412248); [Freckleton 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2012.00220.x)). The time it takes to fit the multivariate OU models therefore both depends on the number of traits and the length of the time series. Setting `trace = TRUE` allows the user to keep an eye on how the optimisation proceeds.
 
 First, run the two different models:
 
@@ -90,8 +90,8 @@ OUOU_model1$AICc;OUOU_model2$AICc
 ```
 ```r
 >
-[1] -267.6676
-[1] -352.0637
+[1] -267.643
+[1] -352.4752
 ```
 The model with independent adaptation and correlated stochastic changes (`OUOU_model2`) is much better than the independent evolution model. 
 
@@ -105,39 +105,42 @@ OUOU_model2
 $converge
 [1] "Model converged successfully"
 
+$modelName
+[1] "Multivariate model: OU; diagonal A matrix, symmetric R matrix"
+
 $logL
-[1] 186.7299
+[1] 186.9357
 
 $AICc
-[1] -352.0637
+[1] -352.4752
 
 $ancestral.values
-[1] 3.718630 4.006437
+[1] 3.723248 4.016401
 
 $SE.anc
 [1] NA
 
 $optima
-[1] 3.876449 4.282549
+[1] 3.880789 4.288800
 
 $SE.optima
 [1] NA
 
 $A
          [,1]     [,2]
-[1,] 12.70187  0.00000
-[2,]  0.00000 14.60702
+[1,] 12.41122  0.00000
+[2,]  0.00000 15.50576
 
 $SE.A
 [1] NA
 
 $half.life
-[1] 0.05457047 0.04745301
+[1] 0.05584843 0.04470256
 
 $R
            [,1]       [,2]
-[1,] 0.02233866 0.07823089
-[2,] 0.07823089 0.85571347
+[1,] 0.01811665 0.07214572
+[2,] 0.07214572 0.92289228
 
 $SE.R
 [1] NA
@@ -155,7 +158,7 @@ $iter
 [1] NA
 
 attr(,"class")
-[1] "paleoTSfit"
+[1] "evoTSmvFit"
 ```
 
 And the correlation:
@@ -166,11 +169,11 @@ stats::cov2cor(OUOU_model2$R)
 ```r
 >
           [,1]      [,2]
-[1,] 1.0000000 0.5576264
-[2,] 0.5576264 1.0000000
+[1,] 1.0000000 0.5579511
+[2,] 0.5579511 1.0000000
 ```
 
-The half-life for the log diameter and log number of ribs are 6.1% and 4.9% of the length of the time series, which translates into $13728 \times 0.061 = 837$ and $13728 \times 0.049 = 673$ years, respectively. The correlation of the stochastic changes is substantial, but much reduced compared to the estimate of the correlation from the multivariate unbiased random walk. This is because a substantial part of the trait dynamics in a multivariate OU model is due to the deterministic approach of the traits toward the optima. The model has an almost identical relative fit compared to the multivariate unbiased random walk according to AICc, but is out-competed by the unbiased random walk with a mode shift.
+The half-life for the log diameter and log number of ribs are 5.6% and 4.5% of the length of the time series, which translates into $13728 \times 0.056 = 769$ and $13728 \times 0.045 = 618$ years, respectively. The correlation of the stochastic changes is substantial, but much reduced compared to the estimate of the correlation from the multivariate unbiased random walk. This is because a substantial part of the trait dynamics in a multivariate OU model is due to the deterministic approach of the traits toward the optima. The model has a worse relative fit compared to both the multivariate unbiased random walk and the unbiased random walk with a mode shift, according to AICc.
 
 We now test if a more complex parameterization of the __A__ matrix gives us a better relative model fit according to AICc:
 
