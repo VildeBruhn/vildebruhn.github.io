@@ -221,10 +221,10 @@ OUOU_model6$AICc
 ```
 ```r
 >
-[1] -350.146
+[1] -350.5398
 ```
 
-The `fit.multivariate.OU.user.defined` function is especially handy if we have a data set consisting of more than two traits. Let’s for example assume that we have a multivariate data set consisting of two phenotypic traits and a climatic variable, which we refer to as variables M, N and O, respectively. Assume we have an hypothesis that the climatic variable (O) is changing as a random walk and is affecting the optimum of trait N. We also hypothesise that trait N affects the optimum of trait M, but that trait M is not affecting the optimum of trait N. We assume the stochastic changes in traits M and N are correlated, while changes in O are uncorrelated with M and N. This hypothesis is parameterised by defining the __A__ and __R__ matrices the following way:
+The `fit.multivariate.OU.user.defined` function is especially handy if we have a dataset consisting of more than two traits. Let’s for example assume that we have a multivariate dataset consisting of two phenotypic traits and a climatic variable, which we refer to as variables M, N and O, respectively. Assume we have an hypothesis that the climatic variable (O) is changing as an unbiased random walk and is affecting the optimum of trait N. We also hypothesise that trait N affects the optimum of trait M, but that trait M is not affecting the optimum of trait N. We assume the stochastic changes in traits M and N are correlated, while changes in O are uncorrelated with M and N. This hypothesis is parameterised by defining the __A__ and __R__ matrices the following way:
 
 ```r
 A <- matrix(c(1,1,0,0,1,1,0,0,0), nrow = 3, byrow = TRUE)
@@ -254,7 +254,7 @@ Note that it is possible to define nonsensical biological hypotheses given the f
 
 ### Initial parameter values
 
-All model fitting procedures to find maximum likelihood solutions need initial starting values for the model parameters. Most of the starting values when fitting multivariate OU models are based on maximum likelihood parameter estimates of the univariate versions of the OU model fitted to each trait separately. The starting values for the off-diagonal elements in the __A__ and __R__ matrices are set to 0 and 0.5, respectively. This way to set the initial parameter values seems to work fine for most data sets, but there is no guarantee that the provided initial parameters will always work as this depends on the nature of the data being analysed. If an error message is returned saying “function cannot be evaluated at initial parameters”, it is recommended that the user sets the iteration option to 1 (`iteration = 1`). The model fitting algorithm will then produce a set of random initial starting values and retry to start the optimisation procedure 100,000 times.
+All model fitting procedures to find maximum likelihood solutions need initial starting values for the model parameters. Most of the starting values when fitting multivariate OU models are based on maximum log-likelihood parameter estimates of the univariate versions of the OU model fitted to each trait separately. The starting values for the off-diagonal elements in the __A__ and __R__ matrices are set to $0$ and $0.5$, respectively. This way to set the initial parameter values seems to work fine for most datasets, but there is no guarantee that the provided initial parameters will always work as this depends on the nature of the data being analysed. If an error message is returned saying “function cannot be evaluated at initial parameters”, it is recommended that the user sets the iteration option to 1 (`iteration = 1`). The model fitting algorithm will then produce a set of random initial starting values and retry to start the optimisation procedure $100 000$ times.
 
 Another option is to define which initial parameter values the optimisation procedure should start from. These values can be provided by setting the `user.init...` (e.g., `user.init.off.diag.R = 1`) to something else than `NULL` (which is the default setting). Note that the length of the vector of user-specified initial values need to match the number of parameters to be estimated (e.g., `user.init.off.diag.R = 1` for a multivariate data set consisting of two traits, `user.init.off.diag.R = c(1,1,1)` if the data set contains three traits, etc.).
 
