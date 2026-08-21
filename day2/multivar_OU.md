@@ -190,9 +190,9 @@ OUOU_model3$AICc;OUOU_model4$AICc;OUOU_model5$AICc
 ```
 ```r
 >
-[1] -350.0442
-[1] -380.0126
-[1] -305.4217
+[1] -349.7605
+[1] -348.4175
+[1] -304.1232
 ```
 
 The best model is a model where each trait affects the optimum of the other trait (`OUOU_model4`).
